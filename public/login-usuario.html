@@ -44,18 +44,18 @@
 					<form role="form">
 						<fieldset>
 							<div class="form-group ls-login-user">
-								<label for="userLogin">Usuário:</label>
-								<input class="form-control ls-login-bg-user input-lg" id="userLogin" type="e-mail" aria-label="Usuário" placeholder="Usuário">
+								<label for="inputEmail">Usuário:</label>
+								<input class="form-control ls-login-bg-user input-lg" id="inputEmail" type="e-mail" aria-label="Usuário" placeholder="Usuário">
 							</div>
 					
 							<div class="form-group ls-login-password">
-								<label for="userPassword">Senha:</label>
-								<input class="form-control ls-login-bg-password input-lg" id="userPassword" type="password" aria-label="Senha" placeholder="Senha">
+								<label for="inputSenha">Senha:</label>
+								<input class="form-control ls-login-bg-password input-lg" id="inputSenha" type="password" aria-label="Senha" placeholder="Senha">
 							</div>
 					
 							<a href="#" class="ls-login-forgot">Esqueci minha senha</a>
 					
-							<input type="submit" value="Entrar" class="btn btn-primary btn-lg btn-block">
+							<button onclick="login()" type="button" id="loginButton" class="btn btn-primary btn-lg btn-block">Entrar</button>
 							<p class="txt-center ls-login-signup">Não possui um usuário na Community-Report?
 								<a href="cadastro_usuario.html">Cadastre-se agora</a>
 							</p>
@@ -68,7 +68,7 @@
 		<!--Final-->
 
 		<!-- Esse trecho de codigo deve ficar sempre abaixo dos conteudos do body -->
-		<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script> <!--5.9.2-->
 		<script src="js/app-firebase.js"></script>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
 		<script src="js/meu-script.js"></script>
