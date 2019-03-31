@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
+		<title>CommunityReport - Gestor</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Web App para registro de problemas no município">
@@ -34,8 +34,38 @@
 	</head>
 	
 	<body>
-
-
+		<!--Trecho do código referente aos campos de preenchimento para o login-->
+		<!--Feito por Rogerio-->
+		<div class="container box-parent-login">
+			<div class="row well bg-white box-login">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+					<h1 class="ls-login-logo">Community Report</h1>
+					<form role="form">
+						<fieldset>
+							<div class="form-group ls-login-user">
+								<label for="userLogin">Gestor:</label>
+								<input class="form-control ls-login-bg-user input-lg" id="userLogin" type="e-mail" aria-label="Usuário" placeholder="Usuário">
+							</div>
+					
+							<div class="form-group ls-login-password">
+								<label for="userPassword">Senha:</label>
+								<input class="form-control ls-login-bg-password input-lg" id="userPassword" type="password" aria-label="Senha" placeholder="Senha">
+							</div>
+					
+							<a href="#" class="ls-login-forgot">Esqueci minha senha</a>
+					
+							<input type="submit" value="Entrar" class="btn btn-primary btn-lg btn-block">
+							<p class="txt-center ls-login-signup">Problemas com seu Acesso? Contate o Administrador!
+								<a href="#">Enviar Mensagem</a>
+							</p>
+						</fieldset>
+					</form>
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+		</div>
+		<!--Final-->
 
 		<!-- Esse trecho de codigo deve ficar sempre abaixo dos conteudos do body -->
 		<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
