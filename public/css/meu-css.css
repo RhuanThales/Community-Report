@@ -5,6 +5,9 @@ body { /*Mudando o background da pagina*/
 .navbar { /*Mudando a cor da navbar*/
 	background: #145845 !important;
 }
+.navSection {
+	background: #145845 !important;
+}
 .navbar-brand { /*Mudando a cor do texto na navbar*/
 	color: white !important;
 }
@@ -23,13 +26,17 @@ body { /*Mudando o background da pagina*/
 	justify-content: center;
 	align-items: center;
 }
-.boxDiv { /*Deixando os tamanhos dos quadros automaticos e arrumando as bordas em formato redondo*/
-	width: auto;
+.logoImagem {
+	width: 100%;
 	height: auto;
+}
+.boxDiv { /*Deixando os tamanhos dos quadros automaticos e arrumando as bordas em formato redondo*/
+
 	border: 2px solid white;
 	border-radius: 20px;
 }
 .divCad {
+	margin-top: 20px;
 	width: 100vw;
 	height: 100vh;
 	/*display: flex;*/
@@ -40,7 +47,19 @@ body { /*Mudando o background da pagina*/
 .boxCad {
 	border: 2px solid white;
 	border-radius: 20px;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
 }
+.cadCheck { /*Altera o tamanho da checkbox*/
+	-ms-transform: scale(2);
+	-moz-transform: scale(2);
+	-webkit-transform: scale(2);
+	-o-transform: scale(2);
+	padding: 10px;
+	margin-left: 5px;
+	margin-right: 10px;
+}
+
 
 /*Trecho do css referente as configurações do footer das páginas*/
 .context-dark, .bg-gray-dark, .bg-primary {
