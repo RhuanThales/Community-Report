@@ -3,7 +3,7 @@
 	<head>
 		<title>CommunityReport - Cadastro de Novo Usuário</title>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no">
 		<meta name="description" content="Web App para registro de problemas no município">
 		<meta name="author" content="TrashMakers">
 		<!-- O cdn do Awesome fonts, usados para pegarmos icones e simbolos diferenciados -->
@@ -36,85 +36,95 @@
 	<body>
 		<!--Trecho do código referente a navbar-->
 		<!--Feito por Rhuan-->
-		<nav class="navbar navbar-light bg-light">
-		  <a class="navbar-brand" href="#">
-		    <img src="./imagens/logo/logo01.jpg" width="30" height="30" class="d-inline-block align-top" alt="Logo">
-		    CommunityReport
-		  </a>
-		</nav>
+		<section class="navSection">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<nav class="navbar navbar-light bg-light">
+						  <a class="navbar-brand" href="#">
+						    <img src="./imagens/logo/logo-01.jpg" width="30" height="30" class="d-inline-block align-top" alt="Logo">
+						    CommunityReport
+						  </a>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</section>
 		<!--Final-->
 
 		<!--Trecho do código referente as areas de preenchimento de informações do usuário para cadastro-->
 		<!--Feito por Rhuan-->
-		<div class="container box-parent-login divCad">
-			<div class="row well bg-white box-login boxCad">
-				<div class="col-md-12">
-					<h1 class="ls-login-logo">Community Report</h1>
-					<p class="cadTexto">Preencha os dados abaixo corretamente para a realização do seu cadastro.</p>
-					<p class="cadTexto">Os campos com <strong>" * "</strong> são de preenchimento obrigatórios.</p>
-					<form role="form">
-						<fieldset>
-							<div class="form-group ls-login-user">
-								<label for="inputPrefeitura">Prefeitura: *</label>
-								<select class="form-control ls-login-bg-user input-lg" id="inputPrefeitura">
-									<option value="Default">Selecione a Prefeitura</option>
-									<option value="Patos de Minas">Patos de Minas</option>
-									<option value="Belo Horizonte">Belo Horizonte</option>
-									<option value="Uberlândia">Uberlândia</option>
-									<option value="Presidente Olegário">Presidente Olegário</option>
-								</select>
-							</div>
+		<section class="cadSection">
+			<div class="container box-parent-login divCad">
+				<div class="row well bg-white box-login boxCad">
+					<div class="col-md-12">
+						<h1 class="ls-login-logo">Community Report</h1>
+						<p class="cadTexto">Preencha os dados abaixo corretamente para a realização do seu cadastro.</p>
+						<p class="cadTexto">Os campos com <strong>" * "</strong> são de preenchimento obrigatórios.</p>
+						<form role="form" id="cadForm">
+							<fieldset>
+								<div class="form-group ls-login-user">
+									<label for="inputPrefeitura"><strong>Prefeitura: *</strong></label>
+									<select class="form-control ls-login-bg-user input-lg" id="inputPrefeitura">
+										<option value="Default">Selecione a Prefeitura</option>
+										<option value="Patos de Minas">Patos de Minas</option>
+										<option value="Belo Horizonte">Belo Horizonte</option>
+										<option value="Uberlândia">Uberlândia</option>
+										<option value="Presidente Olegário">Presidente Olegário</option>
+									</select>
+								</div>
 
-							<div class="form-group ls-login-user">
-								<label for="inputNome">Nome Completo: *</label>
-								<input class="form-control ls-login-bg-user input-lg" id="inputNome" type="text" aria-label="Nome" placeholder="Ex: Caio Atirador Rodrigues">
-							</div>
+								<div class="form-group ls-login-user">
+									<label for="inputNome"><strong>Nome Completo: *</strong></label>
+									<input class="form-control ls-login-bg-user input-lg" id="inputNome" type="text" aria-label="Nome" placeholder="Ex: Caio Atirador Rodrigues">
+								</div>
 
-							<div class="form-group ls-login-user">
-								<label for="inputEmail">E-mail: *</label>
-								<input class="form-control ls-login-bg-user input-lg" id="inputEmail" type="e-mail" aria-label="Email" placeholder="Ex: meu-email@email.com">
-							</div>
-							
-							<div class="form-group ls-login-password">
-								<label for="inputSenha">Senha: *</label>
-								<input class="form-control ls-login-bg-password input-lg" id="inputSenha" type="password" aria-label="Senha" placeholder="********">
-							</div>
+								<div class="form-group ls-login-user">
+									<label for="inputEmail"><strong>E-mail: *</strong></label>
+									<input class="form-control ls-login-bg-user input-lg" id="inputEmail" type="e-mail" aria-label="Email" placeholder="Ex: meu-email@email.com">
+								</div>
+								
+								<div class="form-group ls-login-password">
+									<label for="inputSenha"><strong>Senha: *</strong></label>
+									<input class="form-control ls-login-bg-password input-lg" id="inputSenha" type="password" aria-label="Senha" placeholder="********">
+								</div>
 
-							<div class="form-group ls-login-user">
-								<label for="inputRua">Rua:</label>
-								<input class="form-control ls-login-bg-user input-lg" id="inputRua" type="text" aria-label="Rua" placeholder="Ex: Rua Xesquevile">
-							</div>
+								<div class="form-group ls-login-user">
+									<label for="inputRua"><strong>Rua:</strong></label>
+									<input class="form-control ls-login-bg-user input-lg" id="inputRua" type="text" aria-label="Rua" placeholder="Ex: Rua Xesquevile">
+								</div>
 
-							<div class="form-group ls-login-user">
-								<label for="inputBairro">Bairro:</label>
-								<input class="form-control ls-login-bg-user input-lg" id="inputBairro" type="text" aria-label="Bairro" placeholder="Ex: Cerrado">
-							</div>
+								<div class="form-group ls-login-user">
+									<label for="inputBairro"><strong>Bairro:</strong></label>
+									<input class="form-control ls-login-bg-user input-lg" id="inputBairro" type="text" aria-label="Bairro" placeholder="Ex: Cerrado">
+								</div>
 
-							<div class="form-group ls-login-user">
-								<label for="inputNum">Número:</label>
-								<input class="form-control ls-login-bg-user input-lg" id="inputNum" type="text" aria-label="Numero" placeholder="Ex: 24">
-							</div>
+								<div class="form-group ls-login-user">
+									<label for="inputNum"><strong>Número:</strong></label>
+									<input class="form-control ls-login-bg-user input-lg" id="inputNum" type="text" aria-label="Numero" placeholder="Ex: 24">
+								</div>
 
-							<div class="form-group ls-login-user">
-								<label for="inputCep">CEP:</label>
-								<input class="form-control ls-login-bg-user input-lg" id="inputCep" type="text" aria-label="Cep" placeholder="Ex: 38701-315">
-							</div>
+								<div class="form-group ls-login-user">
+									<label for="inputCep"><strong>CEP:</strong></label>
+									<input class="form-control ls-login-bg-user input-lg" id="inputCep" type="text" aria-label="Cep" placeholder="Ex: 38701-315">
+								</div>
 
-							<div class="form-group ls-login-user">
-								<label for="inputTel">Telefone:</label>
-								<input class="form-control ls-login-bg-user input-lg" id="inputTel" type="text" aria-label="Telefone" placeholder="Ex: 99152-3191">
-							</div>
+								<div class="form-group ls-login-user">
+									<label for="inputTel"><strong>Telefone:</strong></label>
+									<input class="form-control ls-login-bg-user input-lg" id="inputTel" type="text" aria-label="Telefone" placeholder="Ex: 99152-3191">
+								</div>
 
-							<div class="form-group ls-login-user">
-								<input type="checkbox" class="cadCheck" id="inputTermos" name="Termos" value="Sim"> Eu li e Aceito os <strong><a href="#"> Termos de Condições de Uso</a></strong> deste Aplicativo *.
-							</div>
-					
-							<button onclick="sigin()" type="button" id="sigInButton" class="btn btn-primary btn-lg btn-block">Realizar Cadastro</button>
-						</fieldset>
-					</form>	
+								<div class="form-group ls-login-user">
+									<input type="checkbox" class="cadCheck" id="inputTermos" required name="termos" value="Sim">Eu li e Aceito os <strong><a href="#"> Termos de Condições de Uso</a></strong> deste Aplicativo *.
+								</div>
+						
+								<button onclick="sigin()" type="button" id="sigInButton" class="btn btn-primary btn-lg btn-block">Realizar Cadastro</button>
+							</fieldset>
+						</form>	
+					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 		<!--Final-->
 
 		<!-- Esse trecho de codigo deve ficar sempre abaixo dos conteudos do body -->
