@@ -17,7 +17,7 @@
 		<link rel="manifest" href="manifest.json">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<meta name="apple-mobile-web-app-title" content="SChácaras">
+		<meta name="apple-mobile-web-app-title" content="CReport">
 		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-57x57.png" sizes="57x57">
 		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-60x60.png" sizes="60x60">
 		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-72x72.png" sizes="72x72">
@@ -30,12 +30,105 @@
 		<meta name="msapplication-TileImage" content="/imagens/icones/app-icon-144x144.png">
 		<!-- Essas linhas do cógido modificam a aprencia do web app, como cor do titulo e cor do tema-->
 		<meta name="msapplication-TileColor" content="#fff">
-		<meta name="theme-color" content="#4b0082">
+		<meta name="theme-color" content="#145845">
 	</head>
 	
 	<body>
+		<!--Trecho do código referente a navbar-->
+		<!--Feito por Rhuan-->
+		<section class="navSection">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<nav class="navbar navbar-light bg-light">
+						  <a class="navbar-brand" href="index.html">
+						    <img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
+						    CommunityReport
+						  </a>
+						  <a href="login-usuario.html" class="logoutIcon"><i class="fas fa-sign-out-alt"></i><span> Sair</span></a>
+						</nav>
+					</div>
+				</div>
+			</div>			
+		</section>
+		<!--Final-->
 
+		<!--Trecho do cógio referente ao conteudo da pagina principal-->
+		<!--Feito por Rhuan-->
+		<section class="indexSection">
+			<div class="container box-parent-login divIndex">
+				<div class="row well bg-white box-login boxIndex">
+					<div class="col-md-12 indexDiv">
+						<div class="indexLogoDiv">
+							<img src="./imagens/logo/logo-04.jpg" class="indexLogo" alt="cReportLogo">
+						</div>
+						<div id="infoPrefeitura">
+							<h3>Prefeitura de XesqueVile</h3>
+							<p>Endereço:</p>
+							<p>Telefones:</p>
+							<p>Site:</p>
+						</div>
+						<div class="menu-navigation-dark">
+							<a href="minhas-ocorrencias.html"><i class="fas fa-list-alt"></i><span>Minhas Ocorrências</span></a>
+							<a href="registrar-ocorrencias.html"><i class="fas fa-bullhorn"></i><span>Registrar Ocorrências</span></a>
+							<a href="setores-publicos.html"><i class="fas fa-city"></i><span>Setores Públicos</span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--Final-->
 
+		<!--Trecho do código referente ao roda-pé da página-->
+		<!--Feito por Rhuan-->
+		<section class="footerSection">
+			<footer class="section footer-classic context-dark bg-image" style="background: #145845;">
+				<div class="container-fluid">
+				  <div class="row">
+				    <div class="col-md-4 col-xl-5">
+				      <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
+				        <p>Somos uma agência criativa premiada, dedicada ao melhor resultado em web design, promoção, consultoria de negócios e marketing.</p>
+				        <!-- Rights-->
+				        <p class="rights"><span>©  </span><span class="copyright-year">2019</span><span> </span><span>Waves</span><span>. </span><span>Todos os Direitos Reservados.</span></p>
+				      </div>
+				    </div>
+				    <div class="col-md-4">
+				      <h5>Contatos</h5>
+				      <dl class="contact-list">
+				        <dt>Endereço:</dt>
+				        <dd>Rua XesqueVile, Bairro Atirador Rodrigues, 2469, Patos de Minas</dd>
+				      </dl>
+				      <dl class="contact-list">
+				        <dt>Email:</dt>
+				        <dd><a href="mailto:#">CommunityReportSI@gmail.com</a></dd>
+				      </dl>
+				      <dl class="contact-list">
+				        <dt>Telefones:</dt>
+				        <dd><a href="tel:#">+55 (34) 96854-3012</a> <span>ou</span> <a href="tel:#">+55 (34) 95711-9535</a>
+				        </dd>
+				      </dl>
+				    </div>
+				    <div class="col-md-4 col-xl-3">
+				      <h5>Links</h5>
+				      <ul class="nav-list">
+				        <li><a href="#">Sobre Nós</a></li>
+				        <li><a href="#">Projetos</a></li>
+				        <li><a href="#">Blog</a></li>
+				        <li><a href="#">Contatos</a></li>
+				        <li><a href="#">Serviços</a></li>
+				      </ul>
+				    </div>
+				  </div>
+				</div>
+				<div class="row no-gutters social-container">
+				  <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
+				  <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
+				  <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
+				  <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
+				</div>
+			</footer>
+		</section>
+		<!--Final-->
 
 		<!-- Esse trecho de codigo deve ficar sempre abaixo dos conteudos do body -->
 		<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>

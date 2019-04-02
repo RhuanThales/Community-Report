@@ -1,4 +1,5 @@
 //Autenticação do Firebase
+//Feito por Caio e Rhuan
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // Há um usuário logado
@@ -8,6 +9,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 //Função que permite fazer o login de usuário com e-mail e senha já cadastrados
+//Feito por Caio e Rhuan
 function login(){
 	var userEmail = document.getElementById('inputEmail').value;
 	var userSenha = document.getElementById('inputSenha').value;
@@ -25,6 +27,7 @@ function login(){
 }
 
 //Função que cria um novo usuário com email e senha
+//Feito por Caio e Rhuan
 function sigin(){
 	var userEmail = document.getElementById('inputEmail').value;
 	var userSenha = document.getElementById('inputSenha').value;
@@ -42,6 +45,7 @@ function sigin(){
 }
 
 //Função que permite que o usuário que esteja logado possa sair de sua conta
+//Feito por Caio e Rhuan
 function logout(){
 	firebase.auth().signOut().then(function() {
 		// Aqui o usuário foi deslogado com sucesso e portanto o usuário é redirecionado á página de login
