@@ -20,7 +20,7 @@ function login(){
 	firebase.auth().signInWithEmailAndPassword(userEmail, userSenha).then(function(){
 		//Em caso de sucesso redireciona para a página inicial (index.html)
 		window.alert("Login com Sucesso!!!");
-		window.open("index.html", "_self");
+		window.open("pagina-principal.html", "_self");
 	}).catch(function(error) {
 	  // Em caso de algum erro exibir uma mensagem com o erro que ocorreu.
 	  var errorCode = error.code;
@@ -57,7 +57,7 @@ function sigin(){
 		window.alert("Cadastrado com Sucesso!!!");
 		
 		//Após salvar os dados do usuário redirecionar para a página de login
-		window.open("login-usuario.html", "_self");
+		window.open("index.html", "_self");
 
 	}).catch(function(error) {
 	  // Em caso de algum erro exibir uma mensagem com o erro que ocorreu.
@@ -73,7 +73,7 @@ function logout(){
 	firebase.auth().signOut().then(function() {
 		// Aqui o usuário foi deslogado com sucesso e portanto o usuário é redirecionado á página de login
 		window.alert("Logout com Sucesso!!!");
-		window.open("login-usuario.html", "_self");
+		window.open("index.html", "_self");
 	}).catch(function(error) {
 	  // Em caso de algum erro exibir uma mensagem com o erro que ocorreu.
 	  var errorCode = error.code;

@@ -3,49 +3,49 @@
   "short_name": "C-Report", //apelido para esse projeto, usado em telas menores que não caibam o nome completo
   "icons": [
     {
-      "src": "/imagens/icones/app-icon-48x48.png",
-      "type": "image/png",
+      "src": "/imagens/icones/app-icon-48x48.jpg",
+      "type": "image/jpg",
       "sizes": "48x48"
     },
     {
 
-      "src": "/imagens/icones/app-icon-96x96.png",
-      "type": "image/png",
+      "src": "/imagens/icones/app-icon-96x96.jpg",
+      "type": "image/jpg",
       "sizes": "96x96"
     },
     {
-      "src": "/imagens/icones/app-icon-144x144.png",
-      "type": "image/png",
+      "src": "/imagens/icones/app-icon-144x144.jpg",
+      "type": "image/jpg",
       "sizes": "144x144"
     },
     {
-      "src": "/imagens/icones/app-icon-192x192.png",
-      "type": "image/png",
+      "src": "/imagens/icones/app-icon-192x192.jpg",
+      "type": "image/jpg",
       "sizes": "192x192"
     },
     {
-      "src": "/imagens/icones/app-icon-256x256.png",
-      "type": "image/png",
+      "src": "/imagens/icones/app-icon-256x256.jpg",
+      "type": "image/jpg",
       "sizes": "256x256"
     },
     {
-      "src": "/imagens/icones/app-icon-384x384.png",
-      "type": "image/png",
+      "src": "/imagens/icones/app-icon-384x384.jpg",
+      "type": "image/jpg",
       "sizes": "384x384"
     },
     {
-      "src": "/imagens/icones/app-icon-512x512.png",
-      "type": "image/png",
+      "src": "/imagens/icones/app-icon-512x512.jpg",
+      "type": "image/jpg",
       "sizes": "512x512"
     }
   ],
-  "start_url": "login-usuario.html", //tela onde o manifest se iniciara
+  "start_url": "index.html", //tela onde o manifest se iniciara
   "scope": ".", //escopo do manifest, nesse caso o escopo é a pasta public, ou seja o projeto inteiro
   "display": "standalone", //é o modo de display, nesse caso ele oculta a barra do navegador, ficando parecido com um app nativo
   "orientation": "portrait-primary",
   "background_color": "#fff", //cor do plano de fundo escolhida aqui é branca, se necessário mude a cor
-  "theme_color": "#4b0082", //é necessário mudar a cor do tema
+  "theme_color": "#145845", //é necessário mudar a cor do tema
   "description": "Aplicativo web que visa facilitar ao usuário que deseje fazer uma reclamação ao setor público.",
   "dir": "ltr", //indica a direção lef to right
-  "lang": "pt-BR" //definição da lingua usada pelo web app, no caso é portugues do Brasil 
+  "lang": "pt-BR"//definição da lingua usada pelo web app, no caso é portugues do Brasil 
 }
