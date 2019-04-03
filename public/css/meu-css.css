@@ -1,7 +1,7 @@
 /*Trecho do css referentes as configurações gerais das páginas*/
 /*Feito por Caio*/
 body { /*Mudando o background da pagina*/
-	background: url("../imagens/back-01.png'") repeat;
+	background: url("../imagens/back-02.png");
 }
 .navbar { /*Mudando a cor da navbar*/
 	background: #145845 !important;
@@ -12,11 +12,34 @@ body { /*Mudando o background da pagina*/
 .navbar-brand { /*Mudando a cor do texto na navbar*/
 	color: white !important;
 }
+.desktop {
+    display: inline-block;
+}
+.mobile {
+    display: none;
+}
+@media(max-width: 480px) {
+    .desktop{
+        display: none;
+    }
+    .mobile {
+        display: inline-block;
+    }
+}
 .logoutIcon {
 	color: white;
+	font-weight: bold;
 }
 .logoutIcon:hover {
 	color: black;
+}
+.redirectIcon {
+	color: white;
+	font-weight: bold;
+}
+.redirectIcon:hover {
+	color: black;
+
 }
 .btn-primary { /*Mudando a cor dos botões*/
 	background: #145845;
@@ -212,4 +235,9 @@ ul, ol {
     opacity: 0;
     visibility: hidden;
     transition: .22s ease;
+}
+@media (max-width: 800px) {
+    .footerSection{
+        display:none;
+    }
 }

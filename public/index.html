@@ -41,11 +41,15 @@
 				<div class="row">
 					<div class="col-md-12">
 						<nav class="navbar navbar-light bg-light">
-						  <a class="navbar-brand" href="index.html">
-						    <img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
-						    CommunityReport
-						  </a>
-						  <a href="login-usuario.html" class="logoutIcon"><i class="fas fa-sign-out-alt"></i><span> Sair</span></a>
+							<a class="navbar-brand desktop" href="#">
+							  <img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
+							  CommunityReport
+							</a>
+							<a class="navbar-brand mobile" href="#">
+							  <img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
+							  C-Report
+							</a>
+						  <a href="login-usuario.html" class="logoutIcon"><button onclick="logout()" type="button"><i class="fas fa-sign-out-alt"></i><span> Sair</span></button></a>
 						</nav>
 					</div>
 				</div>
@@ -57,8 +61,9 @@
 		<!--Feito por Rhuan-->
 		<section class="indexSection">
 			<div class="container box-parent-login divIndex">
-				<div class="row well bg-white box-login boxIndex">
-					<div class="col-md-12 indexDiv">
+				<div class="row well box-login">
+					<div class="col-md-3"></div>
+					<div class="col-md-6 indexDiv bg-white boxIndex">
 						<div class="indexLogoDiv">
 							<img src="./imagens/logo/logo-04.jpg" class="indexLogo" alt="cReportLogo">
 						</div>
@@ -70,10 +75,11 @@
 						</div>
 						<div class="menu-navigation-dark">
 							<a href="minhas-ocorrencias.html"><i class="fas fa-list-alt"></i><span>Minhas Ocorrências</span></a>
-							<a href="registrar-ocorrencias.html"><i class="fas fa-bullhorn"></i><span>Registrar Ocorrências</span></a>
+							<a href="ocorrencias.html"><i class="fas fa-bullhorn"></i><span>Registrar Ocorrências</span></a>
 							<a href="setores-publicos.html"><i class="fas fa-city"></i><span>Setores Públicos</span></a>
 						</div>
 					</div>
+					<div class="col-md-3"></div>
 				</div>
 			</div>
 		</section>
