@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title></title>
+	<head> 
+		<title>CommunityReport - Registrar Ocorrências</title>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no">
 		<meta name="description" content="Web App para registro de problemas no município">
 		<meta name="author" content="TrashMakers">
 		<!-- O cdn do Awesome fonts, usados para pegarmos icones e simbolos diferenciados -->
@@ -17,24 +17,131 @@
 		<link rel="manifest" href="manifest.json">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<meta name="apple-mobile-web-app-title" content="SChácaras">
-		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-57x57.png" sizes="57x57">
-		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-60x60.png" sizes="60x60">
-		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-72x72.png" sizes="72x72">
-		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-76x76.png" sizes="76x76">
-		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-114x114.png" sizes="114x114">
-		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-120x120.png" sizes="120x120">
-		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-144x144.png" sizes="144x144">
-		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-152x152.png" sizes="152x152">
-		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-180x180.png" sizes="180x180">
-		<meta name="msapplication-TileImage" content="/imagens/icones/app-icon-144x144.png">
+		<meta name="apple-mobile-web-app-title" content="CReport">
+		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-57x57.jpg" sizes="57x57">
+		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-60x60.jpg" sizes="60x60">
+		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-72x72.jpg" sizes="72x72">
+		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-76x76.jpg" sizes="76x76">
+		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-114x114.jpg" sizes="114x114">
+		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-120x120.jpg" sizes="120x120">
+		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-144x144.jpg" sizes="144x144">
+		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-152x152.jpg" sizes="152x152">
+		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-180x180.jpg" sizes="180x180">
+		<meta name="msapplication-TileImage" content="/imagens/icones/app-icon-144x144.jpg">
 		<!-- Essas linhas do cógido modificam a aprencia do web app, como cor do titulo e cor do tema-->
 		<meta name="msapplication-TileColor" content="#fff">
-		<meta name="theme-color" content="#4b0082">
+		<meta name="theme-color" content="#145845">
 	</head>
 	
 	<body>
+		<!--Trecho do código referente a navbar-->
+		<!--Feito por Rhuan-->
+		<section class="navSection">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<nav class="navbar navbar-light bg-light">
+						  <a class="navbar-brand" href="index.html">
+						    <img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
+						    CommunityReport
+						  </a>
+						</nav>
+					</div>
+				</div>
+			</div>			
+		</section>
+		<!--Final-->
+		<!--Trecho de codigo feito por Rogério-->
+		<section class="loginSection">			
+			<div class="container box-parent-login divLogin">
+				<div class="row well box-login">
+					<div class="col-md-3"></div>
+					<div class="col-md-6 bg-white boxDiv">
+						<div class="loginLogoDiv">
+							<img src="./imagens/logo/logo-04.jpg" class="loginLogo" alt="cReportLogo">
+						</div>
+						<div class="container-fluid divOcorrencias">
+							<p>
+								Selecione abaixo o tipo de ocorrencia que deseja fazer:
+							</p>							
+						</div>
+						<div class="container tipoOcorrencias">
+							<div class= "row well box-tipoOcorrencias">
+								<div class="col-md-4">
+									<button class="box regBox"><a href="#">Animais</a>
+									</button>
+								</div>
+								<div class="col-md-4">
+									<button class="box regBox"><a href="#">Árvore Caida</a>
+									</button>
+								</div>
+								<div class="col-md-4">
+									<button class="box regBox"><a href="#">Buraco na Rua</a>
+									</button>
+								</div>					
+							</div>
+							<div class= "row well box-tipoOcorrencias">
+								<div class="col-md-4">
+									<button class="box regBox"><a href="#">Lâmpada Queimada</a>
+									</button>
+								</div>
+								<div class="col-md-4">
+									<button class="box regBox"><a href="#">Limpeza Urbana</a>
+									</button>
+								</div>
+								<div class="col-md-4">
+									<button class="box regBox"><a href="#">Lote Sujo</a>
+									</button>
+								</div>					
+							</div>
+							<div class= "row well box-tipoOcorrencias">
+								<div class="col-md-4">
+									<button class="box regBox"><a href="#">Foco de Mosquito</a>
+									</button>
+								</div>
+								<div class="col-md-4">
+									<button class="box regBox"><a href="#">Queixa de Barulho</a>
+									</button>
+								</div>
+								<div class="col-md-4">
+									<button class="box regBox"><a href="#">Sinalização</a>
+									</button>
+								</div>					
+							</div>
+							<div class= "row well box-tipoOcorrencias">
+								<div class="col-md-4">
+									<button class="box regBox"><a href="#">Vazamento de Água</a>
+									</button>
+								</div>
+								<div class="col-md-4">
+									<button class="box regBox"><a href="#">Outra</a>
+									</button>
+								</div>
+								<div class="col-md-4">
 
+								</div>					
+							</div>							
+						</div>
+						<div class="linkSetores">
+							<div class= "row well box-tipoOcorrencias">
+								<div class="col-md-4">
+									<button class="box linkBox"><a href="#">Setores Públicos</a>
+									</button>
+								</div>
+								<div class="col-md-4">
+									<button class="box linkBox"><a href="#">Início</a>
+									</button>
+								</div>
+								<div class="col-md-4">
+									<button class="box linkBox"><a href="#">Sair</a>
+									</button>
+								</div>					
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>
+		</section>	
 
 
 		<!-- Esse trecho de codigo deve ficar sempre abaixo dos conteudos do body -->
