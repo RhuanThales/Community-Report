@@ -65,7 +65,7 @@ function sigin(){
 	  var errorMessage = error.message;
 	  window.alert("Error: " + errorMessage);
 	});
-}
+}		
 
 //Função que permite que o usuário que esteja logado possa sair de sua conta
 //Feito por Caio e Rhuan
@@ -87,12 +87,13 @@ var db = firebase.database().ref();
 var RefUsers = db.child('Usuarios');
 var infoPrefeitura = document.getElementById("infoPrefeitura");
 
+
 //Autenticacao via link por email
 var actionCodeSettings = {
-  // URL you want to redirect back to. The domain (www.example.com) for this
-  // URL must be whitelisted in the Firebase Console.
-  url: 'https://www.example.com/finishSignUp?cartId=1234',
-  // Isso tem que ficar como true
+  //URL na qual vai ser redirecionada, no caso o dominio
+  //Essa URl tem que ficar na lista branca no console do firebase
+  url: 'community-report-si.000webhostapp.com',
+  // Isso tem que ficar como true se a redefinicao por direto pelo app
   handleCodeInApp: true,
   iOS: {
     bundleId: 'com.example.ios'
@@ -102,8 +103,24 @@ var actionCodeSettings = {
     installApp: true,
     minimumVersion: '12'
   },
-  dynamicLinkDomain: 'example.page.link'
+  dynamicLinkDomain: 'community-report-si.000webhostapp.com'
 };
+//Pega o email da pessoa par enviar a autenticacao
+
+firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
+  .then(function() {
+    //O link foi enviado com sucesso, informar ao usuario
+    //Salve o email localmente, para que voce nao precise perguntar novamente por ele
+    //No case do usuario abrir o link no mesmo dispositivo
+    window.localStorage.setItem('emailForSignIn', email);
+  })
+  .catch(function(error) {
+    //Se algum erro acontecer, voce pode inspecionar o codigo
+    var errorCode = error.code;
+	var errorMessage = error.message;
+	window.alert("Error: " + errorMessage);
+  });
+
 
 function queryDatabase(user){
 
