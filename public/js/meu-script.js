@@ -87,6 +87,24 @@ var db = firebase.database().ref();
 var RefUsers = db.child('Usuarios');
 var infoPrefeitura = document.getElementById("infoPrefeitura");
 
+//Autenticacao via link por email
+var actionCodeSettings = {
+  // URL you want to redirect back to. The domain (www.example.com) for this
+  // URL must be whitelisted in the Firebase Console.
+  url: 'https://www.example.com/finishSignUp?cartId=1234',
+  // Isso tem que ficar como true
+  handleCodeInApp: true,
+  iOS: {
+    bundleId: 'com.example.ios'
+  },
+  android: {
+    packageName: 'com.example.android',
+    installApp: true,
+    minimumVersion: '12'
+  },
+  dynamicLinkDomain: 'example.page.link'
+};
+
 function queryDatabase(user){
 
 	queryDatabase = function(){}; //Evita que a função fique sendo chamada repetidas vezes
@@ -102,7 +120,7 @@ function queryDatabase(user){
 		var currentRow;
 		
 		for (var i = 0; i < keys.length; i++){
-			
+				
 			var currentObject = PostObject[keys[i]];
 			
 			var userAtual = currentObject.Email;
