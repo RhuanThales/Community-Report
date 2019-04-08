@@ -145,7 +145,7 @@ $(document).ready(function(){
 var btnRegAnimal = document.getElementById('btnRegAnimal');
 var btnRegArvore = document.getElementById('btnRegArvore');
 var btnRegBuraco = document.getElementById('btnRegBuraco');
-var btnRegMosquito = document.getElementById('btnRegMosquito');
+var btnRegInseto = document.getElementById('btnRegInseto');
 var btnRegLampada = document.getElementById('btnRegLampada');
 var btnRegLimpeza = document.getElementById('btnRegLimpeza');
 var btnRegLote = document.getElementById('btnRegLote');
@@ -167,7 +167,7 @@ btnRegAnimal.addEventListener('click', function(){
 	$("#selectLampada").hide();
 	$("#selectLimpeza").hide();
 	$("#selectLote").hide();
-	$("#selectMosquito").hide();
+	$("#selectInseto").hide();
 	$("#selectBarulho").hide();
 	$("#selectSinal").hide();
 	$("#selectAgua").hide();
@@ -186,7 +186,7 @@ btnRegArvore.addEventListener('click', function(){
 	$("#selectLampada").hide();
 	$("#selectLimpeza").hide();
 	$("#selectLote").hide();
-	$("#selectMosquito").hide();
+	$("#selectInseto").hide();
 	$("#selectBarulho").hide();
 	$("#selectSinal").hide();
 	$("#selectAgua").hide();
@@ -205,14 +205,14 @@ btnRegBuraco.addEventListener('click', function(){
 	$("#selectLampada").hide();
 	$("#selectLimpeza").hide();
 	$("#selectLote").hide();
-	$("#selectMosquito").hide();
+	$("#selectInseto").hide();
 	$("#selectBarulho").hide();
 	$("#selectSinal").hide();
 	$("#selectAgua").hide();
 	$("#descSimples").show();
 	$("#descCompleta").hide();
 });
-btnRegMosquito.addEventListener('click', function(){
+btnRegInseto.addEventListener('click', function(){
 	$("#ocorrDiv").hide();
 	$("#regDiv").show();
 	$("#menuDiv").hide();
@@ -224,7 +224,7 @@ btnRegMosquito.addEventListener('click', function(){
 	$("#selectLampada").hide();
 	$("#selectLimpeza").hide();
 	$("#selectLote").hide();
-	$("#selectMosquito").show();
+	$("#selectInseto").show();
 	$("#selectBarulho").hide();
 	$("#selectSinal").hide();
 	$("#selectAgua").hide();
@@ -243,7 +243,7 @@ btnRegLampada.addEventListener('click', function(){
 	$("#selectLampada").show();
 	$("#selectLimpeza").hide();
 	$("#selectLote").hide();
-	$("#selectMosquito").hide();
+	$("#selectInseto").hide();
 	$("#selectBarulho").hide();
 	$("#selectSinal").hide();
 	$("#selectAgua").hide();
@@ -262,7 +262,7 @@ btnRegLimpeza.addEventListener('click', function(){
 	$("#selectLampada").hide();
 	$("#selectLimpeza").show();
 	$("#selectLote").hide();
-	$("#selectMosquito").hide();
+	$("#selectInseto").hide();
 	$("#selectBarulho").hide();
 	$("#selectSinal").hide();
 	$("#selectAgua").hide();
@@ -281,7 +281,7 @@ btnRegLote.addEventListener('click', function(){
 	$("#selectLampada").hide();
 	$("#selectLimpeza").hide();
 	$("#selectLote").show();
-	$("#selectMosquito").hide();
+	$("#selectInseto").hide();
 	$("#selectBarulho").hide();
 	$("#selectSinal").hide();
 	$("#selectAgua").hide();
@@ -300,7 +300,7 @@ btnRegBarulho.addEventListener('click', function(){
 	$("#selectLampada").hide();
 	$("#selectLimpeza").hide();
 	$("#selectLote").hide();
-	$("#selectMosquito").hide();
+	$("#selectInseto").hide();
 	$("#selectBarulho").show();
 	$("#selectSinal").hide();
 	$("#selectAgua").hide();
@@ -319,7 +319,7 @@ btnRegSinal.addEventListener('click', function(){
 	$("#selectLampada").hide();
 	$("#selectLimpeza").hide();
 	$("#selectLote").hide();
-	$("#selectMosquito").hide();
+	$("#selectInseto").hide();
 	$("#selectBarulho").hide();
 	$("#selectSinal").show();
 	$("#selectAgua").hide();
@@ -338,7 +338,7 @@ btnRegAgua.addEventListener('click', function(){
 	$("#selectLampada").hide();
 	$("#selectLimpeza").hide();
 	$("#selectLote").hide();
-	$("#selectMosquito").hide();
+	$("#selectInseto").hide();
 	$("#selectBarulho").hide();
 	$("#selectSinal").hide();
 	$("#selectAgua").show();
@@ -358,7 +358,7 @@ btnRegOutros.addEventListener('click', function(){
 	$("#selectLampada").hide();
 	$("#selectLimpeza").hide();
 	$("#selectLote").hide();
-	$("#selectMosquito").hide();
+	$("#selectInseto").hide();
 	$("#selectBarulho").hide();
 	$("#selectSinal").hide();
 	$("#selectAgua").hide();
@@ -404,7 +404,7 @@ function regOcorrencia() {
 			regProblema4: $("#selectLampada").val(),
 			regProblema5: $("#selectLimpeza").val(),
 			regProblema6: $("#selectLote").val(),
-			regProblema7: $("#selectMosquito").val(),
+			regProblema7: $("#selectInseto").val(),
 			regProblema8: $("#selectBarulho").val(),
 			regProblema9: $("#selectSinal").val(),
 			regProblema0: $("#selectAgua").val(),
