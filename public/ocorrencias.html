@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 	<head> 
-		<title>CommunityReport - Registrar Ocorrências</title>
+		<title>CommunityReport - Registro de Ocorrências</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no">
 		<meta name="description" content="Web App para registro de problemas no município">
 		<meta name="author" content="TrashMakers">
-		<!-- O cdn do Awesome fonts, usados para pegarmos icones e simbolos diferenciados -->
+		<!-- O cdn do Awesome fonts, usado para pegarmos icones e simbolos diferenciados -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 		<!-- Trecho do código que faz a ligação do html com o nosso css e do css e js do bootstrap, bem como o js do jquery -->
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -45,6 +45,8 @@
 						    <img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
 						    CommunityReport
 						  </a>
+						  <a href="pagina-principal.html" id="returnArrow" class="arrowIcon"><i class="fas fa-arrow-left"></i></a>
+						  <a href="ocorrencias.html" id="backArrow" class="arrowIcon"><i class="fas fa-arrow-left"></i></a>
 						</nav>
 					</div>
 				</div>
@@ -52,6 +54,289 @@
 		</section>
 		<!--Final-->
 
+		<!--Trecho do codigo referente ao conteudo da pagina-->
+		<!--Feito por Rogério-->
+		<section class="ocorrenciasSection">			
+			<div class="container box-parent-login divLogin" id="ocorrDiv">
+				<div class="row well box-login">
+					<div class="col-md-3"></div>
+					<div class="col-md-6 bg-white boxDiv">
+						<div class="loginLogoDiv">
+							<img src="./imagens/logo/logo-04.jpg" class="loginLogo" alt="cReportLogo">
+						</div>
+						<div class="container-fluid divOcorrencias">
+							<p>
+								Selecione abaixo o tipo de ocorrencia que deseja fazer:
+							</p>							
+						</div>
+						<div class="container tipoOcorrencias">
+							<div class= "row well box-tipoOcorrencias">
+								<div class="col-md-4">
+									<button id="btnRegAnimal" type="button" class="box regBox"><i class="fas fa-dog"></i><span>Animais</span></button>
+								</div>
+								<div class="col-md-4">
+									<button id="btnRegArvore" class="box regBox"><i class="fas fa-tree"></i><span>Árvore Caida</span></button>
+								</div>
+								<div class="col-md-4">
+									<button id="btnRegBuraco" class="box regBox"><i class="fas fa-road"></i><span>Buraco na Rua</span></button>
+								</div>					
+							</div>
+							<div class= "row well box-tipoOcorrencias">
+								<div class="col-md-4">
+									<button id="btnRegLampada" class="box regBox"><i class="fas fa-lightbulb"></i><span>Lâmpada Queimada</span></button>
+								</div>
+								<div class="col-md-4">
+									<button id="btnRegLimpeza" class="box regBox">Limpeza Urbana</button>
+								</div>
+								<div class="col-md-4">
+									<button id="btnRegLote" class="box regBox">Lote Sujo</button>
+								</div>					
+							</div>
+							<div class= "row well box-tipoOcorrencias">
+								<div class="col-md-4">
+									<button id="btnRegMosquito" class="box regBox">Foco de Mosquito</button>
+								</div>
+								<div class="col-md-4">
+									<button id="btnRegBarulho" class="box regBox"><i class="fas fa-volume-up"></i><span>Queixa de Barulho</span></button>
+								</div>
+								<div class="col-md-4">
+									<button id="btnRegSinal" class="box regBox"><i class="fas fa-traffic-light"></i><span>Sinalização</span></button>
+								</div>					
+							</div>
+							<div class= "row well box-tipoOcorrencias">
+								<div class="col-md-4">
+									<button id="btnRegAgua" class="box regBox"><i class="fas fa-tint"></i><span>Falta de Água</span></button>
+								</div>
+								<div class="col-md-4">
+									<button id="btnRegOutros" class="box regBox"><i class="fas fa-exclamation-circle"></i><span>Outros</span></button>
+								</div>
+								<div class="col-md-4">
+
+								</div>					
+							</div>							
+						</div>
+					</div>					
+				</div>
+			</div>
+		</section>
+		<!--Final-->
+
+		<!--Trecho do codigo referente ao menu inferior-->
+		<!--Feito por Rhuan-->
+		<section class="menuSection">
+			<div class="container-fluid" id="menuDiv">
+				<div class="row navigation-menu">
+					<div class="col-md-3"></div>
+					<div class="col-md-6">
+						<a href="minhas-ocorrencias.html"><i class="fas fa-list-alt"></i><span>Minhas Ocorrências</span></a>
+						<a href="pagina-principal.html"><i class="fas fa-home"></i><span>Início</span></a>
+						<a href="setores-publicos.html"><i class="fas fa-city"></i><span>Setores Públicos</span></a>
+						<a href="index.html">
+							<button class="btnLogout" onclick="logout()" type="button"><i class="fas fa-sign-out-alt"></i><span>Sair</span></button>
+						</a>
+					</div>
+					<div class="col-md-3"></div>	
+				</div>
+			</div>
+		</section>
+		<!--Final-->
+
+		<!--Trecho do código referente ao formulario de preenchimento para o registro de ocorrências-->
+		<!--Feito por Rhuan-->
+		<section class="registroSection">
+			<div class="container-fluid box-parent-login divCad" id="regDiv">
+				<div class="row well box-login">
+					<div class="col-md-3"></div>
+					<div class="col-md-6 bg-white boxCad">
+						<h1>Registro de Ocorrências</h1>
+						<p>Preencha corretamente as informações abaixo:</p>
+						<form role="form" id="regForm">
+							<fieldset>
+								<div class="form-group ls-login-user">
+									<label id="probLabel">Problema: </label>
+									<select id="selectAnimal" class="form-control ls-login-bg-user input-lg">
+										<option value="Null">Selecione o problema</option>
+										<option value="Sujeira de animais">Sujeira de animais</option>
+										<option value="Animal Solto">Animal Solto</option>
+										<option value="Animal morto">Animal morto</option>
+										<option value="Outros">Outros</option>
+									</select>
+									<select id="selectArvore" class="form-control ls-login-bg-user input-lg">
+										<option value="Null">Selecione o problema</option>
+										<option value="Árvore Caída">Árvore Caída</option>
+										<option value="Árvore caída na rede elétrica">Árvore caída na rede elétrica</option>
+										<option value="Árvore na pista">Árvore na pista</option>	
+										<option value="Remeção de galhos">Remoção de galho</option>
+										<option value="Remoção de árvore">Remoção de árvore</option>
+										<option value="Poda de árvore">Poda de Árvore</option>
+										<option value="Outros">Outros</option>
+									</select>
+									<select id="selectBuraco" class="form-control ls-login-bg-user input-lg">
+										<option value="Null">Selecione o problema</option>
+										<option value="Buraco pequeno">Buraco pequeno</option>
+										<option value="Buraco grande">Buraco grande</option>
+										<option value="Vários buracos">Vários buracos</option>
+										<option value="Outros">Outros</option>
+									</select>
+									<select id="selectLampada" class="form-control ls-login-bg-user input-lg">
+										<option value="Null">Selecione o problema</option>
+										<option value="Lampada Queimada">Lâmpada Queimada</option>
+										<option value="Lampada Piscando">Lâmpada Piscando</option>
+										<option value="Lampada Acesa">Lâmpada Acesa</option>
+										<option value="Outros">Outros</option>
+									</select>
+									<select id="selectLimpeza" class="form-control ls-login-bg-user input-lg">
+										<option value="Null">Selecione o problema</option>
+										<option value="Varrição">Varrição</option>
+										<option value="Coleta de Lixo">Coleta de Lixo</option>
+										<option value="Capina">Capina</option>
+										<option value="Remoção de entulhos">Remoção de entulhos</option>
+										<option value="Outros">Outros</option>
+									</select>
+									<select id="selectLote" class="form-control ls-login-bg-user input-lg">
+										<option value="Null">Selecione o problema</option>
+										<option value="Mato alto">Mato alto</option>
+										<option value="Lixo no lote">Lixo no lote</option>
+										<option value="Recolher entulhos">Recolher entulhos</option>
+										<option value="Outros">Outros</option>
+									</select>
+									<select id="selectMosquito" class="form-control ls-login-bg-user input-lg">
+										<option value="Null">Selecione o problema</option>
+										<option value="Água parada">Água parada (foco de mosquito)</option>
+										<option value="Larva de mosquito">Larva de mosquito</option>
+										<option value="Mosquito voando">Mosquito voando</option>
+										<option value="Outros">Outros</option>
+									</select>
+									<select id="selectBarulho" class="form-control ls-login-bg-user input-lg">
+										<option value="Null">Selecione o problema</option>
+										<option value="Som alto">Som alto</option>
+										<option value="Voz alta">Voz alta</option>
+										<option value="Outros">Outros</option>
+									</select>
+									<select id="selectSinal" class="form-control ls-login-bg-user input-lg">
+										<option value="Null">Selecione o problema</option>
+										<option value="Reposição de placa">Reposição de placa</option>
+										<option value="Quebra molas">Quebra molas</option>
+										<option value="Pintura de faixas">Pintura de faixas</option>
+										<option value="Ponto de ônibus">Ponto de ônibus</option>
+										<option value="Outros">Outros</option>
+									</select>
+									<select id="selectAgua" class="form-control ls-login-bg-user input-lg">
+										<option value="Null">Selecione o problema</option>
+										<option value="Falta de água">Falta de água</option>
+										<option value="Vazamento de água">Vazamento de água</option>
+										<option value="Boca de Lobo entupida">Buca de Lobo entupida</option>
+										<option value="Outros">Outros</option>
+									</select>
+								</div>
+								
+								<div id="descSimples" class="form-group ls-login-user">
+									<label>Descrição:</label>
+									<textarea class="form-control ls-login-bg-user input-lg"></textarea>
+								</div>
+
+								<div id="descCompleta" class="form-group ls-login-user">
+									<label>Faça uma descrição completa do problema:</label>
+									<textarea class="form-control ls-login-bg-user input-lg"></textarea>
+								</div>
+								
+								<div>
+									<label for="regEmail">E-mail:</label>
+									<input type="e-mail" aria-label="Email" class="form-control ls-login-bg-user input-lg" id="regEmail" placeholder="Ex: meu-email@email.com">
+								</div>
+
+								<div class="form-group ls-login-user">
+									<label for="regRua">Rua:</label>
+									<input type="text" aria-label="Rua" class="form-control ls-login-bg-user input-lg" id="regRua" placeholder="Ex: Rua Atirador Rodrigues">
+								</div>
+								
+								<div class="form-group ls-login-user">
+									<label for="regNum">Número:</label>
+									<input type="text" aria-label="Numero" class="form-control ls-login-bg-user input-lg" id="regNum" placeholder="Ex: 24">
+								</div>
+								
+								<div>
+									<label for="regBairro">Bairro:</label>
+									<input type="text" aria-label="Bairro" class="form-control ls-login-bg-user input-lg" id="regBairro" placeholder="Ex: Cerrado">
+								</div>
+
+								<div class="form-group ls-login-user">
+									<label for="regCidade">Cidade:</label>
+									<input type="text" aria-label="Cidade" class="form-control ls-login-bg-user input-lg" id="regCidade" placeholder="Ex: Patos de Minas">
+								</div>
+								
+								<div class="form-group ls-login-user">
+									<label for="regEstado">Estado</label>
+									<input type="text" aria-label="Estado" class="form-control ls-login-bg-user input-lg" id="regEstado" placeholder="Ex: Minas Gerais">
+								</div>
+
+								<div class="form-group ls-login-user">
+									<label>Enviar Foto:</label>
+									<input type="file" id="upload" name="Upload">
+								</div>
+
+								<div>
+									<button onclick="regOcorrencia()" type="button" class="btn btn-primary btn-lg btn-block">Concluir</button>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+			</div>
+		</section>
+		<!--Final-->
+
+		<!--Trecho do código referente ao roda-pé da página-->
+		<!--Feito por Rhuan-->
+		<section class="footerSection">
+			<footer class="section footer-classic context-dark bg-image" style="background: #145845;">
+				<div class="container-fluid">
+				  <div class="row">
+				    <div class="col-md-4 col-xl-5">
+				      <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
+				        <p>Somos uma agência criativa premiada, dedicada ao melhor resultado em web design, promoção, consultoria de negócios e marketing.</p>
+				        <!-- Rights-->
+				        <p class="rights"><span>©  </span><span class="copyright-year">2019</span><span> </span><span>Waves</span><span>. </span><span>Todos os Direitos Reservados.</span></p>
+				      </div>
+				    </div>
+				    <div class="col-md-4">
+				      <h5>Contatos</h5>
+				      <dl class="contact-list">
+				        <dt>Endereço:</dt>
+				        <dd>Rua XesqueVile, Bairro Atirador Rodrigues, 2469, Patos de Minas</dd>
+				      </dl>
+				      <dl class="contact-list">
+				        <dt>Email:</dt>
+				        <dd><a href="mailto:#">CommunityReportSI@gmail.com</a></dd>
+				      </dl>
+				      <dl class="contact-list">
+				        <dt>Telefones:</dt>
+				        <dd><a href="tel:#">+55 (34) 96854-3012</a> <span>ou</span> <a href="tel:#">+55 (34) 95711-9535</a>
+				        </dd>
+				      </dl>
+				    </div>
+				    <div class="col-md-4 col-xl-3">
+				      <h5>Links</h5>
+				      <ul class="nav-list">
+				        <li><a href="#">Sobre Nós</a></li>
+				        <li><a href="#">Projetos</a></li>
+				        <li><a href="#">Blog</a></li>
+				        <li><a href="#">Contatos</a></li>
+				        <li><a href="#">Serviços</a></li>
+				      </ul>
+				    </div>
+				  </div>
+				</div>
+				<div class="row no-gutters social-container">
+				  <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
+				  <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
+				  <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
+				  <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
+				</div>
+			</footer>
+		</section>
+		<!--Final-->
 
 		<!-- Esse trecho de codigo deve ficar sempre abaixo dos conteudos do body -->
 		<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>

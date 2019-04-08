@@ -26,11 +26,11 @@ body { /*Mudando o background da pagina*/
         display: inline-block;
     }
 }
-.logoutIcon {
+.arrowIcon {
 	color: white;
 	font-weight: bold;
 }
-.logoutIcon:hover {
+.arrowIcon:hover {
 	color: black;
 }
 .redirectIcon {
@@ -95,7 +95,7 @@ body { /*Mudando o background da pagina*/
 .divCad {
 	margin-top: 30px;
 	width: 100vw;
-	height: 100vh;
+	/*height: 100vh;*/
 	/*display: flex;*/
 	flex-direction: row;
 	justify-content: center;
@@ -125,13 +125,12 @@ body { /*Mudando o background da pagina*/
 
 
 /*Trecho que faz modificações nos icones do font awesome*/
-.menu-navigation-dark {
+.navigation-menu {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0;
     text-align: center;
 }
-
-.menu-navigation-dark a {
+.navigation-menu a {
     display: inline-grid;
     color: white;
     background-color: #145845;
@@ -139,6 +138,8 @@ body { /*Mudando o background da pagina*/
     font-weight: bold;
     box-shadow: 1px 3px 5px 0 rgba(0, 0, 0, 0.26);
     text-decoration: none;
+    /*text-transform: uppercase;
+    white-space: nowrap;*/
     border: 1px solid #161718;
     border-top: none;
     width: 120px;
@@ -146,47 +147,57 @@ body { /*Mudando o background da pagina*/
     padding: 20px 0;
     box-sizing: border-box;
 }
-
-.menu-navigation-dark a:hover {
+.navigation-menu a:hover {
     background-color: #27292a;
 }
-
-.menu-navigation-dark a:first-child{
-    border-left: 1px solid #161718;
-}
-
-.menu-navigation-dark a:not(.selected) {
-    box-shadow:	1px 3px 5px 0 rgba(0, 0, 0, 0.26),
-    inset 1px 0 0 #323435,
-    inset 0 1px 0 #282a2b,
-    inset 0 -1px 0 #282a2b;
-}
-
-.menu-navigation-dark a:last-child {
-    box-shadow:	1px 3px 5px 0 rgba(0, 0, 0, 0.26),
-    inset 1px 0 0 #323435,
-    inset -1px 0 0 #282a2b,
-    inset 0 1px 0 #282a2b,
-    inset 0 -1px 0 #282a2b;
-}
-
-.menu-navigation-dark a i {
+.navigation-menu a i {
     display: block;
     line-height: 1.3;
 }
-
-.menu-navigation-dark a span {
+.navigation-menu a span {
     display: block;
     font-size: 11px;
     font-weight: bold;
     line-height: 2;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
-
-.menu-navigation-dark a.selected {
-    background-color: #1d1e1f;
-    border-bottom: 2px solid #4a9fda;
-    pointer-events: none;
+/*Trecho referente ao css na pagina de ocorrencias*/
+/*Feito por Rogerio*/
+.box-tipoOcorrencias{
+    margin-top: 10px;
+}
+.regBox{
+    background: #145845;
+    color:white;
+    text-align: center;
+    font-size:1.0em;
+    width:100%;
+    height:50px;   
+}
+.linkSetores{
+    margin-top: 50px;
+    margin-left:20px;
+}
+.linkBox{
+    background: white;   
+    text-align: center;
+    font-size:1.0em;
+    width:60%;
+    height:50px;   
+}
+.menuDiv{
+    display: inline-grid;
+    margin-bottom: 20px;
+}
+.btnLogout{
+	color: white;
+	background: #145845;
+	border-color: #145845;
+	border: 0px;
+	margin: 0px;
+}
+.btnLogout:hover{
+	background-color: #27292a;
 }
 
 /*Trecho do css referente as configurações do footer das páginas*/
