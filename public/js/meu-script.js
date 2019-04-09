@@ -153,6 +153,7 @@ var btnRegBarulho = document.getElementById('btnRegBarulho');
 var btnRegSinal = document.getElementById('btnRegSinal');
 var btnRegAgua = document.getElementById('btnRegAgua');
 var btnRegOutros = document.getElementById('btnRegOutros');
+//var btnRegOuvidoria = document.getElementById('btnRegOuvidoria');
 var btnBackArrow = document.getElementById('backArrow');
 
 btnRegAnimal.addEventListener('click', function(){
