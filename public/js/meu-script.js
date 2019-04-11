@@ -35,29 +35,51 @@ function sigin(){
 	var userSenha = document.getElementById('inputSenha').value;
 
 	firebase.auth().createUserWithEmailAndPassword(userEmail, userSenha).then(function(){
-		//Em caso de sucesso salva-se os dados do usuário no banco de dados
-		var postKey = firebase.database().ref('Usuarios/').push().key;
-		var updates = {};
-		var postData = {
-			Nome: $("#inputNome").val(),
-			Email: $("#inputEmail").val(),
-			Prefeitura: $("#inputPrefeitura").val(),
-			Rua: $("#inputRua").val(),
-			Bairro: $("#inputBairro").val(),
-			Numero: $("#inputNum").val(),
-			Telefone: $("#inputTel").val(),
-			CEP: $("#inputCep").val(),
-			Cidade: $("#inputCidade").val(),
-			Estado: $("#inputEstado").val()
-		};
-		updates['/Usuarios/' + postKey] = postData;
-		firebase.database().ref().update(updates);
-		//Em cado de sucesso exibe a sequinte mensagem de confirmação
-		window.alert("Cadastrado com Sucesso!!!");
-		
-		//Após salvar os dados do usuário redirecionar para a página de login
-		window.open("index.html", "_self");
+		//Em caso de sucesso salva-se os dados do usuário no banco de dados		
+		var db = firebase.database().ref();
+		var RefPref = db.child('Prefeituras');
 
+		var currentPref = document.getElementById('inputPrefeitura').value;
+
+		RefPref.once('value').then(function(snapshot){
+			
+			var PostObject = snapshot.val();
+			var keys = Object.keys(PostObject);
+			
+			for (var i = 0; i < keys.length; i++){
+					
+				var currentObject = PostObject[keys[i]];
+				
+				var userPref = currentObject.Prefeitura;
+
+				if(currentPref === userPref){
+					var postKey = firebase.database().ref('Usuarios/').push().key;
+					var updates = {};
+					var postData = {
+						Nome: $("#inputNome").val(),
+						Email: $("#inputEmail").val(),
+						Prefeitura: $("#inputPrefeitura").val(),
+						enderecoPrefeitura: currentObject.enderecoPrefeitura,
+						sitePrefeitura: currentObject.sitePrefeitura,
+						telefonePrefeitura: currentObject.telefonePrefeitura,
+						Rua: $("#inputRua").val(),
+						Bairro: $("#inputBairro").val(),
+						Numero: $("#inputNum").val(),
+						Telefone: $("#inputTel").val(),
+						CEP: $("#inputCep").val(),
+						Cidade: $("#inputCidade").val(),
+						Estado: $("#inputEstado").val()
+					};
+					updates['/Usuarios/' + postKey] = postData;
+					firebase.database().ref().update(updates);
+					//Em cado de sucesso exibe a sequinte mensagem de confirmação
+					window.alert("Cadastrado com Sucesso!!!");
+					
+					//Após salvar os dados do usuário redirecionar para a página de login
+					window.open("index.html", "_self");
+				}
+			}
+		})
 	}).catch(function(error) {
 	  // Em caso de algum erro exibir uma mensagem com o erro que ocorreu.
 	  var errorCode = error.code;
@@ -84,6 +106,7 @@ function logout(){
 //Função para pegar dados do banco e mostra-los na tela
 var db = firebase.database().ref();
 var RefUsers = db.child('Usuarios');
+var RefPref = db.child('Prefeituras');
 var infoPrefeitura = document.getElementById("infoPrefeitura");
 
 
@@ -109,7 +132,7 @@ function queryDatabase(user){
 
 			if(currentUser === userAtual){
 				currentRow = document.createElement("div");
-				//Criando paragrafos que contem as informações da chácara como nome cidade e endereço
+				//Criando paragrafos que contem as informações da prefeitura como nome endereço e site
 				var nomePrefeitura = document.createElement("p");
 				$(nomePrefeitura).addClass("prefeituraInfo");
 				$(nomePrefeitura).html('Prefeitura de ' +  currentObject.Prefeitura);
