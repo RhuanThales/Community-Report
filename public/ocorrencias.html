@@ -107,7 +107,7 @@
 								<div class="col-md-4">
 									<button id="btnRegSinal" class="box regBox"><i class="fas fa-traffic-light"></i><span> - Sinalização</span></button>
 								</div>	
-								<div class="col-md-4">
+								<div class="col-md-4 divOutros">
 									<button id="btnRegOutros" class="box regBox"><i class="fas fa-exclamation-circle"></i><span> - Outros</span></button>
 								</div>
 								<div class="col-md-4">
@@ -230,14 +230,14 @@
 									</select>
 								</div>
 								
-								<div id="descSimples" class="form-group ls-login-user">
-									<label>Descrição:</label>
-									<textarea class="form-control ls-login-bg-user input-lg"></textarea>
+								<div class="form-group ls-login-user">
+									<label id="descLabelS">Descrição:</label>
+									<textarea class="form-control ls-login-bg-user input-lg" id="descSimples"></textarea>
 								</div>
 
-								<div id="descCompleta" class="form-group ls-login-user">
-									<label>Faça uma descrição completa do problema:</label>
-									<textarea class="form-control ls-login-bg-user input-lg"></textarea>
+								<div class="form-group ls-login-user">
+									<label id="descLabelC">Faça uma descrição completa do problema:</label>
+									<textarea class="form-control ls-login-bg-user input-lg" id="descCompleta"></textarea>
 								</div>
 								
 								<div>
@@ -275,8 +275,12 @@
 									<input type="file" id="upload" name="Upload">
 								</div>
 
-								<div>
-									<button onclick="regOcorrencia()" type="button" class="btn btn-primary btn-lg btn-block">Concluir</button>
+								<div class="btnRegOcorr">
+									<button onclick="regOcorrencia()" type="button" class="btn btn-primary btn-lg btn-block" id="btnRegistrarOcorr">Concluir</button>
+								</div>
+
+								<div class="btnRegOcorr">
+									<button onclick="regOcorr()" type="button" class="btn btn-primary btn-lg btn-block" id="btnRegOcorrencia">Concluir</button>
 								</div>
 							</fieldset>
 						</form>

@@ -140,6 +140,8 @@ $(document).ready(function(){
 	$("#menuDiv").show();
 	$("#returnArrow").show();
 	$("#backArrow").hide();
+	$("#btnRegistrarOcorr").hide();
+	$("#btnRegOcorrencia").show();
 });
 
 var btnRegAnimal = document.getElementById('btnRegAnimal');
@@ -174,6 +176,7 @@ btnRegAnimal.addEventListener('click', function(){
 	$("#selectAgua").hide();
 	$("#descSimples").show();
 	$("#descCompleta").hide();
+	$("#descLabelC").hide();
 });
 btnRegArvore.addEventListener('click', function(){
 	$("#ocorrDiv").hide();
@@ -193,6 +196,7 @@ btnRegArvore.addEventListener('click', function(){
 	$("#selectAgua").hide();
 	$("#descSimples").show();
 	$("#descCompleta").hide();
+	$("#descLabelC").hide();
 });
 btnRegBuraco.addEventListener('click', function(){
 	$("#ocorrDiv").hide();
@@ -212,6 +216,7 @@ btnRegBuraco.addEventListener('click', function(){
 	$("#selectAgua").hide();
 	$("#descSimples").show();
 	$("#descCompleta").hide();
+	$("#descLabelC").hide();
 });
 btnRegInseto.addEventListener('click', function(){
 	$("#ocorrDiv").hide();
@@ -231,6 +236,7 @@ btnRegInseto.addEventListener('click', function(){
 	$("#selectAgua").hide();
 	$("#descSimples").show();
 	$("#descCompleta").hide();
+	$("#descLabelC").hide();
 });
 btnRegLampada.addEventListener('click', function(){
 	$("#ocorrDiv").hide();
@@ -250,6 +256,7 @@ btnRegLampada.addEventListener('click', function(){
 	$("#selectAgua").hide();
 	$("#descSimples").show();
 	$("#descCompleta").hide();
+	$("#descLabelC").hide();
 });
 btnRegLimpeza.addEventListener('click', function(){
 	$("#ocorrDiv").hide();
@@ -269,6 +276,7 @@ btnRegLimpeza.addEventListener('click', function(){
 	$("#selectAgua").hide();
 	$("#descSimples").show();
 	$("#descCompleta").hide();
+	$("#descLabelC").hide();
 });
 btnRegLote.addEventListener('click', function(){
 	$("#ocorrDiv").hide();
@@ -288,6 +296,7 @@ btnRegLote.addEventListener('click', function(){
 	$("#selectAgua").hide();
 	$("#descSimples").show();
 	$("#descCompleta").hide();
+	$("#descLabelC").hide();
 });
 btnRegBarulho.addEventListener('click', function(){
 	$("#ocorrDiv").hide();
@@ -307,6 +316,7 @@ btnRegBarulho.addEventListener('click', function(){
 	$("#selectAgua").hide();
 	$("#descSimples").show();
 	$("#descCompleta").hide();
+	$("#descLabelC").hide();
 });
 btnRegSinal.addEventListener('click', function(){
 	$("#ocorrDiv").hide();
@@ -326,6 +336,7 @@ btnRegSinal.addEventListener('click', function(){
 	$("#selectAgua").hide();
 	$("#descSimples").show();
 	$("#descCompleta").hide();
+	$("#descLabelC").hide();
 });
 btnRegAgua.addEventListener('click', function(){
 	$("#ocorrDiv").hide();
@@ -345,6 +356,7 @@ btnRegAgua.addEventListener('click', function(){
 	$("#selectAgua").show();
 	$("#descSimples").show();
 	$("#descCompleta").hide();
+	$("#descLabelC").hide();
 });
 btnRegOutros.addEventListener('click', function(){
 	$("#ocorrDiv").hide();
@@ -365,19 +377,21 @@ btnRegOutros.addEventListener('click', function(){
 	$("#selectAgua").hide();
 	$("#descSimples").hide();
 	$("#descCompleta").show();
+	$("#descLabelS").hide();
 });
 
-//Função para salvar os dados da ocorrencia no banco do firebase
+//Função para salvar os dados da ocorrência no banco do firebase
 var selectedFile;
 
 document.getElementById("upload").addEventListener('change', handleFileSelect, false);
 
-//Função que mostra a area de cadastro de chacara que antes estava ocultada
 function handleFileSelect(event) {
 	selectedFile = event.target.files[0];
+	$("#btnRegistrarOcorr").show();
+	$("#btnRegOcorrencia").hide();
 };
 
-//Função para salvar os dados da chacara com a url da imagem selecionada e salvar a imagem no storege do firebase na pasta apropriada
+//Função para salvar os dados da ocorrências com a url da imagem selecionada e salvar a imagem no storege do firebase na pasta apropriada
 function regOcorrencia() {
 	//Criando uma referencia ao root
 	var filename = selectedFile.name;
@@ -424,4 +438,35 @@ function regOcorrencia() {
 		window.alert("Sucesso no registro da ocorrencia!!!");
 		window.open("ocorrencias.html", "_self");
 	});
+}
+
+//Função que salva a ocorrência registrada, sem colocar foto, no banco de dados
+function regOcorr(){
+	var postKey = firebase.database().ref('Ocorrencias-Registradas/').push().key;
+	var updates = {};
+	var postData = {
+		regProblema1: $("#selectAnimal").val(),
+		regProblema2: $("#selectArvore").val(),
+		regProblema3: $("#selectBuraco").val(),
+		regProblema4: $("#selectLampada").val(),
+		regProblema5: $("#selectLimpeza").val(),
+		regProblema6: $("#selectLote").val(),
+		regProblema7: $("#selectInseto").val(),
+		regProblema8: $("#selectBarulho").val(),
+		regProblema9: $("#selectSinal").val(),
+		regProblema0: $("#selectAgua").val(),
+		regEmail: $("#regEmail").val(),
+		regRua: $("#regRua").val(),
+		regNumero: $("#regNum").val(),
+		regBairro: $("#regBairro").val(),
+		regCidade: $("#regCidade").val(),
+		regEstado: $("#regEstado").val(),
+		regDescricaoS: $("#descSimples").val(),
+		regDescricaoC: $("#descCompleta").val()
+	};
+	updates['/Ocorrencias-Registradas/' + postKey] = postData;
+	firebase.database().ref().update(updates);
+	//Apos salvar os dados o formulario de preenchimento é ocultado
+	window.alert("Sucesso no registro da ocorrencia!!!");
+	window.open("ocorrencias.html", "_self");
 }

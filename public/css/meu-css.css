@@ -122,6 +122,12 @@ body { /*Mudando o background da pagina*/
 .btnCancelar {
 	text-decoration: none;
 }
+.btnRegOcorr {
+	margin-bottom: 10px;
+}
+.divOutros {
+	margin-bottom: 20px;
+}
 
 
 /*Trecho que faz modificações nos icones do font awesome*/
