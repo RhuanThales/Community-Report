@@ -128,7 +128,16 @@ body { /*Mudando o background da pagina*/
 .divOutros {
 	margin-bottom: 20px;
 }
-
+table, th, td {
+    text-align: center;
+}
+th {
+    background: #27292a;
+    color: white;
+    border: 1px solid black;
+    padding-right: 30px;
+    padding-left: 30px;
+}
 
 /*Trecho que faz modificações nos icones do font awesome*/
 .navigation-menu {

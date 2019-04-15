@@ -107,8 +107,9 @@ function logout(){
 var db = firebase.database().ref();
 var RefUsers = db.child('Usuarios');
 var RefPref = db.child('Prefeituras');
+var RefOcorr = db.child('Ocorrencias-Registradas');
 var infoPrefeitura = document.getElementById("infoPrefeitura");
-
+var infoOcorr = document.getElementById("infoOcorr");
 
 function queryDatabase(user){
 
@@ -151,6 +152,61 @@ function queryDatabase(user){
 				
 				$('#infoPrefeitura').append(currentRow);
 				$(currentRow).append(nomePrefeitura, enderecoPrefeitura, telefonePrefeitura, sitePrefeitura);
+			}
+		}
+	});
+
+	//Pegando as informações de ocorrências registradas pelo usuário
+	var currentOcorr = user.email;
+
+	RefOcorr.once('value').then(function(snapshot){
+		
+		var PostObject = snapshot.val();
+		var keys = Object.keys(PostObject);	
+		var currentRow;
+		
+		for (var i = 0; i < keys.length; i++){				
+			var currentObject = PostObject[keys[i]];			
+			var userOcorr = currentObject.regEmail;
+			//console.log(userOcorr);
+
+			if(currentOcorr === userOcorr){				
+				currentTable = document.createElement("tbody");
+				currentRow = document.createElement("tr");
+
+				//Criando paragrafos que contem as informações das ocorrências como problema, descrição e endereço
+				var ocorrProblema = document.createElement("td");
+				$(ocorrProblema).addClass("ocorrInfo");
+				$(ocorrProblema).html(currentObject.regDescricaoS);
+
+				var ocorrEndereco = document.createElement("td");
+				$(ocorrEndereco).addClass("ocorrInfo");
+				$(ocorrEndereco).html(currentObject.regRua + ", " + "nº " + currentObject.regNumero + ", " + currentObject.regBairro);
+				
+				var ocorrIconV = document.createElement("i");
+				$(ocorrIconV).addClass("fas fa-check");
+
+				var ocorrIconX = document.createElement("i");
+				$(ocorrIconX).addClass("fas fa-times");
+
+				var ocorrStatus = document.createElement("td");
+				$(ocorrStatus).addClass("ocorrInfo");
+				$(ocorrStatus).append(ocorrIconX);
+
+				var btnOcorr = document.createElement("button");
+				$(btnOcorr).addClass("btn btn-primary");
+				btnOcorr.innerHTML = 'Reclamar Novamente';
+				$(btnOcorr).on("click", function(event){
+					window.alert("Sua Solicitação foi renovada!");
+				});
+
+				var ocorrBtn = document.createElement("td");
+				$(ocorrBtn).addClass("ocorrInfo");
+				$(ocorrBtn).append(btnOcorr);
+
+				$('#infoOcorr').append(currentTable);
+				$(currentTable).append(currentRow);
+				$(currentRow).append(ocorrProblema, ocorrEndereco, ocorrStatus, ocorrBtn);
 			}
 		}
 	});

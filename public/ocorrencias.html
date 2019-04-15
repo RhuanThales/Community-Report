@@ -150,10 +150,11 @@
 					<div class="col-md-6 bg-white boxCad">
 						<h1>Registro de Ocorrências</h1>
 						<p>Preencha corretamente as informações abaixo:</p>
+						<p class="cadTexto">Os campos com <strong>" * "</strong> são de preenchimento obrigatórios.</p>
 						<form role="form" id="regForm">
 							<fieldset>
 								<div class="form-group ls-login-user">
-									<label id="probLabel">Problema: </label>
+									<label id="probLabel">Problema: *</label>
 									<select id="selectAnimal" class="form-control ls-login-bg-user input-lg">
 										<option value="Null">Selecione o problema</option>
 										<option value="Sujeira de animais">Sujeira de animais</option>
@@ -241,13 +242,13 @@
 								</div>
 								
 								<div>
-									<label for="regEmail">E-mail:</label>
-									<input type="e-mail" aria-label="Email" class="form-control ls-login-bg-user input-lg" id="regEmail" placeholder="Ex: meu-email@email.com">
+									<label for="regEmail">E-mail: *</label>
+									<input type="e-mail" aria-label="Email" class="form-control ls-login-bg-user input-lg" id="regEmail" placeholder="Ex: meu-email@email.com" required>
 								</div>
 
 								<div class="form-group ls-login-user">
-									<label for="regRua">Rua:</label>
-									<input type="text" aria-label="Rua" class="form-control ls-login-bg-user input-lg" id="regRua" placeholder="Ex: Rua Atirador Rodrigues">
+									<label for="regRua">Rua: *</label>
+									<input type="text" aria-label="Rua" class="form-control ls-login-bg-user input-lg" id="regRua" placeholder="Ex: Rua Atirador Rodrigues" required>
 								</div>
 								
 								<div class="form-group ls-login-user">

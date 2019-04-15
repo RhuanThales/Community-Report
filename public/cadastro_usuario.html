@@ -71,28 +71,29 @@
 							<fieldset>
 								<div class="form-group ls-login-user">
 									<label for="inputPrefeitura"><strong>Prefeitura: *</strong></label>
-									<select class="form-control ls-login-bg-user input-lg" id="inputPrefeitura">
+									<select class="form-control ls-login-bg-user input-lg" id="inputPrefeitura" required>
 										<option value="Default">Selecione a Prefeitura</option>
-										<option value="Patos de Minas">Patos de Minas</option>
 										<option value="Belo Horizonte">Belo Horizonte</option>
-										<option value="Uberlândia">Uberlândia</option>
+										<option value="Patos de Minas">Patos de Minas</option>
 										<option value="Presidente Olegário">Presidente Olegário</option>
+										<option value="São Gotardo">São Gotardo</option>
+										<option value="Uberlândia">Uberlândia</option>
 									</select>
 								</div>
 
 								<div class="form-group ls-login-user">
 									<label for="inputNome"><strong>Nome Completo: *</strong></label>
-									<input class="form-control ls-login-bg-user input-lg" id="inputNome" type="text" aria-label="Nome" placeholder="Ex: Caio Atirador Rodrigues">
+									<input class="form-control ls-login-bg-user input-lg" id="inputNome" type="text" aria-label="Nome" placeholder="Ex: Caio Atirador Rodrigues" required>
 								</div>
 
 								<div class="form-group ls-login-user">
 									<label for="inputEmail"><strong>E-mail: *</strong></label>
-									<input class="form-control ls-login-bg-user input-lg" id="inputEmail" type="e-mail" aria-label="Email" placeholder="Ex: meu-email@email.com">
-								</div>
+									<input class="form-control ls-login-bg-user input-lg" id="inputEmail" type="e-mail" aria-label="Email" placeholder="Ex: meu-email@email.com" required>
+								</div> 
 								
 								<div class="form-group ls-login-password">
 									<label for="inputSenha"><strong>Senha: *</strong></label>
-									<input class="form-control ls-login-bg-password input-lg" id="inputSenha" type="password" aria-label="Senha" placeholder="********">
+									<input class="form-control ls-login-bg-password input-lg" id="inputSenha" type="password" aria-label="Senha" placeholder="********" required>
 								</div>
 
 								<div class="form-group ls-login-user">
