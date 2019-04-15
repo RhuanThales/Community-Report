@@ -174,7 +174,7 @@ function queryDatabase(user){
 				currentTable = document.createElement("tbody");
 				currentRow = document.createElement("tr");
 
-				//Criando paragrafos que contem as informações das ocorrências como problema, descrição e endereço
+				//Criando paragrafos que contem as informações das ocorrências como: problema, descrição e endereço
 				var ocorrProblema = document.createElement("td");
 				$(ocorrProblema).addClass("ocorrInfo");
 				$(ocorrProblema).html(currentObject.regDescricaoS);
@@ -189,16 +189,30 @@ function queryDatabase(user){
 				var ocorrIconX = document.createElement("i");
 				$(ocorrIconX).addClass("fas fa-times");
 
-				var ocorrStatus = document.createElement("td");
-				$(ocorrStatus).addClass("ocorrInfo");
-				$(ocorrStatus).append(ocorrIconX);
+				//Fazendo a checagem do status da ocorrência para a exibição do icone correto (v para atendidas e x para as não atendidas)
+				if (currentObject.regStatus === "True") {
+					var ocorrStatus = document.createElement("td");
+					$(ocorrStatus).addClass("ocorrInfo");
+					$(ocorrStatus).append(ocorrIconV);
 
-				var btnOcorr = document.createElement("button");
-				$(btnOcorr).addClass("btn btn-primary");
-				btnOcorr.innerHTML = 'Reclamar Novamente';
-				$(btnOcorr).on("click", function(event){
-					window.alert("Sua Solicitação foi renovada!");
-				});
+					var btnOcorr = document.createElement("button");
+					$(btnOcorr).addClass("btn btn-primary hidden");
+					btnOcorr.innerHTML = 'Reclamar Novamente';
+					$(btnOcorr).on("click", function(event){
+						window.alert("Sua Solicitação foi renovada!");
+					});
+				} else {
+					var ocorrStatus = document.createElement("td");
+					$(ocorrStatus).addClass("ocorrInfo");
+					$(ocorrStatus).append(ocorrIconX);
+
+					var btnOcorr = document.createElement("button");
+					$(btnOcorr).addClass("btn btn-primary");
+					btnOcorr.innerHTML = 'Reclamar Novamente';
+					$(btnOcorr).on("click", function(event){
+						window.alert("Sua Solicitação foi renovada!");
+					});
+				}
 
 				var ocorrBtn = document.createElement("td");
 				$(ocorrBtn).addClass("ocorrInfo");
@@ -509,7 +523,8 @@ function regOcorrencia() {
 			regCidade: $("#regCidade").val(),
 			regEstado: $("#regEstado").val(),
 			regDescricaoS: $("#descSimples").val(),
-			regDescricaoC: $("#descCompleta").val()
+			regDescricaoC: $("#descCompleta").val(),
+			regStatus: "False"
 		};
 		updates['/Ocorrencias-Registradas/' + postKey] = postData;
 		firebase.database().ref().update(updates);
@@ -541,7 +556,8 @@ function regOcorr(){
 		regCidade: $("#regCidade").val(),
 		regEstado: $("#regEstado").val(),
 		regDescricaoS: $("#descSimples").val(),
-		regDescricaoC: $("#descCompleta").val()
+		regDescricaoC: $("#descCompleta").val(),
+		regStatus: "False"
 	};
 	updates['/Ocorrencias-Registradas/' + postKey] = postData;
 	firebase.database().ref().update(updates);

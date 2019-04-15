@@ -138,7 +138,9 @@ th {
     padding-right: 30px;
     padding-left: 30px;
 }
-
+.hidden {
+    display: none;
+}
 /*Trecho que faz modificações nos icones do font awesome*/
 .navigation-menu {
     font-family: Arial, Helvetica, sans-serif;
