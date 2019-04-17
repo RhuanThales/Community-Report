@@ -135,12 +135,11 @@ th {
     background: #27292a;
     color: white;
     border: 1px solid black;
-    padding-right: 30px;
-    padding-left: 30px;
 }
 .hidden {
     display: none;
 }
+
 /*Trecho que faz modificações nos icones do font awesome*/
 .navigation-menu {
     font-family: Arial, Helvetica, sans-serif;

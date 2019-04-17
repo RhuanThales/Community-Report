@@ -171,7 +171,7 @@ function queryDatabase(user){
 			//console.log(userOcorr);
 
 			if(currentOcorr === userOcorr){				
-				currentTable = document.createElement("tbody");
+				//currentTable = document.createElement("tbody");
 				currentRow = document.createElement("tr");
 
 				//Criando paragrafos que contem as informações das ocorrências como: problema, descrição e endereço
@@ -181,8 +181,9 @@ function queryDatabase(user){
 
 				var ocorrEndereco = document.createElement("td");
 				$(ocorrEndereco).addClass("ocorrInfo");
-				$(ocorrEndereco).html(currentObject.regRua + ", " + "nº " + currentObject.regNumero + ", " + currentObject.regBairro);
-				
+				$(ocorrEndereco).html(currentObject.regRua);
+				//$(ocorrEndereco).html(currentObject.regRua + ", " + "nº " + currentObject.regNumero + ", " + currentObject.regBairro);
+
 				var ocorrIconV = document.createElement("i");
 				$(ocorrIconV).addClass("fas fa-check");
 
@@ -196,7 +197,7 @@ function queryDatabase(user){
 					$(ocorrStatus).append(ocorrIconV);
 
 					var btnOcorr = document.createElement("button");
-					$(btnOcorr).addClass("btn btn-primary hidden");
+					$(btnOcorr).addClass("btn btn-primary hidden btnInfoOcorr");
 					btnOcorr.innerHTML = 'Reclamar Novamente';
 					$(btnOcorr).on("click", function(event){
 						window.alert("Sua Solicitação foi renovada!");
@@ -206,11 +207,14 @@ function queryDatabase(user){
 					$(ocorrStatus).addClass("ocorrInfo");
 					$(ocorrStatus).append(ocorrIconX);
 
+					var btnOcorrIcon = document.createElement("i");
+					$(btnOcorrIcon).addClass("fas fa-clipboard-list");
+
 					var btnOcorr = document.createElement("button");
-					$(btnOcorr).addClass("btn btn-primary");
-					btnOcorr.innerHTML = 'Reclamar Novamente';
+					$(btnOcorr).addClass("btn btn-primary btnInfoOcorr btnHidden");
+					$(btnOcorr).append(btnOcorrIcon);
 					$(btnOcorr).on("click", function(event){
-						window.alert("Sua Solicitação foi renovada!");
+						$("#modalReOcorr").modal("show");
 					});
 				}
 
@@ -218,8 +222,8 @@ function queryDatabase(user){
 				$(ocorrBtn).addClass("ocorrInfo");
 				$(ocorrBtn).append(btnOcorr);
 
-				$('#infoOcorr').append(currentTable);
-				$(currentTable).append(currentRow);
+				$('#infoOcorr').append(currentRow);
+				//$(currentTable).append(currentRow);
 				$(currentRow).append(ocorrProblema, ocorrEndereco, ocorrStatus, ocorrBtn);
 			}
 		}
