@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>CommunityReport - Minhas Ocorrências</title>
+		<title>CommunityReport</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no">
 		<meta name="description" content="Web App para registro de problemas no município">
@@ -41,10 +41,15 @@
 				<div class="row">
 					<div class="col-md-12">
 						<nav class="navbar navbar-light bg-light">
-						  <a class="navbar-brand" href="index.html">
-						    <img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
-						    CommunityReport
-						  </a>
+							<a class="navbar-brand desktop" href="#">
+							  <img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
+							  CommunityReport
+							</a>
+							<a class="navbar-brand mobile" href="#">
+							  <img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
+							  C-Report
+							</a>
+						  <!--<a href="index.html" class="arrowIcon"><button onclick="logout()" type="button"><i class="fas fa-sign-out-alt"></i><span> Sair</span></button></a>-->
 						</nav>
 					</div>
 				</div>
@@ -52,28 +57,19 @@
 		</section>
 		<!--Final-->
 
-		<!--Trecho do codigo referente ao conteudo da pagina-->
-		<!--Feito por David Levi-->
-		<section id="ocorrencias" class="indexSection estado">
-			<div class="container-fluid box-parent-login divIndex">
+		<!--Trecho do cógio referente ao conteudo da pagina principal-->
+		<!--Feito por Rhuan-->
+		<section class="indexSection">
+			<div class="container box-parent-login divIndex">
 				<div class="row well box-login">
-					<div class="col-md-2"></div>
-					<div class="col-md-8 indexDiv bg-white boxIndex">
-						<h3>Minhas Ocorrências</h3>
-						<!--Estado da operação-->
-						<table class="table table-dark" id="infoOcorr">
-						  <thead>
-						    <tr>
-						      <th>Reclamação</th>
-						      <th>Local</th>
-						      <th>Status</th>
-						      <th>Petição</th>
-						    </tr>
-						  </thead>
-						  <tbody id="infoOcorr"></tbody>
-						</table>
+					<div class="col-md-3"></div>
+					<div class="col-md-6 indexDiv bg-white boxIndex">
+						<div class="indexLogoDiv">
+							<img src="./imagens/logo/logo-04.jpg" class="indexLogo" alt="cReportLogo">
+						</div>
+						<div id="infoPrefeitura"></div>
 					</div>
-					<div class="col-md-2"></div>
+					<div class="col-md-3"></div>
 				</div>
 			</div>
 		</section>
@@ -82,12 +78,12 @@
 		<!--Trecho do codigo referente ao menu inferior-->
 		<!--Feito por Rhuan-->
 		<section class="menuSection">
-			<div class="container-fluid" id="menuDiv">
+			<div class="container-fluid">
 				<div class="row navigation-menu">
 					<div class="col-md-3"></div>
 					<div class="col-md-6">
+						<a href="minhas-ocorrencias.html"><i class="fas fa-list-alt"></i><span>Minhas Ocorrências</span></a>
 						<a href="ocorrencias.html"><i class="fas fa-pen-alt"></i><span>Registrar Ocorrências</span></a>
-						<a href="pagina-principal.html"><i class="fas fa-home"></i><span>Início</span></a>
 						<a href="setores-publicos.html"><i class="fas fa-city"></i><span>Setores Públicos</span></a>
 						<a href="index.html">
 							<button class="btnLogout" onclick="logout()" type="button"><i class="fas fa-sign-out-alt"></i><span>Sair</span></button>
@@ -97,60 +93,6 @@
 				</div>
 			</div>
 		</section>
-		<!--Final-->
-
-		<!--Trecho referente a caixa de dialogo que mostra o endereço completo da ocorrência registrada-->
-		<div class="modal fade" id="modalInfoEnd" role="dialog">
-		    <div class="modal-dialog">
-		      	<!-- Conteúdo do modal-->
-		      	<div class="modal-content">
-		        	<div class="modal-header">
-		          		<h4 class="modal-title">Endereço</h4>
-		          		<button type="button" class="close" data-dismiss="modal">&times;</button>
-		        	</div>
-		        	<div class="modal-body">
-		        		<p>Endereço em que a ocorrência foi visualizada</p>
-		        		<div id="infoEndOcorr"></div>
-		        	</div>
-		        	<div class="modal-footer">
-		          		<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-		        	</div>
-		      	</div>  
-		    </div>
-		</div>
-		<!--Final-->
-
-		<!--Trecho referente a caixa de dialogo para refazer o pedido de solução do problema-->
-		<div class="modal fade" id="modalReOcorr" role="dialog">
-		    <div class="modal-dialog">
-		      	<!-- Conteúdo do modal-->
-		      	<div class="modal-content">
-		        	<div class="modal-header">
-		          		<h4 class="modal-title">Encaminhar Ocorrência</h4>
-		          		<button type="button" class="close" data-dismiss="modal">&times;</button>
-		        	</div>
-		        	<div class="modal-body">
-		        		<p>Confira os campos abaixo antes de confirmar:</p>
-		        		<form role="form">
-		        			<fieldset>
-		        				<div class="form-group ls-login-user">
-		        					<label for="reProb">Problema:</label>
-		        					<input class="form-control ls-login-bg-user input-lg" id="reProb" type="text" aria-label="problema" placeholder="Problema">
-		        					<label for="reEnd">Endereço:</label>
-		        					<input class="form-control ls-login-bg-user input-lg" id="reEnd" type="text" aria-label="problema" placeholder="Endereço">
-		        					<label for="reEmail">E-mail:</label>
-		        					<input class="form-control ls-login-bg-user input-lg" id="reEmail" type="e-mail" aria-label="problema" placeholder="E-mail">
-		        				</div>
-		        			</fieldset>
-		        		</form>	
-		        	</div>
-		        	<div class="modal-footer">
-		          		<button type="button" class="btn btn-default" data-dismiss="modal">Enviar</button>
-		          		<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-		        	</div>
-		      	</div>  
-		    </div>
-		</div>
 		<!--Final-->
 
 		<!--Trecho do código referente ao roda-pé da página-->
@@ -203,7 +145,6 @@
 			</footer>
 		</section>
 		<!--Final-->
-
 
 		<!-- Esse trecho de codigo deve ficar sempre abaixo dos conteudos do body -->
 		<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
