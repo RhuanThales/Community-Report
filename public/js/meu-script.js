@@ -166,12 +166,12 @@ function queryDatabase(user){
 		var currentRow;
 		
 		for (var i = 0; i < keys.length; i++){				
+			
 			var currentObject = PostObject[keys[i]];			
+			
 			var userOcorr = currentObject.regEmail;
-			//console.log(userOcorr);
 
 			if(currentOcorr === userOcorr){				
-				//currentTable = document.createElement("tbody");
 				currentRow = document.createElement("tr");
 
 				//Criando paragrafos que contem as informações das ocorrências como: problema, descrição e endereço
@@ -182,7 +182,6 @@ function queryDatabase(user){
 				var ocorrEndereco = document.createElement("td");
 				$(ocorrEndereco).addClass("ocorrInfo");
 				$(ocorrEndereco).html(currentObject.regRua);
-				//$(ocorrEndereco).html(currentObject.regRua + ", " + "nº " + currentObject.regNumero + ", " + currentObject.regBairro);
 
 				var ocorrIconV = document.createElement("i");
 				$(ocorrIconV).addClass("fas fa-check");
@@ -192,39 +191,24 @@ function queryDatabase(user){
 
 				//Fazendo a checagem do status da ocorrência para a exibição do icone correto (v para atendidas e x para as não atendidas)
 				if (currentObject.regStatus === "True") {
-					var ocorrStatus = document.createElement("td");
-					$(ocorrStatus).addClass("ocorrInfo");
-					$(ocorrStatus).append(ocorrIconV);
-
-					var btnOcorr = document.createElement("button");
-					$(btnOcorr).addClass("btn btn-primary hidden btnInfoOcorr");
-					btnOcorr.innerHTML = 'Reclamar Novamente';
-					$(btnOcorr).on("click", function(event){
-						window.alert("Sua Solicitação foi renovada!");
-					});
+					var ocorrSatus = document.createElement("td");
+					$(ocorrSatus).addClass("ocorrInfo");
+					$(ocorrSatus).append(ocorrIconV);
 				} else {
-					var ocorrStatus = document.createElement("td");
-					$(ocorrStatus).addClass("ocorrInfo");
-					$(ocorrStatus).append(ocorrIconX);
-
-					var btnOcorrIcon = document.createElement("i");
-					$(btnOcorrIcon).addClass("fas fa-clipboard-list");
-
 					var btnOcorr = document.createElement("button");
-					$(btnOcorr).addClass("btn btn-primary btnInfoOcorr btnHidden");
-					$(btnOcorr).append(btnOcorrIcon);
+					$(btnOcorr).addClass("btn btn-primary btnInfoOcorr");
+					$(btnOcorr).append(ocorrIconX);
 					$(btnOcorr).on("click", function(event){
 						$("#modalReOcorr").modal("show");
 					});
+
+					var ocorrSatus = document.createElement("td");
+					$(ocorrSatus).addClass("ocorrInfo");
+					$(ocorrSatus).append(btnOcorr);
 				}
 
-				var ocorrBtn = document.createElement("td");
-				$(ocorrBtn).addClass("ocorrInfo");
-				$(ocorrBtn).append(btnOcorr);
-
 				$('#infoOcorr').append(currentRow);
-				//$(currentTable).append(currentRow);
-				$(currentRow).append(ocorrProblema, ocorrEndereco, ocorrStatus, ocorrBtn);
+				$(currentRow).append(ocorrProblema, ocorrEndereco, ocorrSatus);
 			}
 		}
 	});
@@ -239,6 +223,7 @@ $(document).ready(function(){
 	$("#backArrow").hide();
 	$("#btnRegistrarOcorr").hide();
 	$("#btnRegOcorrencia").show();
+	$("#sectionReOcorr").hide();
 });
 
 var btnRegAnimal = document.getElementById('btnRegAnimal');
@@ -568,4 +553,32 @@ function regOcorr(){
 	//Apos salvar os dados o formulario de preenchimento é ocultado
 	window.alert("Sucesso no registro da ocorrencia!!!");
 	window.open("ocorrencias.html", "_self");
+}
+
+//Funções para se refazer as ocorrências que ainda não foram solucionadas pelo setor responsavel
+function reOcorr(){
+	$("#ocorrencias").hide();
+	$("#sectionReOcorr").show();
+}
+
+function cancelarReOcorr(){
+	$("#ocorrencias").show();
+	$("#sectionReOcorr").hide();
+}
+
+function fazerReOcorr(){
+	var postKey = firebase.database().ref('Ocorrencias-Registradas/').push().key;
+	var updates = {};
+	var postData = {
+		regProblema: $("#reOcorrReclamacao").val(),
+		regEmail: $("#reOcorrEmail").val(),
+		regLocal: $("#reOcorrLocal").val(),
+		regDescricaoS: $("#reOcorrDesc").val(),
+		regStatus: "False"
+	};
+	updates['/Ocorrencias-Registradas/' + postKey] = postData;
+	firebase.database().ref().update(updates);
+	//Após salvar os dados no Banco o formulario é escondido
+	window.alert("Sua ocorrência foi refeita!");
+	cancelarReOcorr();
 }

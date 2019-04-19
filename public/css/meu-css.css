@@ -139,7 +139,12 @@ th {
 .hidden {
     display: none;
 }
-
+.desc {
+    margin-bottom: 20px;
+}
+.email{
+    margin-bottom: 20px;
+}
 /*Trecho que faz modificações nos icones do font awesome*/
 .navigation-menu {
     font-family: Arial, Helvetica, sans-serif;

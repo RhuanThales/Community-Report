@@ -55,11 +55,14 @@
 		<!--Trecho do codigo referente ao conteudo da pagina-->
 		<!--Feito por David Levi-->
 		<section id="ocorrencias" class="indexSection estado">
-			<div class="container-fluid box-parent-login divIndex">
+			<div class="container box-parent-login divIndex">
 				<div class="row well box-login">
 					<div class="col-md-2"></div>
 					<div class="col-md-8 indexDiv bg-white boxIndex">
 						<h3>Minhas Ocorrências</h3>
+						<p><strong>"V"</strong> indica as ocorrências que já foram examindas pelo setor responsável.</p>
+						<p><strong>"X"</strong> indica as ocorrêcias que ainda não foram examinadas pelo setor responsável.</p>
+						<p>Para re-enviar a ocorrência que não tenha sido examinada clique no botão que indica seu status.</p>
 						<!--Estado da operação-->
 						<table class="table table-dark" id="infoOcorr">
 						  <thead>
@@ -67,13 +70,53 @@
 						      <th>Reclamação</th>
 						      <th>Local</th>
 						      <th>Status</th>
-						      <th>Petição</th>
 						    </tr>
 						  </thead>
 						  <tbody id="infoOcorr"></tbody>
 						</table>
 					</div>
 					<div class="col-md-2"></div>
+				</div>
+			</div>
+		</section>
+		<!--Final-->
+
+		<!--Trecho referente a caixa de dialogo que mostra o endereço completo da ocorrência registrada-->
+		<section id="sectionReOcorr">
+			<div class="container box-parent-login divIndex">
+				<div class="row well box-login">
+					<div class="col-md-3"></div>
+					<div class="col-md-6 indexDiv bg-white boxIndex">
+						<h3>Enviar ocorrência</h3>
+						<form role="form">
+							<fieldset>
+								<div class="form-group ls-login-user">
+									<label for="reOcorrReclamacao">Reclamação:</label>
+									<input type="text" name="Reclamacao" id="reOcorrReclamacao" class="form-control ls-login-bg-user input-lg" aria-label="Reclamação" placeholder="Reclamação">
+								</div>
+								
+								<div>
+									<label for="reOcorrLocal">Local:</label>
+									<input type="text" name="Local" id="reOcorrLocal" class="form-control ls-login-bg-user input-lg" aria-label="Local" placeholder="Local">
+								</div>
+								<br>
+								<div>
+									<label for="reOcorrDesc">Descrição:</label>
+									<textarea class="form-control ls-login-bg-user input-lg desc" id="reOcorrDesc"></textarea>
+								</div>
+
+								<div>
+									<label for="reOcorrEmail">E-mail:</label>
+									<input type="e-mail" name="email" id="reOcorrEmail" class="form-control ls-login-bg-user input-lg email" aria-label="email" placeholder="E-mail">
+								</div>
+
+								<button onclick="fazerReOcorr()" type="button" id="reOcorrBtnA" class="btn btn-primary btn-lg btn-block">Enviar</button>
+
+								<button onclick="cancelarReOcorr()" type="button" id="reOcorrBtnB" class="btn btn-primary btn-lg btn-block">Cancelar</button>
+							</fieldset>
+						</form>
+					</div>
+					<div class="col-md-3"></div>
 				</div>
 			</div>
 		</section>
@@ -99,27 +142,6 @@
 		</section>
 		<!--Final-->
 
-		<!--Trecho referente a caixa de dialogo que mostra o endereço completo da ocorrência registrada-->
-		<div class="modal fade" id="modalInfoEnd" role="dialog">
-		    <div class="modal-dialog">
-		      	<!-- Conteúdo do modal-->
-		      	<div class="modal-content">
-		        	<div class="modal-header">
-		          		<h4 class="modal-title">Endereço</h4>
-		          		<button type="button" class="close" data-dismiss="modal">&times;</button>
-		        	</div>
-		        	<div class="modal-body">
-		        		<p>Endereço em que a ocorrência foi visualizada</p>
-		        		<div id="infoEndOcorr"></div>
-		        	</div>
-		        	<div class="modal-footer">
-		          		<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-		        	</div>
-		      	</div>  
-		    </div>
-		</div>
-		<!--Final-->
-
 		<!--Trecho referente a caixa de dialogo para refazer o pedido de solução do problema-->
 		<div class="modal fade" id="modalReOcorr" role="dialog">
 		    <div class="modal-dialog">
@@ -130,23 +152,11 @@
 		          		<button type="button" class="close" data-dismiss="modal">&times;</button>
 		        	</div>
 		        	<div class="modal-body">
-		        		<p>Confira os campos abaixo antes de confirmar:</p>
-		        		<form role="form">
-		        			<fieldset>
-		        				<div class="form-group ls-login-user">
-		        					<label for="reProb">Problema:</label>
-		        					<input class="form-control ls-login-bg-user input-lg" id="reProb" type="text" aria-label="problema" placeholder="Problema">
-		        					<label for="reEnd">Endereço:</label>
-		        					<input class="form-control ls-login-bg-user input-lg" id="reEnd" type="text" aria-label="problema" placeholder="Endereço">
-		        					<label for="reEmail">E-mail:</label>
-		        					<input class="form-control ls-login-bg-user input-lg" id="reEmail" type="e-mail" aria-label="problema" placeholder="E-mail">
-		        				</div>
-		        			</fieldset>
-		        		</form>	
+		        		<p>Deseja refazer a ocorrênica?</p>
 		        	</div>
 		        	<div class="modal-footer">
-		          		<button type="button" class="btn btn-default" data-dismiss="modal">Enviar</button>
-		          		<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+		          		<button type="button" class="btn btn-default" data-dismiss="modal" onclick="reOcorr()">Sim</button>
+		          		<button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
 		        	</div>
 		      	</div>  
 		    </div>
