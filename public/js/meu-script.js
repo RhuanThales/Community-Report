@@ -167,7 +167,7 @@ function queryDatabase(user){
 
 				$("#setorBtn").on("click", function(event){
 					if (prefeitura === prefDucks) {
-						window.open("setores-publicos", "_self");
+						window.open("setores-publicos-patos-de-minas", "_self");
 					} if (prefeitura === prefSaoGot) {
 						window.open("setores-publicos-sao-gotardo", "_self");
 					} if (prefeitura === prefBh) {
