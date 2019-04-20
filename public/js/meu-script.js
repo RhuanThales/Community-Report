@@ -107,9 +107,11 @@ function logout(){
 var db = firebase.database().ref();
 var RefUsers = db.child('Usuarios');
 var RefPref = db.child('Prefeituras');
+var RefSetors = db.child('Setores');
 var RefOcorr = db.child('Ocorrencias-Registradas');
 var infoPrefeitura = document.getElementById("infoPrefeitura");
 var infoOcorr = document.getElementById("infoOcorr");
+
 
 function queryDatabase(user){
 
@@ -212,6 +214,57 @@ function queryDatabase(user){
 			}
 		}
 	});
+
+	//Carregamento de Dados dos Setores
+
+		
+
+	RefSetors.once('value').then(function(snapshot){
+		
+		var PostObject = snapshot.val();
+		var keys = Object.keys(PostObject);
+		var currentRow;
+		
+		for (var i = 0; i < keys.length; i++){
+				
+			var currentObject = PostObject[keys[i]];
+			
+			var userAtual = currentObject.Email;
+			var setorAtual = currentObject.nomePrefeitura;
+
+			
+				var currentSetors = currentObject.Prefeitura;
+
+				if(currentSetors === setorAtual){
+				currentRow = document.createElement("div");
+				//Criando paragrafos que contem as informações da prefeitura como nome endereço e site
+				var nomeSetor = document.createElement("p");
+				$(nomeSetor).addClass("setorInfo");
+				$(nomeSetor).html(currentObject.setor00.setor00Nome);
+
+				var enderecoSetor = document.createElement("p");
+				$(enderecoSetor).addClass("setorInfo");
+				$(enderecoSetor).html('Endereço: ' +  currentObject.setor00.setor00Endereco);
+
+				var telefoneSetor = document.createElement("p");
+				$(telefoneSetor).addClass("setorInfo");
+				$(telefoneSetor).html('Telefones: ' + currentObject.setor00.setor00Telefone);
+
+				var siteSetor = document.createElement("a");
+				$(siteSetor).addClass("setorInfo");
+				$(siteSetor).html('Site: ' + currentObject.setor00.setor00Sites);
+				
+				$('#infoPrefeitura').append(currentRow);
+				$(currentRow).append(nomeSetor, enderecoSetor, telefoneSetor, siteSetor);
+				}
+				
+			
+			
+		}
+	});
+
+
+
 }
 
 //Função para redirecionar a pagina de registro de ocorrencias
