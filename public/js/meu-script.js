@@ -154,6 +154,30 @@ function queryDatabase(user){
 				
 				$('#infoPrefeitura').append(currentRow);
 				$(currentRow).append(nomePrefeitura, enderecoPrefeitura, telefonePrefeitura, sitePrefeitura);
+
+				var prefeitura = currentObject.Prefeitura;
+
+				console.log(prefeitura);
+
+				var prefSaoGot = "São Gotardo";
+				var prefDucks = "Patos de Minas";
+				var prefBh = "Belo Horizonte";
+				var prefUber = "Uberlândia";
+				var prefPo = "Presidente Olegário";
+
+				$("#setorBtn").on("click", function(event){
+					if (prefeitura === prefDucks) {
+						window.open("setores-publicos", "_self");
+					} if (prefeitura === prefSaoGot) {
+						window.open("setores-publicos-sao-gotardo", "_self");
+					} if (prefeitura === prefBh) {
+						window.open("setores-publicos-belo-horizonte", "_self");
+					} if (prefeitura === prefUber) {
+						window.open("setores-publicos-uberlandia", "_self");
+					} if (prefeitura === prefPo) {
+						window.open("setores-publicos-presidente-olegario", "_self");
+					}
+				});
 			}
 		}
 	});
@@ -214,57 +238,6 @@ function queryDatabase(user){
 			}
 		}
 	});
-
-	//Carregamento de Dados dos Setores
-
-		
-
-	RefSetors.once('value').then(function(snapshot){
-		
-		var PostObject = snapshot.val();
-		var keys = Object.keys(PostObject);
-		var currentRow;
-		
-		for (var i = 0; i < keys.length; i++){
-				
-			var currentObject = PostObject[keys[i]];
-			
-			var userAtual = currentObject.Email;
-			var setorAtual = currentObject.nomePrefeitura;
-
-			
-				var currentSetors = currentObject.Prefeitura;
-
-				if(currentSetors === setorAtual){
-				currentRow = document.createElement("div");
-				//Criando paragrafos que contem as informações da prefeitura como nome endereço e site
-				var nomeSetor = document.createElement("p");
-				$(nomeSetor).addClass("setorInfo");
-				$(nomeSetor).html(currentObject.setor00.setor00Nome);
-
-				var enderecoSetor = document.createElement("p");
-				$(enderecoSetor).addClass("setorInfo");
-				$(enderecoSetor).html('Endereço: ' +  currentObject.setor00.setor00Endereco);
-
-				var telefoneSetor = document.createElement("p");
-				$(telefoneSetor).addClass("setorInfo");
-				$(telefoneSetor).html('Telefones: ' + currentObject.setor00.setor00Telefone);
-
-				var siteSetor = document.createElement("a");
-				$(siteSetor).addClass("setorInfo");
-				$(siteSetor).html('Site: ' + currentObject.setor00.setor00Sites);
-				
-				$('#infoPrefeitura').append(currentRow);
-				$(currentRow).append(nomeSetor, enderecoSetor, telefoneSetor, siteSetor);
-				}
-				
-			
-			
-		}
-	});
-
-
-
 }
 
 //Função para redirecionar a pagina de registro de ocorrencias
@@ -620,7 +593,7 @@ function cancelarReOcorr(){
 }
 
 function fazerReOcorr(){
-	var postKey = firebase.database().ref('Ocorrencias-Registradas/').push().key;
+	var postKey = firebase.database().ref('Ocorrencias-Refeitas/').push().key;
 	var updates = {};
 	var postData = {
 		regProblema: $("#reOcorrReclamacao").val(),
@@ -629,7 +602,7 @@ function fazerReOcorr(){
 		regDescricaoS: $("#reOcorrDesc").val(),
 		regStatus: "False"
 	};
-	updates['/Ocorrencias-Registradas/' + postKey] = postData;
+	updates['/Ocorrencias-Refeitas/' + postKey] = postData;
 	firebase.database().ref().update(updates);
 	//Após salvar os dados no Banco o formulario é escondido
 	window.alert("Sua ocorrência foi refeita!");
