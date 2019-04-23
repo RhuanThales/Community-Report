@@ -167,15 +167,15 @@ function queryDatabase(user){
 
 				$("#setorBtn").on("click", function(event){
 					if (prefeitura === prefDucks) {
-						window.open("setores-publicos-patos-de-minas", "_self");
+						window.open("setores-publicos-patos-de-minas.html", "_self");
 					} if (prefeitura === prefSaoGot) {
-						window.open("setores-publicos-sao-gotardo", "_self");
+						window.open("setores-publicos-sao-gotardo.html", "_self");
 					} if (prefeitura === prefBh) {
-						window.open("setores-publicos-belo-horizonte", "_self");
+						window.open("setores-publicos-belo-horizonte.html", "_self");
 					} if (prefeitura === prefUber) {
-						window.open("setores-publicos-uberlandia", "_self");
+						window.open("setores-publicos-uberlandia.html", "_self");
 					} if (prefeitura === prefPo) {
-						window.open("setores-publicos-presidente-olegario", "_self");
+						window.open("setores-publicos-presidente-olegario.html", "_self");
 					}
 				});
 			}
