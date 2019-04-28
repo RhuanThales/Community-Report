@@ -244,7 +244,7 @@ function queryDatabase(user){
 			if(currentGestor === convert){
 				var prefeitura = currentObject.Prefeitura;
 	
-				console.log(prefeitura);
+				//console.log(prefeitura);
 	
 				var prefSaoGot = "São Gotardo";
 				var prefDucks = "Patos de Minas";
@@ -542,311 +542,324 @@ function queryDatabase(user){
 				$('#infoOcorr').append(currentRow);
 				$(currentRow).append(ocorrProblema, ocorrEndereco, ocorrSatus);
 			}
+		}
+	});
+	
+	//
+	var prefPatos = "Patos de Minas";
+	var prefBelo = "Belo Horizonte";
+	var prefUberlandia = "Uberlândia";
+	var prefOlegario = "Presidente Olegário";
+	var prefGotardo = "São Gotardo";
+
+	RefOcorrGestor.once('value').then(function(snapshot){
+
+		var PostObject = snapshot.val();
+		var keys = Object.keys(PostObject);	
+		var currentRow;
+		
+		for (var i = 0; i < keys.length; i++){					
+			var currentObject = PostObject[keys[i]];				
+			
+			var pref = currentObject.regCidade;
+
+			console.log(pref);
 			
 			//Pegar informações do banco e mostra-las para o gestor na tela principal
-			if (i % 1 == 0) {
+			if (pref === prefPatos) {
 				currentRowOcorr = document.createElement("div");
 				$(currentRowOcorr).addClass("row");
 				li = document.createElement("li");
 				$(li).addClass("ocorrLi");				
 				$(li).append(currentRowOcorr);
-			}
-			var col1 = document.createElement("div");
-			$(col1).addClass("col-md-6");
-			
-			var col2 = document.createElement("div");
-			$(col2).addClass("col-md-6");
-			$(col2).addClass("ocorrDiv");
-			
-			//Criando div's para que possam ser colocados alguns itens dentro delas			
-			var ocorrDiv1 = document.createElement("div");
-			$(ocorrDiv1).addClass("ocorrDiv1");
 
-			var ocorr0 = currentObject.regProblema0; // Agua
-			var ocorr1 = currentObject.regProblema1; // Animal
-			var ocorr2 = currentObject.regProblema2; // Arvore
-			var ocorr3 = currentObject.regProblema3; // Buraco
-			var ocorr4 = currentObject.regProblema4; // Lampada
-			var ocorr5 = currentObject.regProblema5; // Limpeza
-			var ocorr6 = currentObject.regProblema6; // Lote
-			var ocorr7 = currentObject.regProblema7; // Inseto
-			var ocorr8 = currentObject.regProblema8; // Barulho
-			var ocorr9 = currentObject.regProblema9; // Sinalização
-			var ocorr10 = currentObject.regDescricaoC; //Outros
+				var col1 = document.createElement("div");
+				$(col1).addClass("col-md-6");
+				
+				var col2 = document.createElement("div");
+				$(col2).addClass("col-md-6");
+				$(col2).addClass("ocorrDiv");
+				
+				//Criando div's para que possam ser colocados alguns itens dentro delas			
+				var ocorrDiv1 = document.createElement("div");
+				$(ocorrDiv1).addClass("ocorrDiv1");
 
-			var pref = currentObject.regCidade;
+				var ocorr0 = currentObject.regProblema0; // Agua
+				var ocorr1 = currentObject.regProblema1; // Animal
+				var ocorr2 = currentObject.regProblema2; // Arvore
+				var ocorr3 = currentObject.regProblema3; // Buraco
+				var ocorr4 = currentObject.regProblema4; // Lampada
+				var ocorr5 = currentObject.regProblema5; // Limpeza
+				var ocorr6 = currentObject.regProblema6; // Lote
+				var ocorr7 = currentObject.regProblema7; // Inseto
+				var ocorr8 = currentObject.regProblema8; // Barulho
+				var ocorr9 = currentObject.regProblema9; // Sinalização
+				var ocorr10 = currentObject.regDescricaoC; //Outros
 
-			console.log(pref);
-			
-			var prefPatos = "Patos de Minas";
-			var prefBelo = "Belo Horizonte";
-			var prefUberlandia = "Uberlândia";
-			var prefOlegario = "Presidente Olegário";
-			var prefGotardo = "São Gotardo";
+				if (ocorr0 != "Null") {
+					//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
+					var ocorrImage = document.createElement("img");
+					if(currentObject.imagemURL != null){
+						ocorrImage.src = currentObject.imagemURL;
+					} else {
+						ocorrImage.src = "./imagens/logo/no-image.png";
+					}
+					$(ocorrImage).addClass("contentImage");
+					//Criando elementos dos paragrafos contendo as informações necessarias
+					var ocorrProb = document.createElement("p");
+					$(ocorrProb).addClass("ocorrInfo");
+					$(ocorrProb).html(currentObject.regDescricaoS);
+					//
+					var ocorrEnd = document.createElement("p");
+					$(ocorrEnd).addClass("ocorrInfo");
+					$(ocorrEnd).html(currentObject.regRua);
 
-			if ((ocorr0 != "Null")&&(pref === prefPatos)) {
-				//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
-				var ocorrImage = document.createElement("img");
-				if(currentObject.imagemURL != null){
-					ocorrImage.src = currentObject.imagemURL;
-				} else {
-					ocorrImage.src = "./imagens/logo/no-image.png";
+					$('#ocorrFeedAgua').append(li);
+					$(col1).append(ocorrImage);
+					$(ocorrDiv1).append(ocorrProb, ocorrEnd);
+					$(col2).append(ocorrDiv1);	
+					$(currentRowOcorr).append(col1, col2);
 				}
-				$(ocorrImage).addClass("contentImage");
-				//Criando elementos dos paragrafos contendo as informações necessarias
-				var ocorrProb = document.createElement("p");
-				$(ocorrProb).addClass("ocorrInfo");
-				$(ocorrProb).html(currentObject.regDescricaoS);
-				//
-				var ocorrEnd = document.createElement("p");
-				$(ocorrEnd).addClass("ocorrInfo");
-				$(ocorrEnd).html(currentObject.regRua);
+				if (ocorr1 != "Null") {
+					//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
+					var ocorrImage = document.createElement("img");
+					if(currentObject.imagemURL != null){
+						ocorrImage.src = currentObject.imagemURL;
+					} else {
+						ocorrImage.src = "./imagens/logo/no-image.png";
+					}
+					$(ocorrImage).addClass("contentImage");
+					//Criando elementos dos paragrafos contendo as informações necessarias
+					var ocorrProb = document.createElement("p");
+					$(ocorrProb).addClass("ocorrInfo");
+					$(ocorrProb).html(currentObject.regDescricaoS);
+					//
+					var ocorrEnd = document.createElement("p");
+					$(ocorrEnd).addClass("ocorrInfo");
+					$(ocorrEnd).html(currentObject.regRua);
 
-				$('#ocorrFeedAgua').append(li);
-				$(col1).append(ocorrImage);
-				$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-				$(col2).append(ocorrDiv1);	
-				$(currentRowOcorr).append(col1, col2);
-			}
-			if (ocorr1 != "Null") {
-				//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
-				var ocorrImage = document.createElement("img");
-				if(currentObject.imagemURL != null){
-					ocorrImage.src = currentObject.imagemURL;
-				} else {
-					ocorrImage.src = "./imagens/logo/no-image.png";
+					$('#ocorrFeedAnimal').append(li);
+					$(col1).append(ocorrImage);
+					$(ocorrDiv1).append(ocorrProb, ocorrEnd);
+					$(col2).append(ocorrDiv1);	
+					$(currentRowOcorr).append(col1, col2);
 				}
-				$(ocorrImage).addClass("contentImage");
-				//Criando elementos dos paragrafos contendo as informações necessarias
-				var ocorrProb = document.createElement("p");
-				$(ocorrProb).addClass("ocorrInfo");
-				$(ocorrProb).html(currentObject.regDescricaoS);
-				//
-				var ocorrEnd = document.createElement("p");
-				$(ocorrEnd).addClass("ocorrInfo");
-				$(ocorrEnd).html(currentObject.regRua);
+				if (ocorr2 != "Null") {
+					//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
+					var ocorrImage = document.createElement("img");
+					if(currentObject.imagemURL != null){
+						ocorrImage.src = currentObject.imagemURL;
+					} else {
+						ocorrImage.src = "./imagens/logo/no-image.png";
+					}
+					$(ocorrImage).addClass("contentImage");
+					//Criando elementos dos paragrafos contendo as informações necessarias
+					var ocorrProb = document.createElement("p");
+					$(ocorrProb).addClass("ocorrInfo");
+					$(ocorrProb).html(currentObject.regDescricaoS);
+					//
+					var ocorrEnd = document.createElement("p");
+					$(ocorrEnd).addClass("ocorrInfo");
+					$(ocorrEnd).html(currentObject.regRua);
 
-				$('#ocorrFeedAnimal').append(li);
-				$(col1).append(ocorrImage);
-				$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-				$(col2).append(ocorrDiv1);	
-				$(currentRowOcorr).append(col1, col2);
-			}
-			if (ocorr2 != "Null") {
-				//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
-				var ocorrImage = document.createElement("img");
-				if(currentObject.imagemURL != null){
-					ocorrImage.src = currentObject.imagemURL;
-				} else {
-					ocorrImage.src = "./imagens/logo/no-image.png";
+					$('#ocorrFeedArvore').append(li);
+					$(col1).append(ocorrImage);
+					$(ocorrDiv1).append(ocorrProb, ocorrEnd);
+					$(col2).append(ocorrDiv1);	
+					$(currentRowOcorr).append(col1, col2);
 				}
-				$(ocorrImage).addClass("contentImage");
-				//Criando elementos dos paragrafos contendo as informações necessarias
-				var ocorrProb = document.createElement("p");
-				$(ocorrProb).addClass("ocorrInfo");
-				$(ocorrProb).html(currentObject.regDescricaoS);
-				//
-				var ocorrEnd = document.createElement("p");
-				$(ocorrEnd).addClass("ocorrInfo");
-				$(ocorrEnd).html(currentObject.regRua);
+				if (ocorr3 != "Null") {
+					//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
+					var ocorrImage = document.createElement("img");
+					if(currentObject.imagemURL != null){
+						ocorrImage.src = currentObject.imagemURL;
+					} else {
+						ocorrImage.src = "./imagens/logo/no-image.png";
+					}
+					$(ocorrImage).addClass("contentImage");
+					//Criando elementos dos paragrafos contendo as informações necessarias
+					var ocorrProb = document.createElement("p");
+					$(ocorrProb).addClass("ocorrInfo");
+					$(ocorrProb).html(currentObject.regDescricaoS);
+					//
+					var ocorrEnd = document.createElement("p");
+					$(ocorrEnd).addClass("ocorrInfo");
+					$(ocorrEnd).html(currentObject.regRua);
 
-				$('#ocorrFeedArvore').append(li);
-				$(col1).append(ocorrImage);
-				$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-				$(col2).append(ocorrDiv1);	
-				$(currentRowOcorr).append(col1, col2);
-			}
-			if (ocorr3 != "Null") {
-				//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
-				var ocorrImage = document.createElement("img");
-				if(currentObject.imagemURL != null){
-					ocorrImage.src = currentObject.imagemURL;
-				} else {
-					ocorrImage.src = "./imagens/logo/no-image.png";
+					$('#ocorrFeedBuraco').append(li);
+					$(col1).append(ocorrImage);
+					$(ocorrDiv1).append(ocorrProb, ocorrEnd);
+					$(col2).append(ocorrDiv1);	
+					$(currentRowOcorr).append(col1, col2);
 				}
-				$(ocorrImage).addClass("contentImage");
-				//Criando elementos dos paragrafos contendo as informações necessarias
-				var ocorrProb = document.createElement("p");
-				$(ocorrProb).addClass("ocorrInfo");
-				$(ocorrProb).html(currentObject.regDescricaoS);
-				//
-				var ocorrEnd = document.createElement("p");
-				$(ocorrEnd).addClass("ocorrInfo");
-				$(ocorrEnd).html(currentObject.regRua);
+				if (ocorr4 != "Null") {
+					//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
+					var ocorrImage = document.createElement("img");
+					if(currentObject.imagemURL != null){
+						ocorrImage.src = currentObject.imagemURL;
+					} else {
+						ocorrImage.src = "./imagens/logo/no-image.png";
+					}
+					$(ocorrImage).addClass("contentImage");
+					//Criando elementos dos paragrafos contendo as informações necessarias
+					var ocorrProb = document.createElement("p");
+					$(ocorrProb).addClass("ocorrInfo");
+					$(ocorrProb).html(currentObject.regDescricaoS);
+					//
+					var ocorrEnd = document.createElement("p");
+					$(ocorrEnd).addClass("ocorrInfo");
+					$(ocorrEnd).html(currentObject.regRua);
 
-				$('#ocorrFeedBuraco').append(li);
-				$(col1).append(ocorrImage);
-				$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-				$(col2).append(ocorrDiv1);	
-				$(currentRowOcorr).append(col1, col2);
-			}
-			if (ocorr4 != "Null") {
-				//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
-				var ocorrImage = document.createElement("img");
-				if(currentObject.imagemURL != null){
-					ocorrImage.src = currentObject.imagemURL;
-				} else {
-					ocorrImage.src = "./imagens/logo/no-image.png";
+					$('#ocorrFeedLampada').append(li);
+					$(col1).append(ocorrImage);
+					$(ocorrDiv1).append(ocorrProb, ocorrEnd);
+					$(col2).append(ocorrDiv1);	
+					$(currentRowOcorr).append(col1, col2);
 				}
-				$(ocorrImage).addClass("contentImage");
-				//Criando elementos dos paragrafos contendo as informações necessarias
-				var ocorrProb = document.createElement("p");
-				$(ocorrProb).addClass("ocorrInfo");
-				$(ocorrProb).html(currentObject.regDescricaoS);
-				//
-				var ocorrEnd = document.createElement("p");
-				$(ocorrEnd).addClass("ocorrInfo");
-				$(ocorrEnd).html(currentObject.regRua);
+				if (ocorr5 != "Null") {
+					//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
+					var ocorrImage = document.createElement("img");
+					if(currentObject.imagemURL != null){
+						ocorrImage.src = currentObject.imagemURL;
+					} else {
+						ocorrImage.src = "./imagens/logo/no-image.png";
+					}
+					$(ocorrImage).addClass("contentImage");
+					//Criando elementos dos paragrafos contendo as informações necessarias
+					var ocorrProb = document.createElement("p");
+					$(ocorrProb).addClass("ocorrInfo");
+					$(ocorrProb).html(currentObject.regDescricaoS);
+					//
+					var ocorrEnd = document.createElement("p");
+					$(ocorrEnd).addClass("ocorrInfo");
+					$(ocorrEnd).html(currentObject.regRua);
 
-				$('#ocorrFeedLampada').append(li);
-				$(col1).append(ocorrImage);
-				$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-				$(col2).append(ocorrDiv1);	
-				$(currentRowOcorr).append(col1, col2);
-			}
-			if (ocorr5 != "Null") {
-				//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
-				var ocorrImage = document.createElement("img");
-				if(currentObject.imagemURL != null){
-					ocorrImage.src = currentObject.imagemURL;
-				} else {
-					ocorrImage.src = "./imagens/logo/no-image.png";
+					$('#ocorrFeedLimpeza').append(li);
+					$(col1).append(ocorrImage);
+					$(ocorrDiv1).append(ocorrProb, ocorrEnd);
+					$(col2).append(ocorrDiv1);	
+					$(currentRowOcorr).append(col1, col2);
 				}
-				$(ocorrImage).addClass("contentImage");
-				//Criando elementos dos paragrafos contendo as informações necessarias
-				var ocorrProb = document.createElement("p");
-				$(ocorrProb).addClass("ocorrInfo");
-				$(ocorrProb).html(currentObject.regDescricaoS);
-				//
-				var ocorrEnd = document.createElement("p");
-				$(ocorrEnd).addClass("ocorrInfo");
-				$(ocorrEnd).html(currentObject.regRua);
+				if (ocorr6 != "Null") {
+					//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
+					var ocorrImage = document.createElement("img");
+					if(currentObject.imagemURL != null){
+						ocorrImage.src = currentObject.imagemURL;
+					} else {
+						ocorrImage.src = "./imagens/logo/no-image.png";
+					}
+					$(ocorrImage).addClass("contentImage");
+					//Criando elementos dos paragrafos contendo as informações necessarias
+					var ocorrProb = document.createElement("p");
+					$(ocorrProb).addClass("ocorrInfo");
+					$(ocorrProb).html(currentObject.regDescricaoS);
+					//
+					var ocorrEnd = document.createElement("p");
+					$(ocorrEnd).addClass("ocorrInfo");
+					$(ocorrEnd).html(currentObject.regRua);
 
-				$('#ocorrFeedLimpeza').append(li);
-				$(col1).append(ocorrImage);
-				$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-				$(col2).append(ocorrDiv1);	
-				$(currentRowOcorr).append(col1, col2);
-			}
-			if (ocorr6 != "Null") {
-				//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
-				var ocorrImage = document.createElement("img");
-				if(currentObject.imagemURL != null){
-					ocorrImage.src = currentObject.imagemURL;
-				} else {
-					ocorrImage.src = "./imagens/logo/no-image.png";
+					$('#ocorrFeedLote').append(li);
+					$(col1).append(ocorrImage);
+					$(ocorrDiv1).append(ocorrProb, ocorrEnd);
+					$(col2).append(ocorrDiv1);	
+					$(currentRowOcorr).append(col1, col2);
 				}
-				$(ocorrImage).addClass("contentImage");
-				//Criando elementos dos paragrafos contendo as informações necessarias
-				var ocorrProb = document.createElement("p");
-				$(ocorrProb).addClass("ocorrInfo");
-				$(ocorrProb).html(currentObject.regDescricaoS);
-				//
-				var ocorrEnd = document.createElement("p");
-				$(ocorrEnd).addClass("ocorrInfo");
-				$(ocorrEnd).html(currentObject.regRua);
+				if (ocorr7 != "Null") {
+					//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
+					var ocorrImage = document.createElement("img");
+					if(currentObject.imagemURL != null){
+						ocorrImage.src = currentObject.imagemURL;
+					} else {
+						ocorrImage.src = "./imagens/logo/no-image.png";
+					}
+					$(ocorrImage).addClass("contentImage");
+					//Criando elementos dos paragrafos contendo as informações necessarias
+					var ocorrProb = document.createElement("p");
+					$(ocorrProb).addClass("ocorrInfo");
+					$(ocorrProb).html(currentObject.regDescricaoS);
+					//
+					var ocorrEnd = document.createElement("p");
+					$(ocorrEnd).addClass("ocorrInfo");
+					$(ocorrEnd).html(currentObject.regRua);
 
-				$('#ocorrFeedLote').append(li);
-				$(col1).append(ocorrImage);
-				$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-				$(col2).append(ocorrDiv1);	
-				$(currentRowOcorr).append(col1, col2);
-			}
-			if (ocorr7 != "Null") {
-				//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
-				var ocorrImage = document.createElement("img");
-				if(currentObject.imagemURL != null){
-					ocorrImage.src = currentObject.imagemURL;
-				} else {
-					ocorrImage.src = "./imagens/logo/no-image.png";
+					$('#ocorrFeedInseto').append(li);
+					$(col1).append(ocorrImage);
+					$(ocorrDiv1).append(ocorrProb, ocorrEnd);
+					$(col2).append(ocorrDiv1);	
+					$(currentRowOcorr).append(col1, col2);
 				}
-				$(ocorrImage).addClass("contentImage");
-				//Criando elementos dos paragrafos contendo as informações necessarias
-				var ocorrProb = document.createElement("p");
-				$(ocorrProb).addClass("ocorrInfo");
-				$(ocorrProb).html(currentObject.regDescricaoS);
-				//
-				var ocorrEnd = document.createElement("p");
-				$(ocorrEnd).addClass("ocorrInfo");
-				$(ocorrEnd).html(currentObject.regRua);
+				if (ocorr8 != "Null") {
+					//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
+					var ocorrImage = document.createElement("img");
+					if(currentObject.imagemURL != null){
+						ocorrImage.src = currentObject.imagemURL;
+					} else {
+						ocorrImage.src = "./imagens/logo/no-image.png";
+					}
+					$(ocorrImage).addClass("contentImage");
+					//Criando elementos dos paragrafos contendo as informações necessarias
+					var ocorrProb = document.createElement("p");
+					$(ocorrProb).addClass("ocorrInfo");
+					$(ocorrProb).html(currentObject.regDescricaoS);
+					//
+					var ocorrEnd = document.createElement("p");
+					$(ocorrEnd).addClass("ocorrInfo");
+					$(ocorrEnd).html(currentObject.regRua);
 
-				$('#ocorrFeedInseto').append(li);
-				$(col1).append(ocorrImage);
-				$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-				$(col2).append(ocorrDiv1);	
-				$(currentRowOcorr).append(col1, col2);
-			}
-			if (ocorr8 != "Null") {
-				//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
-				var ocorrImage = document.createElement("img");
-				if(currentObject.imagemURL != null){
-					ocorrImage.src = currentObject.imagemURL;
-				} else {
-					ocorrImage.src = "./imagens/logo/no-image.png";
+					$('#ocorrFeedBarulho').append(li);
+					$(col1).append(ocorrImage);
+					$(ocorrDiv1).append(ocorrProb, ocorrEnd);
+					$(col2).append(ocorrDiv1);	
+					$(currentRowOcorr).append(col1, col2);
 				}
-				$(ocorrImage).addClass("contentImage");
-				//Criando elementos dos paragrafos contendo as informações necessarias
-				var ocorrProb = document.createElement("p");
-				$(ocorrProb).addClass("ocorrInfo");
-				$(ocorrProb).html(currentObject.regDescricaoS);
-				//
-				var ocorrEnd = document.createElement("p");
-				$(ocorrEnd).addClass("ocorrInfo");
-				$(ocorrEnd).html(currentObject.regRua);
+				if (ocorr9 != "Null") {
+					//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
+					var ocorrImage = document.createElement("img");
+					if(currentObject.imagemURL != null){
+						ocorrImage.src = currentObject.imagemURL;
+					} else {
+						ocorrImage.src = "./imagens/logo/no-image.png";
+					}
+					$(ocorrImage).addClass("contentImage");
+					//Criando elementos dos paragrafos contendo as informações necessarias
+					var ocorrProb = document.createElement("p");
+					$(ocorrProb).addClass("ocorrInfo");
+					$(ocorrProb).html(currentObject.regDescricaoS);
+					//
+					var ocorrEnd = document.createElement("p");
+					$(ocorrEnd).addClass("ocorrInfo");
+					$(ocorrEnd).html(currentObject.regRua);
 
-				$('#ocorrFeedBarulho').append(li);
-				$(col1).append(ocorrImage);
-				$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-				$(col2).append(ocorrDiv1);	
-				$(currentRowOcorr).append(col1, col2);
-			}
-			if (ocorr9 != "Null") {
-				//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
-				var ocorrImage = document.createElement("img");
-				if(currentObject.imagemURL != null){
-					ocorrImage.src = currentObject.imagemURL;
-				} else {
-					ocorrImage.src = "./imagens/logo/no-image.png";
+					$('#ocorrFeedSinal').append(li);
+					$(col1).append(ocorrImage);
+					$(ocorrDiv1).append(ocorrProb, ocorrEnd);
+					$(col2).append(ocorrDiv1);	
+					$(currentRowOcorr).append(col1, col2);
 				}
-				$(ocorrImage).addClass("contentImage");
-				//Criando elementos dos paragrafos contendo as informações necessarias
-				var ocorrProb = document.createElement("p");
-				$(ocorrProb).addClass("ocorrInfo");
-				$(ocorrProb).html(currentObject.regDescricaoS);
-				//
-				var ocorrEnd = document.createElement("p");
-				$(ocorrEnd).addClass("ocorrInfo");
-				$(ocorrEnd).html(currentObject.regRua);
+				if (ocorr10 != "") {
+					//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
+					var ocorrImage = document.createElement("img");
+					if(currentObject.imagemURL != null){
+						ocorrImage.src = currentObject.imagemURL;
+					} else {
+						ocorrImage.src = "./imagens/logo/no-image.png";
+					}
+					$(ocorrImage).addClass("contentImage");
+					//Criando elementos dos paragrafos contendo as informações necessarias
+					var ocorrProb = document.createElement("p");
+					$(ocorrProb).addClass("ocorrInfo");
+					$(ocorrProb).html(currentObject.regDescricaoS);
+					//
+					var ocorrEnd = document.createElement("p");
+					$(ocorrEnd).addClass("ocorrInfo");
+					$(ocorrEnd).html(currentObject.regRua);
 
-				$('#ocorrFeedSinal').append(li);
-				$(col1).append(ocorrImage);
-				$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-				$(col2).append(ocorrDiv1);	
-				$(currentRowOcorr).append(col1, col2);
-			}
-			if (ocorr10 != "") {
-				//Criando o elemento da imagem e definindo seu src pelo url da imagem salva pelo usuario no banco de dados
-				var ocorrImage = document.createElement("img");
-				if(currentObject.imagemURL != null){
-					ocorrImage.src = currentObject.imagemURL;
-				} else {
-					ocorrImage.src = "./imagens/logo/no-image.png";
+					$('#ocorrFeedOutros').append(li);
+					$(col1).append(ocorrImage);
+					$(ocorrDiv1).append(ocorrProb, ocorrEnd);
+					$(col2).append(ocorrDiv1);	
+					$(currentRowOcorr).append(col1, col2);
 				}
-				$(ocorrImage).addClass("contentImage");
-				//Criando elementos dos paragrafos contendo as informações necessarias
-				var ocorrProb = document.createElement("p");
-				$(ocorrProb).addClass("ocorrInfo");
-				$(ocorrProb).html(currentObject.regDescricaoS);
-				//
-				var ocorrEnd = document.createElement("p");
-				$(ocorrEnd).addClass("ocorrInfo");
-				$(ocorrEnd).html(currentObject.regRua);
-
-				$('#ocorrFeedOutros').append(li);
-				$(col1).append(ocorrImage);
-				$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-				$(col2).append(ocorrDiv1);	
-				$(currentRowOcorr).append(col1, col2);
 			}
 		}
 	});
