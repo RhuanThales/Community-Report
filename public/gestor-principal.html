@@ -49,7 +49,8 @@
 							  <img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
 							  C-Report
 							</a>
-						  	<a href="login-gestor.html" class="arrowIcon"><button onclick="logout()" type="button"><i class="fas fa-sign-out-alt"></i><span> Sair</span></button></a>
+						  	<a href="login-gestor.html" class="arrowIcon" id="sairBtnGestor"><button onclick="logout()" type="button"><i class="fas fa-sign-out-alt"></i><span> Sair</span></button></a>
+						  	<a href="gestor-principal.html" id="retornarBtnGestor" class="arrowIcon"><i class="fas fa-arrow-left"></i></a>
 						</nav>
 					</div>
 				</div>
@@ -59,7 +60,7 @@
 
 		<!--Trecho do codigo referente ao conteudo da pagina-->
 		<!--Feito por Rogério-->
-		<section class="ocorrenciasSection">			
+		<section class="ocorrenciasSection" id="selectSection">			
 			<div class="container box-parent-login divLogin" id="ocorrDiv">
 				<div class="row well box-login">
 					<div class="col-md-3"></div>
@@ -119,6 +120,142 @@
 							</div>							
 						</div>
 					</div>					
+				</div>
+			</div>
+		</section>
+		<!--Final-->
+
+		<!--Trecho do codigo referente ao conteudo da pagina-->
+		<!--Feito por David Levi-->
+		<!--0-->
+		<section class="sectionFeed" id="feedSectionAgua">
+			<div class="container box-parent-login divLogin">
+			  	<div class="row well box-login">
+			  		<div class="col-md-3"></div>
+					<div class="col-md-6 bg-white boxDiv">
+						<div id="ocorrFeedAgua"></div>
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+			</div>
+		</section>
+		<!--1-->
+		<section class="sectionFeed" id="feedSectionAnimal">
+			<div class="container box-parent-login divLogin">
+			  	<div class="row well box-login">
+			  		<div class="col-md-3"></div>
+					<div class="col-md-6 bg-white boxDiv">
+						<div id="ocorrFeedAnimal"></div>
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+			</div>
+		</section>
+		<!--2-->
+		<section class="sectionFeed" id="feedSectionArvore">
+			<div class="container box-parent-login divLogin">
+			  	<div class="row well box-login">
+			  		<div class="col-md-3"></div>
+					<div class="col-md-6 bg-white boxDiv">
+						<div id="ocorrFeedArvore"></div>
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+			</div>
+		</section>
+		<!--3-->
+		<section class="sectionFeed" id="feedSectionBuraco">
+			<div class="container box-parent-login divLogin">
+			  	<div class="row well box-login">
+			  		<div class="col-md-3"></div>
+					<div class="col-md-6 bg-white boxDiv">
+						<div id="ocorrFeedBuraco"></div>
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+			</div>
+		</section>
+		<!--4-->
+		<section class="sectionFeed" id="feedSectionLampada">
+			<div class="container box-parent-login divLogin">
+			  	<div class="row well box-login">
+			  		<div class="col-md-3"></div>
+					<div class="col-md-6 bg-white boxDiv">
+						<div id="ocorrFeedLampada"></div>
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+			</div>
+		</section>
+		<!--5-->
+		<section class="sectionFeed" id="feedSectionLimpeza">
+			<div class="container box-parent-login divLogin">
+			  	<div class="row well box-login">
+			  		<div class="col-md-3"></div>
+					<div class="col-md-6 bg-white boxDiv">
+						<div id="ocorrFeedLimpeza"></div>
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+			</div>
+		</section>
+		<!--6-->
+		<section class="sectionFeed" id="feedSectionLote">
+			<div class="container box-parent-login divLogin">
+			  	<div class="row well box-login">
+			  		<div class="col-md-3"></div>
+					<div class="col-md-6 bg-white boxDiv">
+						<div id="ocorrFeedLote"></div>
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+			</div>
+		</section>
+		<!--7-->
+		<section class="sectionFeed" id="feedSectionInseto">
+			<div class="container box-parent-login divLogin">
+			  	<div class="row well box-login">
+			  		<div class="col-md-3"></div>
+					<div class="col-md-6 bg-white boxDiv">
+						<div id="ocorrFeedInseto"></div>
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+			</div>
+		</section>
+		<!--8-->
+		<section class="sectionFeed" id="feedSectionBarulho">
+			<div class="container box-parent-login divLogin">
+			  	<div class="row well box-login">
+			  		<div class="col-md-3"></div>
+					<div class="col-md-6 bg-white boxDiv">
+						<div id="ocorrFeedBarulho"></div>
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+			</div>
+		</section>
+		<!--9-->
+		<section class="sectionFeed" id="feedSectionSinal">
+			<div class="container box-parent-login divLogin">
+			  	<div class="row well box-login">
+			  		<div class="col-md-3"></div>
+					<div class="col-md-6 bg-white boxDiv">
+						<div id="ocorrFeedSinal"></div>
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+			</div>
+		</section>
+		<!--10-->
+		<section class="sectionFeed" id="feedSectionOutros">
+			<div class="container box-parent-login divLogin">
+			  	<div class="row well box-login">
+			  		<div class="col-md-3"></div>
+					<div class="col-md-6 bg-white boxDiv">
+						<div id="ocorrFeedOutros"></div>
+					</div>
+					<div class="col-md-3"></div>
 				</div>
 			</div>
 		</section>
