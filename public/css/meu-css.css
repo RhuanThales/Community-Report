@@ -6,8 +6,14 @@ body { /*Mudando o background da pagina*/
 .navbar { /*Mudando a cor da navbar*/
 	background: #145845 !important;
 }
+.navbar_gestor{
+   background: #446bdf !important;
+}
 .navSection {
 	background: #145845 !important;
+}
+.navSection_gestor{
+     background: #446bdf !important;
 }
 .navbar-brand { /*Mudando a cor do texto na navbar*/
 	color: white !important;
@@ -61,8 +67,13 @@ body { /*Mudando o background da pagina*/
 	max-width: 100%;
 	height: auto;
 }
+
 .loginLogoDiv {
 	text-align: center;
+}
+.i_gestor{
+    font-size: 1.2em;
+    text-shadow: 2px 2px 2px;
 }
 .indexLogo {
 	min-width: 50%;
@@ -195,6 +206,16 @@ th {
     font-size:1.0em;
     width:100%;
     height:50px;   
+}
+.regBox_gestor{
+    
+    background: #446bdf;
+    color:white;
+    text-align: center;
+    font-size:1.0em;
+    width:100%;
+    height:50px;   
+
 }
 .linkSetores{
     margin-top: 50px;

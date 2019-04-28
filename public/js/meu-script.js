@@ -112,7 +112,6 @@ var RefOcorr = db.child('Ocorrencias-Registradas');
 var infoPrefeitura = document.getElementById("infoPrefeitura");
 var infoOcorr = document.getElementById("infoOcorr");
 
-
 function queryDatabase(user){
 
 	queryDatabase = function(){}; //Evita que a função fique sendo chamada repetidas vezes
@@ -127,44 +126,39 @@ function queryDatabase(user){
 		var keys = Object.keys(PostObject);
 		var currentRow;
 		
-		for (var i = 0; i < keys.length; i++){
-				
-			var currentObject = PostObject[keys[i]];
-			
+		for (var i = 0; i < keys.length; i++){		
+			var currentObject = PostObject[keys[i]];			
 			var userAtual = currentObject.Email;
-
 			if(currentUser === userAtual){
 				currentRow = document.createElement("div");
 				//Criando paragrafos que contem as informações da prefeitura como nome endereço e site
 				var nomePrefeitura = document.createElement("p");
 				$(nomePrefeitura).addClass("prefeituraInfo");
 				$(nomePrefeitura).html('Prefeitura de ' +  currentObject.Prefeitura);
-
+				//
 				var enderecoPrefeitura = document.createElement("p");
 				$(enderecoPrefeitura).addClass("prefeituraInfo");
 				$(enderecoPrefeitura).html('Endereço: ' +  currentObject.enderecoPrefeitura);
-
+				//
 				var telefonePrefeitura = document.createElement("p");
 				$(telefonePrefeitura).addClass("prefeituraInfo");
 				$(telefonePrefeitura).html('Telefones: ' + currentObject.telefonePrefeitura);
-
+				//
 				var sitePrefeitura = document.createElement("a");
 				$(sitePrefeitura).addClass("prefeituraInfo");
 				$(sitePrefeitura).html('Site: ' + currentObject.sitePrefeitura);
-				
+				//				
 				$('#infoPrefeitura').append(currentRow);
 				$(currentRow).append(nomePrefeitura, enderecoPrefeitura, telefonePrefeitura, sitePrefeitura);
-
+				//
 				var prefeitura = currentObject.Prefeitura;
-
 				console.log(prefeitura);
-
 				var prefSaoGot = "São Gotardo";
 				var prefDucks = "Patos de Minas";
 				var prefBh = "Belo Horizonte";
 				var prefUber = "Uberlândia";
 				var prefPo = "Presidente Olegário";
-
+				//
 				$("#setorBtn").on("click", function(event){
 					if (prefeitura === prefDucks) {
 						window.open("setores-publicos-patos-de-minas.html", "_self");
@@ -178,6 +172,7 @@ function queryDatabase(user){
 						window.open("setores-publicos-presidente-olegario.html", "_self");
 					}
 				});
+				
 			}
 		}
 	});
@@ -191,30 +186,25 @@ function queryDatabase(user){
 		var keys = Object.keys(PostObject);	
 		var currentRow;
 		
-		for (var i = 0; i < keys.length; i++){				
-			
-			var currentObject = PostObject[keys[i]];			
-			
+		for (var i = 0; i < keys.length; i++){					
+			var currentObject = PostObject[keys[i]];				
 			var userOcorr = currentObject.regEmail;
-
 			if(currentOcorr === userOcorr){				
 				currentRow = document.createElement("tr");
-
 				//Criando paragrafos que contem as informações das ocorrências como: problema, descrição e endereço
 				var ocorrProblema = document.createElement("td");
 				$(ocorrProblema).addClass("ocorrInfo");
 				$(ocorrProblema).html(currentObject.regDescricaoS);
-
+				//
 				var ocorrEndereco = document.createElement("td");
 				$(ocorrEndereco).addClass("ocorrInfo");
 				$(ocorrEndereco).html(currentObject.regRua);
-
+				//
 				var ocorrIconV = document.createElement("i");
 				$(ocorrIconV).addClass("fas fa-check");
-
+				//
 				var ocorrIconX = document.createElement("i");
 				$(ocorrIconX).addClass("fas fa-times");
-
 				//Fazendo a checagem do status da ocorrência para a exibição do icone correto (v para atendidas e x para as não atendidas)
 				if (currentObject.regStatus === "True") {
 					var ocorrSatus = document.createElement("td");
@@ -227,12 +217,10 @@ function queryDatabase(user){
 					$(btnOcorr).on("click", function(event){
 						$("#modalReOcorr").modal("show");
 					});
-
 					var ocorrSatus = document.createElement("td");
 					$(ocorrSatus).addClass("ocorrInfo");
 					$(ocorrSatus).append(btnOcorr);
 				}
-
 				$('#infoOcorr').append(currentRow);
 				$(currentRow).append(ocorrProblema, ocorrEndereco, ocorrSatus);
 			}

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>CommunityReport</title>
+	<head> 
+		<title>CommunityReport - Acesso Restrito - Gestores</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no">
 		<meta name="description" content="Web App para registro de problemas no município">
 		<meta name="author" content="TrashMakers">
-		<!-- O cdn do Awesome fonts, usados para pegarmos icones e simbolos diferenciados -->
+		<!-- O cdn do Awesome fonts, usado para pegarmos icones e simbolos diferenciados -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 		<!-- Trecho do código que faz a ligação do html com o nosso css e do css e js do bootstrap, bem como o js do jquery -->
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -32,15 +32,14 @@
 		<meta name="msapplication-TileColor" content="#fff">
 		<meta name="theme-color" content="#145845">
 	</head>
-	
 	<body>
 		<!--Trecho do código referente a navbar-->
 		<!--Feito por Rhuan-->
-		<section class="navSection">
+		<section class="navSection_gestor">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">
-						<nav class="navbar navbar-light bg-light">
+						<nav class="navbar navbar-light bg-light navbar_gestor">
 							<a class="navbar-brand desktop" href="#">
 							  <img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
 							  CommunityReport
@@ -49,7 +48,7 @@
 							  <img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
 							  C-Report
 							</a>
-						  	<!--<a href="index.html" class="arrowIcon"><button onclick="logout()" type="button"><i class="fas fa-sign-out-alt"></i><span> Sair</span></button></a>-->
+						  	<a href="pagina-principal.html" id="returnArrow" class="arrowIcon"><i class="fas fa-arrow-left"></i></a>
 						</nav>
 					</div>
 				</div>
@@ -57,48 +56,27 @@
 		</section>
 		<!--Final-->
 
-		<!--Trecho do cógio referente ao conteudo da pagina principal-->
-		<!--Feito por Rhuan-->
-		<section class="indexSection">
-			<div class="container box-parent-login divIndex">
-				<div class="row well box-login">
-					<div class="col-md-3"></div>
-					<div class="col-md-6 indexDiv bg-white boxIndex">
-						<div class="indexLogoDiv">
-							<img src="./imagens/logo/logo-04.jpg" class="indexLogo" alt="cReportLogo">
+		<!--Trecho do codigo referente ao conteudo da pagina-->
+		<!--Feito por David Levi-->
+		<section class="sectionFeed">
+			<div class="container box-parent-login divLogin">
+			  	<div class="row well box-login">
+			  		<div class="col-md-3"></div>
+					<div class="col-md-6 bg-white boxDiv">
+						<div class="ocorrFeed">
+							<!--Ocorrências serão carregadas aqui-->
 						</div>
-						<div id="infoPrefeitura"></div>
 					</div>
 					<div class="col-md-3"></div>
 				</div>
 			</div>
 		</section>
 		<!--Final-->
-
-		<!--Trecho do codigo referente ao menu inferior-->
-		<!--Feito por Rhuan-->
-		<section class="menuSection">
-			<div class="container-fluid">
-				<div class="row navigation-menu">
-					<div class="col-md-3"></div>
-					<div class="col-md-6">
-						<a href="minhas-ocorrencias.html"><i class="fas fa-list-alt"></i><span>Minhas Ocorrências</span></a>
-						<a href="ocorrencias.html"><i class="fas fa-pen-alt"></i><span>Registrar Ocorrências</span></a>
-						<a href="#" id="setorBtn"><i class="fas fa-city"></i><span>Setores Públicos</span></a>
-						<a href="index.html">
-							<button class="btnLogout" onclick="logout()" type="button"><i class="fas fa-sign-out-alt"></i><span>Sair</span></button>
-						</a>
-					</div>
-					<div class="col-md-3"></div>	
-				</div>
-			</div>
-		</section>
-		<!--Final-->
-
+				
 		<!--Trecho do código referente ao roda-pé da página-->
 		<!--Feito por Rhuan-->
 		<section class="footerSection">
-			<footer class="section footer-classic context-dark bg-image" style="background: #145845;">
+			<footer class="section footer-classic context-dark bg-image" style="background: #446bdf;">
 				<div class="container-fluid">
 				  <div class="row">
 				    <div class="col-md-4 col-xl-5">
@@ -145,7 +123,7 @@
 			</footer>
 		</section>
 		<!--Final-->
-
+		
 		<!-- Esse trecho de codigo deve ficar sempre abaixo dos conteudos do body -->
 		<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
 		<script src="js/app-firebase.js"></script>
