@@ -49,7 +49,7 @@
 							  <img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
 							  C-Report
 							</a>
-						  	<a href="pagina-principal.html" id="returnArrow" class="arrowIcon"><i class="fas fa-arrow-left"></i></a>
+						  	<a href="login-gestor.html" class="arrowIcon"><button onclick="logout()" type="button"><i class="fas fa-sign-out-alt"></i><span> Sair</span></button></a>
 						</nav>
 					</div>
 				</div>
@@ -64,8 +64,8 @@
 				<div class="row well box-login">
 					<div class="col-md-3"></div>
 					<div class="col-md-6 bg-white boxDiv">
-						<div class="loginLogoDiv">
-							<img src="./imagens/logo/Prefpm.jpg" class="loginLogo" alt="cReportLogo"><p id="prefNome"><i><bold class="i_gestor">Prefeitura de Patos de Minas - Compromisso com o Povo</bold></i></p>
+						<div class="loginLogoDiv" id="gestPrefInfo">
+							<p><i><bold class="i_gestor" id="prefNome"></bold></i></p>
 						</div>
 						<div class="container-fluid divOcorrencias">
 							<p>
@@ -75,43 +75,43 @@
 						<div class="container tipoOcorrencias">
 							<div class= "row well box-tipoOcorrencias">
 								<div class="col-md-4">
-									<button id="btnRegAnimal" type="button" class="box regBox_gestor"><span>Animais</span></button>
+									<button id="btnOcorrAnimal" type="button" class="box regBox_gestor"><span>Animais</span></button>
 								</div>
 								<div class="col-md-4">
-									<button id="btnRegArvore" class="box regBox_gestor"><span>Árvore Caida</span></button>
+									<button id="btnOcorrArvore" class="box regBox_gestor"><span>Árvore Caida</span></button>
 								</div>
 								<div class="col-md-4">
-									<button id="btnRegBuraco" class="box regBox_gestor"><span>Buraco na Rua</span></button>
+									<button id="btnOcorrBuraco" class="box regBox_gestor"><span>Buraco na Rua</span></button>
 								</div>					
 							</div>
 							<div class= "row well box-tipoOcorrencias">
 								<div class="col-md-4">
-									<button id="btnRegAgua" class="box regBox_gestor"><span>Falta de Água</span></button>
+									<button id="btnOcorrAgua" class="box regBox_gestor"><span>Falta de Água</span></button>
 								</div>
 								<div class="col-md-4">
-									<button id="btnRegLampada" class="box regBox_gestor"><span>Iluminação Pública</span></button>
+									<button id="btnOcorrLampada" class="box regBox_gestor"><span>Iluminação Pública</span></button>
 								</div>
 								<div class="col-md-4">
-									<button id="btnRegInseto" class="box regBox_gestor"><spam>Insetos</spam></button>
+									<button id="btnOcorrInseto" class="box regBox_gestor"><spam>Insetos</spam></button>
 								</div>				
 							</div>
 							<div class= "row well box-tipoOcorrencias">
 								<div class="col-md-4">
-									<button id="btnRegLimpeza" class="box regBox_gestor"><span>Limpeza Urbana</span></button>
+									<button id="btnOcorrLimpeza" class="box regBox_gestor"><span>Limpeza Urbana</span></button>
 								</div>
 								<div class="col-md-4">
-									<button id="btnRegLote" class="box regBox_gestor"><spam>Lote Sujo</spam></button>
+									<button id="btnOcorrLote" class="box regBox_gestor"><spam>Lote Sujo</spam></button>
 								</div>
 								<div class="col-md-4">
-									<button id="btnRegBarulho" class="box regBox_gestor"><span>Queixa de Barulho</span></button>
+									<button id="btnOcorrBarulho" class="box regBox_gestor"><span>Queixa de Barulho</span></button>
 								</div>				
 							</div>
 							<div class= "row well box-tipoOcorrencias">
 								<div class="col-md-4">
-									<button id="btnRegSinal" class="box regBox_gestor"><span>Sinalização</span></button>
+									<button id="btnOcorrSinal" class="box regBox_gestor"><span>Sinalização</span></button>
 								</div>	
 								<div class="col-md-4 divOutros">
-									<button id="btnRegOutros" class="box regBox_gestor"><span>Outros</span></button>
+									<button id="btnOcorrOutros" class="box regBox_gestor"><span>Outros</span></button>
 								</div>
 								<div class="col-md-4">
 									<!--<button id="btnRegOuvidoria" class="box regBox"><i class="fas fa-headset"></i><span> - Ouvidoria</span></button>-->

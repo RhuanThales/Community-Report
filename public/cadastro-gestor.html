@@ -49,7 +49,7 @@
 							  <img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
 							  C-Report
 							</a>
-						  <a href="login-usuario.html" class="arrowIcon"><i class="fas fa-arrow-left"></i></a>
+						  <a href="login-gestor.html" class="arrowIcon"><i class="fas fa-arrow-left"></i></a>
 						</nav>
 					</div>
 				</div>
@@ -64,7 +64,7 @@
 				<div class="row well box-login">
 					<div class="col-md-3"></div>
 					<div class="col-md-6 bg-white boxCad">
-						<h1 class="ls-login-logo">Cadastro de Usuário</h1>
+						<h1 class="ls-login-logo">Cadastro de Gestor</h1>
 						<p class="cadTexto">Preencha os dados abaixo corretamente para a realização do seu cadastro.</p>
 						<p class="cadTexto">Os campos com <strong>" * "</strong> são de preenchimento obrigatórios.</p>
 						<form role="form" id="cadForm">
@@ -92,54 +92,45 @@
 								</div> 
 								
 								<div class="form-group ls-login-password">
-									<label for="inputSenha"><strong>Senha: *</strong></label>
-									<input class="form-control ls-login-bg-password input-lg" id="inputSenha" type="password" aria-label="Senha" placeholder="********" required>
+									<label for="inputSenha1"><strong>Senha: *</strong></label>
+									<input class="form-control ls-login-bg-password input-lg" id="inputSenha1" type="password" aria-label="Senha" placeholder="********" required>
+								</div>
+
+								<div class="form-group ls-login-password">
+									<label for="inputSenha2"><strong>Confirmar Senha: *</strong></label>
+									<input class="form-control ls-login-bg-password input-lg" id="inputSenha2" type="password" aria-label="Senha" placeholder="********" required>
 								</div>
 
 								<div class="form-group ls-login-user">
-									<label for="inputRua"><strong>Rua:</strong></label>
-									<input class="form-control ls-login-bg-user input-lg" id="inputRua" type="text" aria-label="Rua" placeholder="Ex: Rua Xesquevile">
+									<label for="inputCidade"><strong>Cidade: *</strong></label>
+									<select class="form-control ls-login-bg-user input-lg" id="inputCidade" required>
+										<option value="Default">Selecione a Cidade</option>
+										<option value="Belo Horizonte">Belo Horizonte</option>
+										<option value="Patos de Minas">Patos de Minas</option>
+										<option value="Presidente Olegário">Presidente Olegário</option>
+										<option value="São Gotardo">São Gotardo</option>
+										<option value="Uberlândia">Uberlândia</option>
+									</select>
 								</div>
 
 								<div class="form-group ls-login-user">
-									<label for="inputBairro"><strong>Bairro:</strong></label>
-									<input class="form-control ls-login-bg-user input-lg" id="inputBairro" type="text" aria-label="Bairro" placeholder="Ex: Cerrado">
-								</div>
-
-								<div class="form-group ls-login-user">
-									<label for="inputNum"><strong>Número:</strong></label>
-									<input class="form-control ls-login-bg-user input-lg" id="inputNum" type="text" aria-label="Numero" placeholder="Ex: 24">
-								</div>
-
-								<div class="form-group ls-login-user">
-									<label for="inputCep"><strong>CEP:</strong></label>
-									<input class="form-control ls-login-bg-user input-lg" id="inputCep" type="text" aria-label="Cep" placeholder="Ex: 38701-315">
-								</div>
-
-								<div class="form-group ls-login-user">
-									<label for="inputCidade"><strong>Cidade:</strong></label>
-									<input class="form-control ls-login-bg-user input-lg" id="inputCidade" type="text" aria-label="Cidade" placeholder="Ex: XesqueVile">
-								</div>
-
-								<div class="form-group ls-login-user">
-									<label for="inputEstado"><strong>Estado:</strong></label>
-									<input class="form-control ls-login-bg-user input-lg" id="inputEstado" type="text" aria-label="Estado" placeholder="Ex: Minas Gerais">
+									<label for="inputEstado"><strong>Estado: *</strong></label>
+									<select class="form-control ls-login-bg-user input-lg" id="inputEstado" required>
+										<option value="Minas Gerais">Selecione o Estado</option>
+										<option value="Minas Gerais">Minas Gerais</option>
+									</select>
 								</div>
 
 								<div class="form-group ls-login-user">
 									<label for="inputTel"><strong>Telefone:</strong></label>
 									<input class="form-control ls-login-bg-user input-lg" id="inputTel" type="text" aria-label="Telefone" placeholder="Ex: 99152-3191">
 								</div>
-
-								<div class="form-group ls-login-user">
-									<input type="checkbox" class="cadCheck" id="inputTermos" required name="termos" value="Sim">Eu li e Aceito os <strong><a href="#"> Termos de Condições de Uso</a></strong> deste Aplicativo *.
-								</div>
 						
-								<button onclick="sigin()" type="button" id="sigInButton" class="btn btn-primary btn-lg btn-block">Realizar Cadastro</button>
+								<button onclick="siginGestor()" type="button" id="sigInButton" class="btn btn-primary btn-lg btn-block">Cadastrar Gestor</button>
 
 								<p class="cadP">ou</p>
 								
-								<a href="login-usuario.html" class="btnCancelar"><button type="button" class="btn btn-primary btn-lg btn-block">Cancelar Cadastro</button></a>
+								<a href="login-usuario.html" class="btnCancelar"><button type="button" class="btn btn-primary btn-lg btn-block">Cancelar</button></a>
 							</fieldset>
 						</form>	
 					</div>

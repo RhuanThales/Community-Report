@@ -28,6 +28,22 @@ function login(){
 	});
 }
 
+function loginGestor(){
+	var userEmail = document.getElementById('inputEmail').value;
+	var userSenha = document.getElementById('inputSenha').value;
+
+	firebase.auth().signInWithEmailAndPassword(userEmail, userSenha).then(function(){
+		//Em caso de sucesso redireciona para a página inicial (index.html)
+		window.alert("Login com Sucesso!!!");
+		window.open("gestor-principal.html", "_self");
+	}).catch(function(error) {
+	  // Em caso de algum erro exibir uma mensagem com o erro que ocorreu.
+	  var errorCode = error.code;
+	  var errorMessage = error.message;
+	  window.alert("Error: " + errorMessage);
+	});
+}
+
 //Função que cria um novo usuário com email e senha
 //Feito por Caio e Rhuan
 function sigin(){
@@ -88,6 +104,37 @@ function sigin(){
 	});
 }		
 
+function siginGestor(){
+	var userEmail = document.getElementById('inputEmail').value;
+	var userSenha = document.getElementById('inputSenha1').value;
+
+	firebase.auth().createUserWithEmailAndPassword(userEmail, userSenha).then(function(){
+		//Em caso de sucesso salva-se os dados do usuário no banco de dados		
+		var postKey = firebase.database().ref('Gestores/').push().key;
+		var updates = {};
+		var postData = {
+			Email: $("#inputEmail").val(),
+			Nome: $("#inputNome").val(),
+			Prefeitura: $("#inputPrefeitura").val(),
+			Telefone: $("#inputTel").val(),
+			Cidade: $("#inputCidade").val(),
+			Estado: $("#inputEstado").val()
+		};
+		updates['/Gestores/' + postKey] = postData;
+		firebase.database().ref().update(updates);
+		//Em cado de sucesso exibe a sequinte mensagem de confirmação
+		window.alert("Gestor Cadastrado com Sucesso!!!");
+		
+		//Após salvar os dados do usuário redirecionar para a página de login
+		window.open("login-gestor.html", "_self");
+	}).catch(function(error) {
+	  // Em caso de algum erro exibir uma mensagem com o erro que ocorreu.
+	  var errorCode = error.code;
+	  var errorMessage = error.message;
+	  window.alert("Error: " + errorMessage);
+	});
+}	
+
 //Função que permite que o usuário que esteja logado possa sair de sua conta
 //Feito por Caio e Rhuan
 function logout(){
@@ -107,9 +154,10 @@ function logout(){
 var db = firebase.database().ref();
 var RefUsers = db.child('Usuarios');
 var RefPref = db.child('Prefeituras');
-var RefSetors = db.child('Setores');
+var RefGestor = db.child('Gestores');
 var RefOcorr = db.child('Ocorrencias-Registradas');
 var infoPrefeitura = document.getElementById("infoPrefeitura");
+var prefNome = document.getElementById("prefNome");
 var infoOcorr = document.getElementById("infoOcorr");
 
 function queryDatabase(user){
@@ -117,9 +165,7 @@ function queryDatabase(user){
 	queryDatabase = function(){}; //Evita que a função fique sendo chamada repetidas vezes
 
 	var currentUser = user.email;
-
-	console.log(currentUser);
-
+	//console.log(currentUser);
 	RefUsers.once('value').then(function(snapshot){
 		
 		var PostObject = snapshot.val();
@@ -129,7 +175,8 @@ function queryDatabase(user){
 		for (var i = 0; i < keys.length; i++){		
 			var currentObject = PostObject[keys[i]];			
 			var userAtual = currentObject.Email;
-			if(currentUser === userAtual){
+			var resultado = userAtual.toLowerCase();
+			if(currentUser === resultado){
 				currentRow = document.createElement("div");
 				//Criando paragrafos que contem as informações da prefeitura como nome endereço e site
 				var nomePrefeitura = document.createElement("p");
@@ -152,7 +199,9 @@ function queryDatabase(user){
 				$(currentRow).append(nomePrefeitura, enderecoPrefeitura, telefonePrefeitura, sitePrefeitura);
 				//
 				var prefeitura = currentObject.Prefeitura;
+				
 				console.log(prefeitura);
+				
 				var prefSaoGot = "São Gotardo";
 				var prefDucks = "Patos de Minas";
 				var prefBh = "Belo Horizonte";
@@ -172,14 +221,91 @@ function queryDatabase(user){
 						window.open("setores-publicos-presidente-olegario.html", "_self");
 					}
 				});
-				
+			}
+		}
+	});
+
+	//
+	var currentGestor = user.email;
+	console.log(currentGestor);
+	RefGestor.once('value').then(function(snapshot){
+		
+		var PostObject = snapshot.val();
+		var keys = Object.keys(PostObject);
+		var currentRow;
+		
+		for (var i = 0; i < keys.length; i++){		
+			var currentObject = PostObject[keys[i]];			
+			var gestorAtual = currentObject.Email;
+			var convert = gestorAtual.toLowerCase();
+			//console.log(convert);
+			if(currentGestor === convert){
+				var prefeitura = currentObject.Prefeitura;
+	
+				console.log(prefeitura);
+	
+				var prefSaoGot = "São Gotardo";
+				var prefDucks = "Patos de Minas";
+				var prefBh = "Belo Horizonte";
+				var prefUber = "Uberlândia";
+				var prefPo = "Presidente Olegário";
+				//
+				if (prefeitura === prefDucks)
+				{
+					var imagemPref = document.createElement("img");
+					$(imagemPref).addClass("imgPref");
+					imagemPref.src = "./imagens/logo/Prefpm.jpg";
+
+					$('#gestPrefInfo').append(imagemPref);
+					
+					$('#prefNome').html("Prefeitura de " + currentObject.Prefeitura + " Compromisso com o povo!");
+				}
+				if (prefeitura === prefSaoGot)
+				{
+					var imagemPref = document.createElement("img");
+					$(imagemPref).addClass("imgPref");
+					imagemPref.src = "./imagens/logo/Prefsg.jpg";
+
+					$('#gestPrefInfo').append(imagemPref);
+
+					$('#prefNome').html("Prefeitura de " + currentObject.Prefeitura);
+				} 
+				if (prefeitura === prefBh)
+				{
+					var imagemPref = document.createElement("img");
+					$(imagemPref).addClass("imgPref");
+					imagemPref.src = "./imagens/logo/Prefbh.jpg";
+
+					$('#gestPrefInfo').append(imagemPref);
+
+					$('#prefNome').html("Prefeitura de " + currentObject.Prefeitura + " Governando para quem precisa!");
+				}
+				if (prefeitura === prefUber)
+				{
+					var imagemPref = document.createElement("img");
+					$(imagemPref).addClass("imgPref");
+					imagemPref.src = "./imagens/logo/Prefub.jpg";
+
+					$('#gestPrefInfo').append(imagemPref);
+
+					$('#prefNome').html("Prefeitura de " + currentObject.Prefeitura + " Você pode contar com a gente!");
+				}
+				if (prefeitura === prefPo)
+				{
+					var imagemPref = document.createElement("img");
+					$(imagemPref).addClass("imgPref");
+					imagemPref.src = "./imagens/logo/Prefpo.jpg";
+
+					$('#gestPrefInfo').append(imagemPref);
+
+					$('#prefNome').html("Prefeitura de " + currentObject.Prefeitura + ", trabalhando para todos!");
+				}
 			}
 		}
 	});
 
 	//Pegando as informações de ocorrências registradas pelo usuário
 	var currentOcorr = user.email;
-
 	RefOcorr.once('value').then(function(snapshot){
 		
 		var PostObject = snapshot.val();
@@ -189,7 +315,8 @@ function queryDatabase(user){
 		for (var i = 0; i < keys.length; i++){					
 			var currentObject = PostObject[keys[i]];				
 			var userOcorr = currentObject.regEmail;
-			if(currentOcorr === userOcorr){				
+			var result = userOcorr.toLowerCase();
+			if(currentOcorr === result){				
 				currentRow = document.createElement("tr");
 				//Criando paragrafos que contem as informações das ocorrências como: problema, descrição e endereço
 				var ocorrProblema = document.createElement("td");
