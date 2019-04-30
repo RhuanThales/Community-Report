@@ -7,13 +7,15 @@ body { /*Mudando o background da pagina*/
 	background: #145845 !important;
 }
 .navbar_gestor{
-   background: #446bdf !important;
+   /*background: #446bdf !important;*/
+   background: #145845 !important;
 }
 .navSection {
 	background: #145845 !important;
 }
 .navSection_gestor{
-     background: #446bdf !important;
+    /*background: #446bdf !important;*/
+    background: #145845 !important;
 }
 .navbar-brand { /*Mudando a cor do texto na navbar*/
 	color: white !important;
@@ -218,8 +220,8 @@ th {
     height:50px;   
 }
 .regBox_gestor{
-    
-    background: #446bdf;
+    background: #145845;
+    /*background: #446bdf;*/
     color:white;
     text-align: center;
     font-size:1.0em;
