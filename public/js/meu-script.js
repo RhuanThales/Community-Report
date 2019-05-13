@@ -118,7 +118,8 @@ function siginGestor(){
 			Prefeitura: $("#inputPrefeitura").val(),
 			Telefone: $("#inputTel").val(),
 			Cidade: $("#inputCidade").val(),
-			Estado: $("#inputEstado").val()
+			Estado: $("#inputEstado").val(),
+			Setor: $("#inputSetor").val()
 		};
 		updates['/Gestores/' + postKey] = postData;
 		firebase.database().ref().update(updates);
@@ -209,7 +210,7 @@ function queryDatabase(user){
 				var prefBh = "Belo Horizonte";
 				var prefUber = "Uberlândia";
 				var prefPo = "Presidente Olegário";
-				//
+				//Redirecionando para a pagina de informações dos setores publicos de acordo com a prefeitura do usuario
 				$("#setorBtn").on("click", function(event){
 					if (prefeitura === prefDucks) {
 						window.open("setores-publicos-patos-de-minas.html", "_self");
@@ -227,7 +228,7 @@ function queryDatabase(user){
 		}
 	});
 
-	//
+	//Vereficação de gestores (faz verificações pela tabela de gestores no banco de dados)
 	var currentGestor = user.email;
 	
 	console.log(currentGestor);
@@ -245,255 +246,65 @@ function queryDatabase(user){
 			//console.log(convert);
 			if(currentGestor === convert){
 				var prefeitura = currentObject.Prefeitura;
+				var setor = currentObject.Setor;
 				console.log(prefeitura);
-
-				gestorQuery(prefeitura);
+				console.log(setor);
+				
+				//Chamando a função que faz o carregamento das ocorrencias para a tela
+				gestorQuery(prefeitura,setor);
 	
-				var prefSaoGot = "São Gotardo";
 				var prefDucks = "Patos de Minas";
+				var prefSaoGot = "São Gotardo";
 				var prefBh = "Belo Horizonte";
 				var prefUber = "Uberlândia";
 				var prefPo = "Presidente Olegário";
 
-				//
-				if (prefeitura === prefDucks)
+				var obras = "Obras Públicas";
+				var ouvidoria = "Ouvidoria";
+				var saude = "Saúde";
+				var transito = "Trânsito";
+
+				//Verificações de prefeitura e de setor
+				if (prefeitura === prefDucks && setor === obras)
 				{
 					var imagemPref = document.createElement("img");
 					$(imagemPref).addClass("imgPref");
-					imagemPref.src = "./imagens/logo/Prefpm.jpg";
+					imagemPref.src = "./imagens/logo/OPublicas.jpg";
 
 					$('#gestPrefInfo').append(imagemPref);
 					
-					$('#prefNome').html("Prefeitura de " + currentObject.Prefeitura + " Compromisso com o povo!");
+					$('#prefNome').html("Prefeitura de " + currentObject.Prefeitura + " - " + "Secretaria Municipal de Obras Públicas");
 				}
-				if (prefeitura === prefSaoGot)
+				if (prefeitura === prefDucks && setor === ouvidoria)
 				{
 					var imagemPref = document.createElement("img");
 					$(imagemPref).addClass("imgPref");
-					imagemPref.src = "./imagens/logo/Prefsg.jpg";
+					imagemPref.src = "./imagens/logo/ouvidoria.jpg";
 
 					$('#gestPrefInfo').append(imagemPref);
 
-					$('#prefNome').html("Prefeitura de " + currentObject.Prefeitura);
+					$('#prefNome').html("Prefeitura de " + currentObject.Prefeitura + " - " + "Ouvidoria Municipal");
 				} 
-				if (prefeitura === prefBh)
+				if (prefeitura === prefDucks && setor === saude)
 				{
 					var imagemPref = document.createElement("img");
 					$(imagemPref).addClass("imgPref");
-					imagemPref.src = "./imagens/logo/Prefbh.jpg";
+					imagemPref.src = "./imagens/logo/saude.jpg";
 
 					$('#gestPrefInfo').append(imagemPref);
 
-					$('#prefNome').html("Prefeitura de " + currentObject.Prefeitura + " Governando para quem precisa!");
+					$('#prefNome').html("Prefeitura de " + currentObject.Prefeitura + " - " + "Secretaria Municipal de Saúde");
 				}
-				if (prefeitura === prefUber)
+				if (prefeitura === prefDucks && setor === transito)
 				{
 					var imagemPref = document.createElement("img");
 					$(imagemPref).addClass("imgPref");
-					imagemPref.src = "./imagens/logo/Prefub.jpg";
+					imagemPref.src = "./imagens/logo/mobilidade.jpg";
 
 					$('#gestPrefInfo').append(imagemPref);
 
-					$('#prefNome').html("Prefeitura de " + currentObject.Prefeitura + " Você pode contar com a gente!");
+					$('#prefNome').html("Prefeitura de " + currentObject.Prefeitura + " - " + "Secretaria Municipal de Trânsito, Transporte e Mobilidade");
 				}
-				if (prefeitura === prefPo)
-				{
-					var imagemPref = document.createElement("img");
-					$(imagemPref).addClass("imgPref");
-					imagemPref.src = "./imagens/logo/Prefpo.jpg";
-
-					$('#gestPrefInfo').append(imagemPref);
-
-					$('#prefNome').html("Prefeitura de " + currentObject.Prefeitura + ", trabalhando para todos!");
-				}
-				//
-				var btnOcorrAnimal = document.getElementById("btnOcorrAnimal");
-				btnOcorrAnimal.addEventListener('click', function (){
-					$("#sairBtnGestor").hide();
-					$("#retornarBtnGestor").show();
-					$("#selectSection").hide();
-					$("#feedSectionAnimal").show();
-					$("#feedSectionArvore").hide();
-					$("#feedSectionBuraco").hide();
-					$("#feedSectionAgua").hide();
-					$("#feedSectionLampada").hide();
-					$("#feedSectionInseto").hide();
-					$("#feedSectionLimpeza").hide();
-					$("#feedSectionLote").hide();
-					$("#feedSectionBarulho").hide();
-					$("#feedSectionSinal").hide();
-					$("#feedSectionOutros").hide();
-				});
-				var btnOcorrArvore = document.getElementById("btnOcorrArvore");
-				btnOcorrArvore.addEventListener('click', function (){
-					$("#sairBtnGestor").hide();
-					$("#retornarBtnGestor").show();
-					$("#selectSection").hide();
-					$("#feedSectionAnimal").hide();
-					$("#feedSectionArvore").show();
-					$("#feedSectionBuraco").hide();
-					$("#feedSectionAgua").hide();
-					$("#feedSectionLampada").hide();
-					$("#feedSectionInseto").hide();
-					$("#feedSectionLimpeza").hide();
-					$("#feedSectionLote").hide();
-					$("#feedSectionBarulho").hide();
-					$("#feedSectionSinal").hide();
-					$("#feedSectionOutros").hide();
-				});
-				var btnOcorrBuraco = document.getElementById("btnOcorrBuraco");
-				btnOcorrBuraco.addEventListener('click', function (){
-					$("#sairBtnGestor").hide();
-					$("#retornarBtnGestor").show();
-					$("#selectSection").hide();
-					$("#feedSectionAnimal").hide();
-					$("#feedSectionArvore").hide();
-					$("#feedSectionBuraco").show();
-					$("#feedSectionAgua").hide();
-					$("#feedSectionLampada").hide();
-					$("#feedSectionInseto").hide();
-					$("#feedSectionLimpeza").hide();
-					$("#feedSectionLote").hide();
-					$("#feedSectionBarulho").hide();
-					$("#feedSectionSinal").hide();
-					$("#feedSectionOutros").hide();
-				});
-				var btnOcorrAgua = document.getElementById("btnOcorrAgua");
-				btnOcorrAgua.addEventListener('click', function (){
-					$("#sairBtnGestor").hide();
-					$("#retornarBtnGestor").show();
-					$("#selectSection").hide();
-					$("#feedSectionAnimal").hide();
-					$("#feedSectionArvore").hide();
-					$("#feedSectionBuraco").hide();
-					$("#feedSectionAgua").show();
-					$("#feedSectionLampada").hide();
-					$("#feedSectionInseto").hide();
-					$("#feedSectionLimpeza").hide();
-					$("#feedSectionLote").hide();
-					$("#feedSectionBarulho").hide();
-					$("#feedSectionSinal").hide();
-					$("#feedSectionOutros").hide();
-				});
-				var btnOcorrLampada = document.getElementById("btnOcorrLampada");
-				btnOcorrLampada.addEventListener('click', function (){
-					$("#sairBtnGestor").hide();
-					$("#retornarBtnGestor").show();
-					$("#selectSection").hide();
-					$("#feedSectionAnimal").hide();
-					$("#feedSectionArvore").hide();
-					$("#feedSectionBuraco").hide();
-					$("#feedSectionAgua").hide();
-					$("#feedSectionLampada").show();
-					$("#feedSectionInseto").hide();
-					$("#feedSectionLimpeza").hide();
-					$("#feedSectionLote").hide();
-					$("#feedSectionBarulho").hide();
-					$("#feedSectionSinal").hide();
-					$("#feedSectionOutros").hide();
-				});
-				var btnOcorrInseto = document.getElementById("btnOcorrInseto");
-				btnOcorrInseto.addEventListener('click', function (){
-					$("#sairBtnGestor").hide();
-					$("#retornarBtnGestor").show();
-					$("#selectSection").hide();
-					$("#feedSectionAnimal").hide();
-					$("#feedSectionArvore").hide();
-					$("#feedSectionBuraco").hide();
-					$("#feedSectionAgua").hide();
-					$("#feedSectionLampada").hide();
-					$("#feedSectionInseto").show();
-					$("#feedSectionLimpeza").hide();
-					$("#feedSectionLote").hide();
-					$("#feedSectionBarulho").hide();
-					$("#feedSectionSinal").hide();
-					$("#feedSectionOutros").hide();
-				});
-				var btnOcorrLimpeza = document.getElementById("btnOcorrLimpeza");
-				btnOcorrLimpeza.addEventListener('click', function (){
-					$("#sairBtnGestor").hide();
-					$("#retornarBtnGestor").show();
-					$("#selectSection").hide();
-					$("#feedSectionAnimal").hide();
-					$("#feedSectionArvore").hide();
-					$("#feedSectionBuraco").hide();
-					$("#feedSectionAgua").hide();
-					$("#feedSectionLampada").hide();
-					$("#feedSectionInseto").hide();
-					$("#feedSectionLimpeza").show();
-					$("#feedSectionLote").hide();
-					$("#feedSectionBarulho").hide();
-					$("#feedSectionSinal").hide();
-					$("#feedSectionOutros").hide();
-				});
-				var btnOcorrLote = document.getElementById("btnOcorrLote");
-				btnOcorrLote.addEventListener('click', function (){
-					$("#sairBtnGestor").hide();
-					$("#retornarBtnGestor").show();
-					$("#selectSection").hide();
-					$("#feedSectionAnimal").hide();
-					$("#feedSectionArvore").hide();
-					$("#feedSectionBuraco").hide();
-					$("#feedSectionAgua").hide();
-					$("#feedSectionLampada").hide();
-					$("#feedSectionInseto").hide();
-					$("#feedSectionLimpeza").hide();
-					$("#feedSectionLote").show();
-					$("#feedSectionBarulho").hide();
-					$("#feedSectionSinal").hide();
-					$("#feedSectionOutros").hide();
-				});
-				var btnOcorrBarulho = document.getElementById("btnOcorrBarulho");
-				btnOcorrBarulho.addEventListener('click', function (){
-					$("#sairBtnGestor").hide();
-					$("#retornarBtnGestor").show();
-					$("#selectSection").hide();
-					$("#feedSectionAnimal").hide();
-					$("#feedSectionArvore").hide();
-					$("#feedSectionBuraco").hide();
-					$("#feedSectionAgua").hide();
-					$("#feedSectionLampada").hide();
-					$("#feedSectionInseto").hide();
-					$("#feedSectionLimpeza").hide();
-					$("#feedSectionLote").hide();
-					$("#feedSectionBarulho").show();
-					$("#feedSectionSinal").hide();
-					$("#feedSectionOutros").hide();
-				});
-				var btnOcorrSinal = document.getElementById("btnOcorrSinal");
-				btnOcorrSinal.addEventListener('click', function (){
-					$("#sairBtnGestor").hide();
-					$("#retornarBtnGestor").show();
-					$("#selectSection").hide();
-					$("#feedSectionAnimal").hide();
-					$("#feedSectionArvore").hide();
-					$("#feedSectionBuraco").hide();
-					$("#feedSectionAgua").hide();
-					$("#feedSectionLampada").hide();
-					$("#feedSectionInseto").hide();
-					$("#feedSectionLimpeza").hide();
-					$("#feedSectionLote").hide();
-					$("#feedSectionBarulho").hide();
-					$("#feedSectionSinal").show();
-					$("#feedSectionOutros").hide();
-				});
-				var btnOcorrOutros = document.getElementById("btnOcorrOutros");
-				btnOcorrOutros.addEventListener('click', function (){
-					$("#sairBtnGestor").hide();
-					$("#retornarBtnGestor").show();
-					$("#selectSection").hide();
-					$("#feedSectionAnimal").hide();
-					$("#feedSectionArvore").hide();
-					$("#feedSectionBuraco").hide();
-					$("#feedSectionAgua").hide();
-					$("#feedSectionLampada").hide();
-					$("#feedSectionInseto").hide();
-					$("#feedSectionLimpeza").hide();
-					$("#feedSectionLote").hide();
-					$("#feedSectionBarulho").hide();
-					$("#feedSectionSinal").hide();
-					$("#feedSectionOutros").show();
-				});
 			}
 		}
 	});
@@ -550,7 +361,7 @@ function queryDatabase(user){
 	});
 }
 
-function gestorQuery(prefeitura){
+function gestorQuery(prefeitura,setor){
 
 	RefOcorrGestor.once('value').then(function(snapshot){
 
@@ -565,8 +376,9 @@ function gestorQuery(prefeitura){
 			if (i % 1 == 0) {
 
 				var ocorrPref = currentObject.regCidade;
+				var ocorrSetor = currentObject.regSetor;
 
-				if(prefeitura === ocorrPref){
+				if(prefeitura === ocorrPref && setor === ocorrSetor){
 					currentRowOcorr = document.createElement("div");
 					$(currentRowOcorr).addClass("row");
 					li = document.createElement("li");
@@ -609,12 +421,12 @@ function gestorQuery(prefeitura){
 						var ocorrProb = document.createElement("p");
 						$(ocorrProb).addClass("ocorrInfo");
 						$(ocorrProb).html(currentObject.regDescricaoS);
-						//
+
 						var ocorrEnd = document.createElement("p");
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
-						$('#ocorrFeedAgua').append(li);
+						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
 						$(col2).append(ocorrDiv1);	
@@ -638,7 +450,7 @@ function gestorQuery(prefeitura){
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
-						$('#ocorrFeedAnimal').append(li);
+						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
 						$(col2).append(ocorrDiv1);	
@@ -662,7 +474,7 @@ function gestorQuery(prefeitura){
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
-						$('#ocorrFeedArvore').append(li);
+						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
 						$(col2).append(ocorrDiv1);	
@@ -686,7 +498,7 @@ function gestorQuery(prefeitura){
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
-						$('#ocorrFeedBuraco').append(li);
+						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
 						$(col2).append(ocorrDiv1);	
@@ -710,7 +522,7 @@ function gestorQuery(prefeitura){
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
-						$('#ocorrFeedLampada').append(li);
+						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
 						$(col2).append(ocorrDiv1);	
@@ -734,7 +546,7 @@ function gestorQuery(prefeitura){
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
-						$('#ocorrFeedLimpeza').append(li);
+						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
 						$(col2).append(ocorrDiv1);	
@@ -758,7 +570,7 @@ function gestorQuery(prefeitura){
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
-						$('#ocorrFeedLote').append(li);
+						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
 						$(col2).append(ocorrDiv1);	
@@ -777,15 +589,40 @@ function gestorQuery(prefeitura){
 						var ocorrProb = document.createElement("p");
 						$(ocorrProb).addClass("ocorrInfo");
 						$(ocorrProb).html(currentObject.regDescricaoS);
-						//
+						
 						var ocorrEnd = document.createElement("p");
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
-						$('#ocorrFeedInseto').append(li);
+						//Criação dos botões para o gerenciamento das ocorrências
+						var ocorrActionBtn1 = document.createElement("button");
+						ocorrActionBtn1.innerHTML = 'Resolvido';
+						$(ocorrActionBtn1).addClass("btn btn-success");
+						$(ocorrActionBtn1).on("click", function(event){
+							window.alert("Marcado como resolvido!");
+						});
+						var ocorrActionBtn2 = document.createElement("button");
+						ocorrActionBtn2.innerHTML = 'Em andamento';
+						$(ocorrActionBtn2).addClass("btn btn-warning");
+						$(ocorrActionBtn2).on("click", function(event){
+							window.alert("Marcado como em andamento!");
+						});
+						var ocorrActionBtn3 = document.createElement("button");
+						ocorrActionBtn3.innerHTML = 'Não resolvido';
+						$(ocorrActionBtn3).addClass("btn btn-danger");
+						$(ocorrActionBtn3).on("click", function(event){
+							window.alert("Marcado como não resolvido!");
+						});
+						//
+						var divBtn = document.createElement("div");
+						$(divBtn).addClass("btn-group");
+						divBtn.role = "group";
+						$(divBtn).append(ocorrActionBtn1, ocorrActionBtn2, ocorrActionBtn3);
+
+						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-						$(col2).append(ocorrDiv1);	
+						$(col2).append(ocorrDiv1, divBtn);	
 						$(currentRowOcorr).append(col1, col2);
 					}
 					if (ocorr8 != "Null") {
@@ -806,7 +643,7 @@ function gestorQuery(prefeitura){
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
-						$('#ocorrFeedBarulho').append(li);
+						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
 						$(col2).append(ocorrDiv1);	
@@ -830,7 +667,7 @@ function gestorQuery(prefeitura){
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
-						$('#ocorrFeedSinal').append(li);
+						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
 						$(col2).append(ocorrDiv1);	
@@ -854,7 +691,7 @@ function gestorQuery(prefeitura){
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
-						$('#ocorrFeedOutros').append(li);
+						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
 						$(col2).append(ocorrDiv1);	

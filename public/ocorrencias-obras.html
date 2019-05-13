@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head> 
-		<title>CommunityReport - Acesso Restrito - Gestores</title>
+		<title>CommunityReport - Acesso Restrito - Ocorrencias/Gestores</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no">
 		<meta name="description" content="Web App para registro de problemas no município">
@@ -41,16 +41,12 @@
 				<div class="row">
 					<div class="col-md-12">
 						<nav class="navbar navbar-light bg-light navbar_gestor">
-							<a class="navbar-brand desktop" href="#">
-							  <img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
-							  CommunityReport
-							</a>
-							<a class="navbar-brand mobile" href="#">
-							  <img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
-							  C-Report
-							</a>
-						  	<a href="login-gestor.html" class="arrowIcon" id="sairBtnGestor"><button onclick="logout()" type="button"><i class="fas fa-sign-out-alt"></i><span> Sair</span></button></a>
-						  	<a href="gestor-principal.html" id="retornarBtnGestor" class="arrowIcon"><i class="fas fa-arrow-left"></i></a>
+						  <a class="navbar-brand" href="index.html">
+						    <img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
+						    CommunityReport
+						  </a>
+						  <a href="gestor_principal.html" class="arrowIcon" id="sairBtnGestor"><button onclick="logout()" type="button"><i class="fas fa-sign-out-alt"></i><span>Menu Principal</span></button></a>
+						  	<!--a href="gestor-principal.html" id="retornarBtnGestor" class="arrowIcon"><i class="fas fa-arrow-left"></i></a-->
 						</nav>
 					</div>
 				</div>
@@ -60,42 +56,26 @@
 
 		<!--Trecho do codigo referente ao conteudo da pagina-->
 		<!--Feito por Rogério-->
-		<section class="ocorrenciasSection" id="selectSection">			
+		<section class="ocorrenciasSection">			
 			<div class="container box-parent-login divLogin" id="ocorrDiv">
 				<div class="row well box-login">
 					<div class="col-md-3"></div>
 					<div class="col-md-6 bg-white boxDiv">
-						<div class="loginLogoDiv" id="gestPrefInfo">
-							<p><i><bold class="i_gestor" id="prefNome"></bold></i></p>
+						<br>
+						<div class="loginLogoDiv">
+							<img src="./imagens/logo/OPublicas.jpg" class="loginLogo" alt="cReportLogo"><p>	<i><bold class="i_gestor">Secretaria Municipal de Obras Públicas</bold></i> </p>
 						</div>
 						<div class="container-fluid divOcorrencias">
 							<p>
-								Selecione abaixo as ocorrências que deseja tratar:
+								Ocorrências relacionadas à Secretaria de Obras Públicas:
 							</p>							
-						</div>
+						</div>						
 					</div>					
 				</div>
 			</div>
 		</section>
 		<!--Final-->
-
-		<!--Trecho do codigo referente ao conteudo da pagina-->
-		<!--Feito por David Levi-->
-		<section class="sectionFeed" id="feedSection">
-			<div class="container box-parent-login divLogin">
-			  	<div class="row well box-login">
-			  		<div class="col-md-3"></div>
-					<div class="col-md-6 bg-white boxDiv">
-						<div id="ocorrFeed"></div>
-					</div>
-					<div class="col-md-3"></div>
-				</div>
-			</div>
-		</section>
-		<!--Final-->
-
-		<!--Trecho do código referente ao roda-pé da página-->
-		<!--Feito por Rhuan-->
+		<!---->
 		<section class="footerSection">
 			<footer class="section footer-classic context-dark bg-image" style="background: #145845;">
 				<div class="container-fluid">
@@ -144,15 +124,3 @@
 			</footer>
 		</section>
 		<!--Final-->
-		
-		<!-- Esse trecho de codigo deve ficar sempre abaixo dos conteudos do body -->
-		<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-		<script src="js/app-firebase.js"></script>
-		<script src="https://apis.google.com/js/platform.js" async defer></script>
-		<script src="js/meu-script.js"></script>
-		<script src="js/promisse.min.js"></script>
-		<script src="js/fetch.min.js"></script>
-		<script src="js/utility.min.js"></script>
-		<script src="js/app.js"></script>
-	</body>
-</html>
