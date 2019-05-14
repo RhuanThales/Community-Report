@@ -338,12 +338,19 @@ function queryDatabase(user){
 				//
 				var ocorrIconX = document.createElement("i");
 				$(ocorrIconX).addClass("fas fa-times");
+				//
+				var ocorrIconZ = document.createElement("i");
+				$(ocorrIconZ).addClass("fas fa-chalkboard-teacher");
 				//Fazendo a checagem do status da ocorrência para a exibição do icone correto (v para atendidas e x para as não atendidas)
-				if (currentObject.regStatus === "True") {
+				if (currentObject.regStatus === "Resolvido") {
 					var ocorrSatus = document.createElement("td");
 					$(ocorrSatus).addClass("ocorrInfo");
 					$(ocorrSatus).append(ocorrIconV);
-				} else {
+				} if (currentObject.regStatus === "Em andamento"){
+					var ocorrSatus = document.createElement("td");
+					$(ocorrSatus).addClass("ocorrInfo");
+					$(ocorrSatus).append(ocorrIconZ);
+				} if (currentObject.regStatus === "Não Resolvido"){
 					var btnOcorr = document.createElement("button");
 					$(btnOcorr).addClass("btn btn-primary btnInfoOcorr");
 					$(btnOcorr).append(ocorrIconX);
@@ -716,18 +723,18 @@ $(document).ready(function(){
 	//
 	$("#sairBtnGestor").show();
 	$("#retornarBtnGestor").hide();
-	$("#selectSection").show();
-	$("#feedSectionAnimal").hide();
-	$("#feedSectionArvore").hide();
-	$("#feedSectionBuraco").hide();
-	$("#feedSectionAgua").hide();
-	$("#feedSectionLampada").hide();
-	$("#feedSectionInseto").hide();
-	$("#feedSectionLimpeza").hide();
-	$("#feedSectionLote").hide();
-	$("#feedSectionBarulho").hide();
-	$("#feedSectionSinal").hide();
-	$("#feedSectionOutros").hide();
+	//$("#selectSection").show();
+	//$("#feedSectionAnimal").hide();
+	//$("#feedSectionArvore").hide();
+	//$("#feedSectionBuraco").hide();
+	//$("#feedSectionAgua").hide();
+	//$("#feedSectionLampada").hide();
+	//$("#feedSectionInseto").hide();
+	//$("#feedSectionLimpeza").hide();
+	//$("#feedSectionLote").hide();
+	//$("#feedSectionBarulho").hide();
+	//$("#feedSectionSinal").hide();
+	//$("#feedSectionOutros").hide();
 });
 
 var btnRegAnimal = document.getElementById('btnRegAnimal');
@@ -1017,7 +1024,7 @@ function regOcorrencia() {
 			regEstado: $("#regEstado").val(),
 			regDescricaoS: $("#descSimples").val(),
 			regDescricaoC: $("#descCompleta").val(),
-			regStatus: "False"
+			regStatus: "Não Resolvido"
 		};
 		updates['/Ocorrencias-Registradas/' + postKey] = postData;
 		firebase.database().ref().update(updates);
@@ -1050,7 +1057,7 @@ function regOcorr(){
 		regEstado: $("#regEstado").val(),
 		regDescricaoS: $("#descSimples").val(),
 		regDescricaoC: $("#descCompleta").val(),
-		regStatus: "False"
+		regStatus: "Não Resolvido"
 	};
 	updates['/Ocorrencias-Registradas/' + postKey] = postData;
 	firebase.database().ref().update(updates);
