@@ -433,10 +433,35 @@ function gestorQuery(prefeitura,setor){
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
+						//Criação dos botões para o gerenciamento das ocorrências
+						var ocorrActionBtn1 = document.createElement("button");
+						ocorrActionBtn1.innerHTML = 'Resolvido';
+						$(ocorrActionBtn1).addClass("btn btn-success");
+						$(ocorrActionBtn1).on("click", function(event){
+							window.alert("Marcado como resolvido!");
+						});
+						var ocorrActionBtn2 = document.createElement("button");
+						ocorrActionBtn2.innerHTML = 'Em andamento';
+						$(ocorrActionBtn2).addClass("btn btn-warning");
+						$(ocorrActionBtn2).on("click", function(event){
+							window.alert("Marcado como em andamento!");
+						});
+						var ocorrActionBtn3 = document.createElement("button");
+						ocorrActionBtn3.innerHTML = 'Não resolvido';
+						$(ocorrActionBtn3).addClass("btn btn-danger");
+						$(ocorrActionBtn3).on("click", function(event){
+							window.alert("Marcado como não resolvido!");
+						});
+						//
+						var divBtn = document.createElement("div");
+						$(divBtn).addClass("btn-group");
+						divBtn.role = "group";
+						$(divBtn).append(ocorrActionBtn1, ocorrActionBtn2, ocorrActionBtn3);
+
 						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-						$(col2).append(ocorrDiv1);	
+						$(col2).append(ocorrDiv1, divBtn);	
 						$(currentRowOcorr).append(col1, col2);
 					}
 					if (ocorr1 != "Null") {
@@ -457,10 +482,35 @@ function gestorQuery(prefeitura,setor){
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
+						//Criação dos botões para o gerenciamento das ocorrências
+						var ocorrActionBtn1 = document.createElement("button");
+						ocorrActionBtn1.innerHTML = 'Resolvido';
+						$(ocorrActionBtn1).addClass("btn btn-success");
+						$(ocorrActionBtn1).on("click", function(event){
+							window.alert("Marcado como resolvido!");
+						});
+						var ocorrActionBtn2 = document.createElement("button");
+						ocorrActionBtn2.innerHTML = 'Em andamento';
+						$(ocorrActionBtn2).addClass("btn btn-warning");
+						$(ocorrActionBtn2).on("click", function(event){
+							window.alert("Marcado como em andamento!");
+						});
+						var ocorrActionBtn3 = document.createElement("button");
+						ocorrActionBtn3.innerHTML = 'Não resolvido';
+						$(ocorrActionBtn3).addClass("btn btn-danger");
+						$(ocorrActionBtn3).on("click", function(event){
+							window.alert("Marcado como não resolvido!");
+						});
+						//
+						var divBtn = document.createElement("div");
+						$(divBtn).addClass("btn-group");
+						divBtn.role = "group";
+						$(divBtn).append(ocorrActionBtn1, ocorrActionBtn2, ocorrActionBtn3);
+
 						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-						$(col2).append(ocorrDiv1);	
+						$(col2).append(ocorrDiv1, divBtn);	
 						$(currentRowOcorr).append(col1, col2);
 					}
 					if (ocorr2 != "Null") {
@@ -481,10 +531,35 @@ function gestorQuery(prefeitura,setor){
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
+						//Criação dos botões para o gerenciamento das ocorrências
+						var ocorrActionBtn1 = document.createElement("button");
+						ocorrActionBtn1.innerHTML = 'Resolvido';
+						$(ocorrActionBtn1).addClass("btn btn-success");
+						$(ocorrActionBtn1).on("click", function(event){
+							window.alert("Marcado como resolvido!");
+						});
+						var ocorrActionBtn2 = document.createElement("button");
+						ocorrActionBtn2.innerHTML = 'Em andamento';
+						$(ocorrActionBtn2).addClass("btn btn-warning");
+						$(ocorrActionBtn2).on("click", function(event){
+							window.alert("Marcado como em andamento!");
+						});
+						var ocorrActionBtn3 = document.createElement("button");
+						ocorrActionBtn3.innerHTML = 'Não resolvido';
+						$(ocorrActionBtn3).addClass("btn btn-danger");
+						$(ocorrActionBtn3).on("click", function(event){
+							window.alert("Marcado como não resolvido!");
+						});
+						//
+						var divBtn = document.createElement("div");
+						$(divBtn).addClass("btn-group");
+						divBtn.role = "group";
+						$(divBtn).append(ocorrActionBtn1, ocorrActionBtn2, ocorrActionBtn3);
+
 						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-						$(col2).append(ocorrDiv1);	
+						$(col2).append(ocorrDiv1, divBtn);	
 						$(currentRowOcorr).append(col1, col2);
 					}
 					if (ocorr3 != "Null") {
@@ -505,10 +580,35 @@ function gestorQuery(prefeitura,setor){
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
+						//Criação dos botões para o gerenciamento das ocorrências
+						var ocorrActionBtn1 = document.createElement("button");
+						ocorrActionBtn1.innerHTML = 'Resolvido';
+						$(ocorrActionBtn1).addClass("btn btn-success");
+						$(ocorrActionBtn1).on("click", function(event){
+							window.alert("Marcado como resolvido!");
+						});
+						var ocorrActionBtn2 = document.createElement("button");
+						ocorrActionBtn2.innerHTML = 'Em andamento';
+						$(ocorrActionBtn2).addClass("btn btn-warning");
+						$(ocorrActionBtn2).on("click", function(event){
+							window.alert("Marcado como em andamento!");
+						});
+						var ocorrActionBtn3 = document.createElement("button");
+						ocorrActionBtn3.innerHTML = 'Não resolvido';
+						$(ocorrActionBtn3).addClass("btn btn-danger");
+						$(ocorrActionBtn3).on("click", function(event){
+							window.alert("Marcado como não resolvido!");
+						});
+						//
+						var divBtn = document.createElement("div");
+						$(divBtn).addClass("btn-group");
+						divBtn.role = "group";
+						$(divBtn).append(ocorrActionBtn1, ocorrActionBtn2, ocorrActionBtn3);
+
 						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-						$(col2).append(ocorrDiv1);	
+						$(col2).append(ocorrDiv1, divBtn);	
 						$(currentRowOcorr).append(col1, col2);
 					}
 					if (ocorr4 != "Null") {
@@ -529,10 +629,35 @@ function gestorQuery(prefeitura,setor){
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
+						//Criação dos botões para o gerenciamento das ocorrências
+						var ocorrActionBtn1 = document.createElement("button");
+						ocorrActionBtn1.innerHTML = 'Resolvido';
+						$(ocorrActionBtn1).addClass("btn btn-success");
+						$(ocorrActionBtn1).on("click", function(event){
+							window.alert("Marcado como resolvido!");
+						});
+						var ocorrActionBtn2 = document.createElement("button");
+						ocorrActionBtn2.innerHTML = 'Em andamento';
+						$(ocorrActionBtn2).addClass("btn btn-warning");
+						$(ocorrActionBtn2).on("click", function(event){
+							window.alert("Marcado como em andamento!");
+						});
+						var ocorrActionBtn3 = document.createElement("button");
+						ocorrActionBtn3.innerHTML = 'Não resolvido';
+						$(ocorrActionBtn3).addClass("btn btn-danger");
+						$(ocorrActionBtn3).on("click", function(event){
+							window.alert("Marcado como não resolvido!");
+						});
+						//
+						var divBtn = document.createElement("div");
+						$(divBtn).addClass("btn-group");
+						divBtn.role = "group";
+						$(divBtn).append(ocorrActionBtn1, ocorrActionBtn2, ocorrActionBtn3);
+
 						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-						$(col2).append(ocorrDiv1);	
+						$(col2).append(ocorrDiv1, divBtn);	
 						$(currentRowOcorr).append(col1, col2);
 					}
 					if (ocorr5 != "Null") {
@@ -553,10 +678,35 @@ function gestorQuery(prefeitura,setor){
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
+						//Criação dos botões para o gerenciamento das ocorrências
+						var ocorrActionBtn1 = document.createElement("button");
+						ocorrActionBtn1.innerHTML = 'Resolvido';
+						$(ocorrActionBtn1).addClass("btn btn-success");
+						$(ocorrActionBtn1).on("click", function(event){
+							window.alert("Marcado como resolvido!");
+						});
+						var ocorrActionBtn2 = document.createElement("button");
+						ocorrActionBtn2.innerHTML = 'Em andamento';
+						$(ocorrActionBtn2).addClass("btn btn-warning");
+						$(ocorrActionBtn2).on("click", function(event){
+							window.alert("Marcado como em andamento!");
+						});
+						var ocorrActionBtn3 = document.createElement("button");
+						ocorrActionBtn3.innerHTML = 'Não resolvido';
+						$(ocorrActionBtn3).addClass("btn btn-danger");
+						$(ocorrActionBtn3).on("click", function(event){
+							window.alert("Marcado como não resolvido!");
+						});
+						//
+						var divBtn = document.createElement("div");
+						$(divBtn).addClass("btn-group");
+						divBtn.role = "group";
+						$(divBtn).append(ocorrActionBtn1, ocorrActionBtn2, ocorrActionBtn3);
+
 						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-						$(col2).append(ocorrDiv1);	
+						$(col2).append(ocorrDiv1, divBtn);	
 						$(currentRowOcorr).append(col1, col2);
 					}
 					if (ocorr6 != "Null") {
@@ -577,10 +727,35 @@ function gestorQuery(prefeitura,setor){
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
+						//Criação dos botões para o gerenciamento das ocorrências
+						var ocorrActionBtn1 = document.createElement("button");
+						ocorrActionBtn1.innerHTML = 'Resolvido';
+						$(ocorrActionBtn1).addClass("btn btn-success");
+						$(ocorrActionBtn1).on("click", function(event){
+							window.alert("Marcado como resolvido!");
+						});
+						var ocorrActionBtn2 = document.createElement("button");
+						ocorrActionBtn2.innerHTML = 'Em andamento';
+						$(ocorrActionBtn2).addClass("btn btn-warning");
+						$(ocorrActionBtn2).on("click", function(event){
+							window.alert("Marcado como em andamento!");
+						});
+						var ocorrActionBtn3 = document.createElement("button");
+						ocorrActionBtn3.innerHTML = 'Não resolvido';
+						$(ocorrActionBtn3).addClass("btn btn-danger");
+						$(ocorrActionBtn3).on("click", function(event){
+							window.alert("Marcado como não resolvido!");
+						});
+						//
+						var divBtn = document.createElement("div");
+						$(divBtn).addClass("btn-group");
+						divBtn.role = "group";
+						$(divBtn).append(ocorrActionBtn1, ocorrActionBtn2, ocorrActionBtn3);
+
 						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-						$(col2).append(ocorrDiv1);	
+						$(col2).append(ocorrDiv1, divBtn);	
 						$(currentRowOcorr).append(col1, col2);
 					}
 					if (ocorr7 != "Null") {
@@ -650,10 +825,35 @@ function gestorQuery(prefeitura,setor){
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
+						//Criação dos botões para o gerenciamento das ocorrências
+						var ocorrActionBtn1 = document.createElement("button");
+						ocorrActionBtn1.innerHTML = 'Resolvido';
+						$(ocorrActionBtn1).addClass("btn btn-success");
+						$(ocorrActionBtn1).on("click", function(event){
+							window.alert("Marcado como resolvido!");
+						});
+						var ocorrActionBtn2 = document.createElement("button");
+						ocorrActionBtn2.innerHTML = 'Em andamento';
+						$(ocorrActionBtn2).addClass("btn btn-warning");
+						$(ocorrActionBtn2).on("click", function(event){
+							window.alert("Marcado como em andamento!");
+						});
+						var ocorrActionBtn3 = document.createElement("button");
+						ocorrActionBtn3.innerHTML = 'Não resolvido';
+						$(ocorrActionBtn3).addClass("btn btn-danger");
+						$(ocorrActionBtn3).on("click", function(event){
+							window.alert("Marcado como não resolvido!");
+						});
+						//
+						var divBtn = document.createElement("div");
+						$(divBtn).addClass("btn-group");
+						divBtn.role = "group";
+						$(divBtn).append(ocorrActionBtn1, ocorrActionBtn2, ocorrActionBtn3);
+
 						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-						$(col2).append(ocorrDiv1);	
+						$(col2).append(ocorrDiv1, divBtn);	
 						$(currentRowOcorr).append(col1, col2);
 					}
 					if (ocorr9 != "Null") {
@@ -674,10 +874,35 @@ function gestorQuery(prefeitura,setor){
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
+						//Criação dos botões para o gerenciamento das ocorrências
+						var ocorrActionBtn1 = document.createElement("button");
+						ocorrActionBtn1.innerHTML = 'Resolvido';
+						$(ocorrActionBtn1).addClass("btn btn-success");
+						$(ocorrActionBtn1).on("click", function(event){
+							window.alert("Marcado como resolvido!");
+						});
+						var ocorrActionBtn2 = document.createElement("button");
+						ocorrActionBtn2.innerHTML = 'Em andamento';
+						$(ocorrActionBtn2).addClass("btn btn-warning");
+						$(ocorrActionBtn2).on("click", function(event){
+							window.alert("Marcado como em andamento!");
+						});
+						var ocorrActionBtn3 = document.createElement("button");
+						ocorrActionBtn3.innerHTML = 'Não resolvido';
+						$(ocorrActionBtn3).addClass("btn btn-danger");
+						$(ocorrActionBtn3).on("click", function(event){
+							window.alert("Marcado como não resolvido!");
+						});
+						//
+						var divBtn = document.createElement("div");
+						$(divBtn).addClass("btn-group");
+						divBtn.role = "group";
+						$(divBtn).append(ocorrActionBtn1, ocorrActionBtn2, ocorrActionBtn3);
+
 						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-						$(col2).append(ocorrDiv1);	
+						$(col2).append(ocorrDiv1, divBtn);	
 						$(currentRowOcorr).append(col1, col2);
 					}
 					if (ocorr10 != "") {
@@ -698,10 +923,35 @@ function gestorQuery(prefeitura,setor){
 						$(ocorrEnd).addClass("ocorrInfo");
 						$(ocorrEnd).html(currentObject.regRua);
 
+						//Criação dos botões para o gerenciamento das ocorrências
+						var ocorrActionBtn1 = document.createElement("button");
+						ocorrActionBtn1.innerHTML = 'Resolvido';
+						$(ocorrActionBtn1).addClass("btn btn-success");
+						$(ocorrActionBtn1).on("click", function(event){
+							window.alert("Marcado como resolvido!");
+						});
+						var ocorrActionBtn2 = document.createElement("button");
+						ocorrActionBtn2.innerHTML = 'Em andamento';
+						$(ocorrActionBtn2).addClass("btn btn-warning");
+						$(ocorrActionBtn2).on("click", function(event){
+							window.alert("Marcado como em andamento!");
+						});
+						var ocorrActionBtn3 = document.createElement("button");
+						ocorrActionBtn3.innerHTML = 'Não resolvido';
+						$(ocorrActionBtn3).addClass("btn btn-danger");
+						$(ocorrActionBtn3).on("click", function(event){
+							window.alert("Marcado como não resolvido!");
+						});
+						//
+						var divBtn = document.createElement("div");
+						$(divBtn).addClass("btn-group");
+						divBtn.role = "group";
+						$(divBtn).append(ocorrActionBtn1, ocorrActionBtn2, ocorrActionBtn3);
+
 						$('#ocorrFeed').append(li);
 						$(col1).append(ocorrImage);
 						$(ocorrDiv1).append(ocorrProb, ocorrEnd);
-						$(col2).append(ocorrDiv1);	
+						$(col2).append(ocorrDiv1, divBtn);	
 						$(currentRowOcorr).append(col1, col2);
 					}
 				}
@@ -1024,6 +1274,7 @@ function regOcorrencia() {
 			regEstado: $("#regEstado").val(),
 			regDescricaoS: $("#descSimples").val(),
 			regDescricaoC: $("#descCompleta").val(),
+			regSetor: "Ouvidoria",
 			regStatus: "Não Resolvido"
 		};
 		updates['/Ocorrencias-Registradas/' + postKey] = postData;
@@ -1057,6 +1308,7 @@ function regOcorr(){
 		regEstado: $("#regEstado").val(),
 		regDescricaoS: $("#descSimples").val(),
 		regDescricaoC: $("#descCompleta").val(),
+		regSetor: "Ouvidoria",
 		regStatus: "Não Resolvido"
 	};
 	updates['/Ocorrencias-Registradas/' + postKey] = postData;
@@ -1085,6 +1337,7 @@ function fazerReOcorr(){
 		regEmail: $("#reOcorrEmail").val(),
 		regLocal: $("#reOcorrLocal").val(),
 		regDescricaoS: $("#reOcorrDesc").val(),
+		regSetor: "Ouvidoria",
 		regStatus: "False"
 	};
 	updates['/Ocorrencias-Refeitas/' + postKey] = postData;
