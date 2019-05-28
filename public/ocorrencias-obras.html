@@ -28,34 +28,32 @@
 		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-152x152.jpg" sizes="152x152">
 		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-180x180.jpg" sizes="180x180">
 		<meta name="msapplication-TileImage" content="/imagens/icones/app-icon-144x144.jpg">
-		<!-- Essas linhas do cógido modificam a aprencia do web app, como cor do titulo e cor do tema-->
 		<meta name="msapplication-TileColor" content="#fff">
 		<meta name="theme-color" content="#145845">
 	</head>
 	
 	<body>
 		<!--Trecho do código referente a navbar-->
-		<!--Feito por Rhuan-->
 		<section class="navSection_gestor">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">
 						<nav class="navbar navbar-light bg-light navbar_gestor">
-						  <a class="navbar-brand" href="index.html">
-						    <img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
-						    CommunityReport
-						  </a>
-						  <a href="gestor_principal.html" class="arrowIcon" id="sairBtnGestor"><button onclick="logout()" type="button"><i class="fas fa-sign-out-alt"></i><span>Menu Principal</span></button></a>
-						  	<!--a href="gestor-principal.html" id="retornarBtnGestor" class="arrowIcon"><i class="fas fa-arrow-left"></i></a-->
+						  	<a class="navbar-brand" href="index.html">
+						    	<img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">CommunityReport
+						  	</a>
+						  	<a href="gestor_principal.html" class="arrowIcon" id="sairBtnGestor">
+						  		<button onclick="logout()" type="button">
+						  			<i class="fas fa-sign-out-alt"></i><span>Menu Principal</span>
+						  		</button>
+						  	</a>
 						</nav>
 					</div>
 				</div>
 			</div>			
 		</section>
-		<!--Final-->
 
 		<!--Trecho do codigo referente ao conteudo da pagina-->
-		<!--Feito por Rogério-->
 		<section class="ocorrenciasSection">			
 			<div class="container box-parent-login divLogin" id="ocorrDiv">
 				<div class="row well box-login">
@@ -74,16 +72,15 @@
 				</div>
 			</div>
 		</section>
-		<!--Final-->
-		<!---->
+
+		<!--Trecho do código referente ao roda-pé da página-->
 		<section class="footerSection">
 			<footer class="section footer-classic context-dark bg-image" style="background: #145845;">
 				<div class="container-fluid">
 				  <div class="row">
 				    <div class="col-md-4 col-xl-5">
-				      <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
+				      <div class="pr-xl-4">
 				        <p>Somos uma agência criativa premiada, dedicada ao melhor resultado em web design, promoção, consultoria de negócios e marketing.</p>
-				        <!-- Rights-->
 				        <p class="rights"><span>©  </span><span class="copyright-year">2019</span><span> </span><span>Waves</span><span>. </span><span>Todos os Direitos Reservados.</span></p>
 				      </div>
 				    </div>
@@ -123,4 +120,15 @@
 				</div>
 			</footer>
 		</section>
-		<!--Final-->
+		
+		<!-- Esse trecho de codigo deve ficar sempre abaixo dos conteudos do body -->
+		<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script> <!--5.9.2-->
+		<script src="js/app-firebase.js"></script>
+		<!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
+		<script src="js/meu-script.js"></script>
+		<script src="js/promisse.min.js"></script>
+		<script src="js/fetch.min.js"></script>
+		<script src="js/utility.min.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>

@@ -28,37 +28,33 @@
 		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-152x152.jpg" sizes="152x152">
 		<link rel="apple-touch-icon" href="/imagens/icones/apple-icon-180x180.jpg" sizes="180x180">
 		<meta name="msapplication-TileImage" content="/imagens/icones/app-icon-144x144.jpg">
-		<!-- Essas linhas do cógido modificam a aprencia do web app, como cor do titulo e cor do tema-->
 		<meta name="msapplication-TileColor" content="#fff">
 		<meta name="theme-color" content="#145845">
 	</head>
 	
 	<body>
 		<!--Trecho do código referente a navbar-->
-		<!--Feito por Rhuan-->
 		<section class="navSection">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">
 						<nav class="navbar navbar-light bg-light">
 							<a class="navbar-brand desktop" href="#">
-							  <img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
-							  CommunityReport
+							  	<img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">CommunityReport
 							</a>
 							<a class="navbar-brand mobile" href="#">
-							  <img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
-							  C-Report
+							  	<img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">C-Report
 							</a>
-						  <a href="login-usuario.html" class="arrowIcon"><i class="fas fa-arrow-left"></i></a>
+						  	<a href="login-usuario.html" class="arrowIcon">
+						  		<i class="fas fa-arrow-left"></i>
+						  	</a>
 						</nav>
 					</div>
 				</div>
 			</div>
 		</section>
-		<!--Final-->
 
 		<!--Trecho do código referente as areas de preenchimento de informações do usuário para cadastro-->
-		<!--Feito por Rhuan-->
 		<section class="cadSection">
 			<div class="container box-parent-login divCad">
 				<div class="row well box-login">
@@ -80,52 +76,42 @@
 										<option value="Uberlândia">Uberlândia</option>
 									</select>
 								</div>
-
 								<div class="form-group ls-login-user">
 									<label for="inputNome"><strong>Nome Completo: *</strong></label>
 									<input class="form-control ls-login-bg-user input-lg" id="inputNome" type="text" aria-label="Nome" placeholder="Ex: Caio Atirador Rodrigues" required>
 								</div>
-
 								<div class="form-group ls-login-user">
 									<label for="inputEmail"><strong>E-mail: *</strong></label>
 									<input class="form-control ls-login-bg-user input-lg" id="inputEmail" type="e-mail" aria-label="Email" placeholder="Ex: meu-email@email.com" required>
 								</div>
-
 								<div class="form-group ls-login-user">
 									<label for="inputEmail2"><strong>Confirmar E-mail: *</strong></label>
 									<input class="form-control ls-login-bg-user input-lg" id="inputEmail2" type="e-mail" aria-label="Email" placeholder="Ex: meu-email@email.com" required>
 								</div> 
-								
 								<div class="form-group ls-login-password">
 									<label for="inputSenha"><strong>Senha: *</strong></label>
 									<input class="form-control ls-login-bg-password input-lg" id="inputSenha" type="password" aria-label="Senha" placeholder="********" required>
 								</div>
-
 								<div class="form-group ls-login-password">
 									<label for="inputSenha2"><strong>Confirmar Senha: *</strong></label>
 									<input class="form-control ls-login-bg-password input-lg" id="inputSenha2" type="password" aria-label="Senha" placeholder="********" required>
 								</div>
-
 								<div class="form-group ls-login-user">
 									<label for="inputRua"><strong>Rua:</strong></label>
 									<input class="form-control ls-login-bg-user input-lg" id="inputRua" type="text" aria-label="Rua" placeholder="Ex: Rua Xesquevile">
 								</div>
-
 								<div class="form-group ls-login-user">
 									<label for="inputBairro"><strong>Bairro:</strong></label>
 									<input class="form-control ls-login-bg-user input-lg" id="inputBairro" type="text" aria-label="Bairro" placeholder="Ex: Cerrado">
 								</div>
-
 								<div class="form-group ls-login-user">
 									<label for="inputNum"><strong>Número:</strong></label>
 									<input class="form-control ls-login-bg-user input-lg" id="inputNum" type="text" aria-label="Numero" placeholder="Ex: 24">
 								</div>
-
 								<div class="form-group ls-login-user">
 									<label for="inputCep"><strong>CEP:</strong></label>
 									<input class="form-control ls-login-bg-user input-lg" id="inputCep" type="text" aria-label="Cep" placeholder="Ex: 38701-315">
 								</div>
-
 								<div class="form-group ls-login-user">
 									<label for="inputCidade"><strong>Cidade: *</strong></label>
 									<select class="form-control ls-login-bg-user input-lg" id="inputCidade" required>
@@ -137,7 +123,6 @@
 										<option value="Uberlândia">Uberlândia</option>
 									</select>
 								</div>
-
 								<div class="form-group ls-login-user">
 									<label for="inputEstado"><strong>Estado: *</strong></label>
 									<select class="form-control ls-login-bg-user input-lg" id="inputEstado" required>
@@ -145,20 +130,15 @@
 										<option value="Minas Gerais">Minas Gerais</option>
 									</select>
 								</div>
-
 								<div class="form-group ls-login-user">
 									<label for="inputTel"><strong>Telefone:</strong></label>
 									<input class="form-control ls-login-bg-user input-lg" id="inputTel" type="text" aria-label="Telefone" placeholder="Ex: 99152-3191">
 								</div>
-
 								<div class="form-group ls-login-user">
 									<input type="checkbox" class="cadCheck" id="inputTermos" required name="termos" value="Sim">Eu li e Aceito os <strong><a href="#"> Termos de Condições de Uso</a></strong> deste Aplicativo *.
 								</div>
-						
 								<button onclick="sigin()" type="button" id="sigInButton" class="btn btn-primary btn-lg btn-block">Realizar Cadastro</button>
-
 								<p class="cadP">ou</p>
-								
 								<a href="login-usuario.html" class="btnCancelar"><button type="button" class="btn btn-primary btn-lg btn-block">Cancelar Cadastro</button></a>
 							</fieldset>
 						</form>	
@@ -167,12 +147,11 @@
 				</div>
 			</div>
 		</section>
-		<!--Final-->
 
 		<!-- Esse trecho de codigo deve ficar sempre abaixo dos conteudos do body -->
 		<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
 		<script src="js/app-firebase.js"></script>
-		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
 		<script src="js/meu-script.js"></script>
 		<script src="js/promisse.min.js"></script>
 		<script src="js/fetch.min.js"></script>

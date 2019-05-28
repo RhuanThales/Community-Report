@@ -1,5 +1,4 @@
 //Autenticação do Firebase
-//Feito por Caio e Rhuan
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     //pegando dados no banco referentes ao usuario
@@ -11,7 +10,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 //Função que permite fazer o login de usuário com e-mail e senha já cadastrados
-//Feito por Caio e Rhuan
 function login(){
 	var userEmail = document.getElementById('inputEmail').value;
 	var userSenha = document.getElementById('inputSenha').value;
@@ -27,7 +25,7 @@ function login(){
 	  window.alert("Error: " + errorMessage);
 	});
 }
-
+//Função que permite fazer o login de gestor com e-mail e senha já cadastrados
 function loginGestor(){
 	var userEmail = document.getElementById('inputEmail').value;
 	var userSenha = document.getElementById('inputSenha').value;
@@ -45,7 +43,6 @@ function loginGestor(){
 }
 
 //Função que cria um novo usuário com email e senha
-//Feito por Caio e Rhuan
 function sigin(){
 	var userEmail = document.getElementById('inputEmail').value;
 	var userSenha = document.getElementById('inputSenha').value;
@@ -104,6 +101,7 @@ function sigin(){
 	});
 }		
 
+//Função que cria um novo gestor com email e senha
 function siginGestor(){
 	var userEmail = document.getElementById('inputEmail').value;
 	var userSenha = document.getElementById('inputSenha1').value;
@@ -137,7 +135,6 @@ function siginGestor(){
 }	
 
 //Função que permite que o usuário que esteja logado possa sair de sua conta
-//Feito por Caio e Rhuan
 function logout(){
 	firebase.auth().signOut().then(function() {
 		// Aqui o usuário foi deslogado com sucesso e portanto o usuário é redirecionado á página de login
@@ -197,6 +194,8 @@ function queryDatabase(user){
 				var sitePrefeitura = document.createElement("a");
 				$(sitePrefeitura).addClass("prefeituraInfo");
 				$(sitePrefeitura).html('Site: ' + currentObject.sitePrefeitura);
+				sitePrefeitura.href = currentObject.sitePrefeitura;
+				sitePrefeitura.target = "_blank";
 				//				
 				$('#infoPrefeitura').append(currentRow);
 				$(currentRow).append(nomePrefeitura, enderecoPrefeitura, telefonePrefeitura, sitePrefeitura);
@@ -973,18 +972,6 @@ $(document).ready(function(){
 	//
 	$("#sairBtnGestor").show();
 	$("#retornarBtnGestor").hide();
-	//$("#selectSection").show();
-	//$("#feedSectionAnimal").hide();
-	//$("#feedSectionArvore").hide();
-	//$("#feedSectionBuraco").hide();
-	//$("#feedSectionAgua").hide();
-	//$("#feedSectionLampada").hide();
-	//$("#feedSectionInseto").hide();
-	//$("#feedSectionLimpeza").hide();
-	//$("#feedSectionLote").hide();
-	//$("#feedSectionBarulho").hide();
-	//$("#feedSectionSinal").hide();
-	//$("#feedSectionOutros").hide();
 });
 
 var btnRegAnimal = document.getElementById('btnRegAnimal');
@@ -998,7 +985,6 @@ var btnRegBarulho = document.getElementById('btnRegBarulho');
 var btnRegSinal = document.getElementById('btnRegSinal');
 var btnRegAgua = document.getElementById('btnRegAgua');
 var btnRegOutros = document.getElementById('btnRegOutros');
-//var btnRegOuvidoria = document.getElementById('btnRegOuvidoria');
 var btnBackArrow = document.getElementById('backArrow');
 
 btnRegAnimal.addEventListener('click', function(){
