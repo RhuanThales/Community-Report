@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no">
 		<meta name="description" content="Web App para registro de problemas no município">
 		<meta name="author" content="TrashMakers">
+		<link rel="shortcut icon" href="app-icon-20x20.jpg">
 		<!-- O cdn do Awesome fonts, usados para pegarmos icones e simbolos diferenciados -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 		<!-- Trecho do código que faz a ligação do html com o nosso css e do css e js do bootstrap, bem como o js do jquery -->
@@ -68,65 +69,62 @@
 								<div class="form-group ls-login-user">
 									<label for="inputPrefeitura"><strong>Prefeitura: *</strong></label>
 									<select class="form-control ls-login-bg-user input-lg" id="inputPrefeitura" required>
-										<option value="Default">Selecione a Prefeitura</option>
-										<option value="Belo Horizonte">Belo Horizonte</option>
+										<!--<option value="Belo Horizonte">Belo Horizonte</option>-->
 										<option value="Patos de Minas">Patos de Minas</option>
-										<option value="Presidente Olegário">Presidente Olegário</option>
-										<option value="São Gotardo">São Gotardo</option>
-										<option value="Uberlândia">Uberlândia</option>
+										<!--<option value="Presidente Olegário">Presidente Olegário</option>-->
+										<!--<option value="São Gotardo">São Gotardo</option>-->
+										<!--<option value="Uberlândia">Uberlândia</option>-->
 									</select>
 								</div>
 								<div class="form-group ls-login-user">
 									<label for="inputNome"><strong>Nome Completo: *</strong></label>
-									<input class="form-control ls-login-bg-user input-lg" id="inputNome" type="text" aria-label="Nome" placeholder="Ex: Caio Atirador Rodrigues" required>
+									<input class="form-control ls-login-bg-user input-lg" id="inputNome" type="text" aria-label="Nome" required>
 								</div>
 								<div class="form-group ls-login-user">
 									<label for="inputEmail"><strong>E-mail: *</strong></label>
-									<input class="form-control ls-login-bg-user input-lg" id="inputEmail" type="e-mail" aria-label="Email" placeholder="Ex: meu-email@email.com" required>
+									<input class="form-control ls-login-bg-user input-lg" id="inputEmail" type="e-mail" aria-label="Email" required>
 								</div>
 								<div class="form-group ls-login-user">
 									<label for="inputEmail2"><strong>Confirmar E-mail: *</strong></label>
-									<input class="form-control ls-login-bg-user input-lg" id="inputEmail2" type="e-mail" aria-label="Email" placeholder="Ex: meu-email@email.com" required>
+									<input class="form-control ls-login-bg-user input-lg" id="inputEmail2" type="e-mail" aria-label="Email" required>
 								</div> 
 								<div class="form-group ls-login-password">
 									<label for="inputSenha"><strong>Senha: *</strong></label>
-									<input class="form-control ls-login-bg-password input-lg" id="inputSenha" type="password" aria-label="Senha" placeholder="********" required>
+									<input class="form-control ls-login-bg-password input-lg" id="inputSenha" type="password" aria-label="Senha" required>
 								</div>
 								<div class="form-group ls-login-password">
 									<label for="inputSenha2"><strong>Confirmar Senha: *</strong></label>
-									<input class="form-control ls-login-bg-password input-lg" id="inputSenha2" type="password" aria-label="Senha" placeholder="********" required>
+									<input class="form-control ls-login-bg-password input-lg" id="inputSenha2" type="password" aria-label="Senha" required>
 								</div>
 								<div class="form-group ls-login-user">
 									<label for="inputRua"><strong>Rua:</strong></label>
-									<input class="form-control ls-login-bg-user input-lg" id="inputRua" type="text" aria-label="Rua" placeholder="Ex: Rua Xesquevile">
+									<input class="form-control ls-login-bg-user input-lg" id="inputRua" type="text" aria-label="Rua">
 								</div>
 								<div class="form-group ls-login-user">
 									<label for="inputBairro"><strong>Bairro:</strong></label>
-									<input class="form-control ls-login-bg-user input-lg" id="inputBairro" type="text" aria-label="Bairro" placeholder="Ex: Cerrado">
+									<input class="form-control ls-login-bg-user input-lg" id="inputBairro" type="text" aria-label="Bairro">
 								</div>
 								<div class="form-group ls-login-user">
 									<label for="inputNum"><strong>Número:</strong></label>
-									<input class="form-control ls-login-bg-user input-lg" id="inputNum" type="text" aria-label="Numero" placeholder="Ex: 24">
+									<input class="form-control ls-login-bg-user input-lg" id="inputNum" type="text" aria-label="Numero">
 								</div>
 								<div class="form-group ls-login-user">
 									<label for="inputCep"><strong>CEP:</strong></label>
-									<input class="form-control ls-login-bg-user input-lg" id="inputCep" type="text" aria-label="Cep" placeholder="Ex: 38701-315">
+									<input class="form-control ls-login-bg-user input-lg" id="inputCep" type="text" aria-label="Cep">
 								</div>
 								<div class="form-group ls-login-user">
 									<label for="inputCidade"><strong>Cidade: *</strong></label>
 									<select class="form-control ls-login-bg-user input-lg" id="inputCidade" required>
-										<option value="Default">Selecione a Cidade</option>
-										<option value="Belo Horizonte">Belo Horizonte</option>
+										<!--<option value="Belo Horizonte">Belo Horizonte</option>-->
 										<option value="Patos de Minas">Patos de Minas</option>
-										<option value="Presidente Olegário">Presidente Olegário</option>
-										<option value="São Gotardo">São Gotardo</option>
-										<option value="Uberlândia">Uberlândia</option>
+										<!--<option value="Presidente Olegário">Presidente Olegário</option>-->
+										<!--<option value="São Gotardo">São Gotardo</option>-->
+										<!--<option value="Uberlândia">Uberlândia</option>-->
 									</select>
 								</div>
 								<div class="form-group ls-login-user">
 									<label for="inputEstado"><strong>Estado: *</strong></label>
 									<select class="form-control ls-login-bg-user input-lg" id="inputEstado" required>
-										<option value="Minas Gerais">Selecione o Estado</option>
 										<option value="Minas Gerais">Minas Gerais</option>
 									</select>
 								</div>
@@ -139,7 +137,7 @@
 								</div>
 								<button onclick="sigin()" type="button" id="sigInButton" class="btn btn-primary btn-lg btn-block">Realizar Cadastro</button>
 								<p class="cadP">ou</p>
-								<a href="login-usuario.html" class="btnCancelar"><button type="button" class="btn btn-primary btn-lg btn-block">Cancelar Cadastro</button></a>
+								<a href="index.html" class="btnCancelar"><button type="button" class="btn btn-primary btn-lg btn-block">Cancelar Cadastro</button></a>
 							</fieldset>
 						</form>	
 					</div>

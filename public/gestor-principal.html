@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no">
 		<meta name="description" content="Web App para registro de problemas no município">
 		<meta name="author" content="TrashMakers">
+		<link rel="shortcut icon" href="app-icon-20x20.jpg">
 		<!-- O cdn do Awesome fonts, usado para pegarmos icones e simbolos diferenciados -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 		<!-- Trecho do código que faz a ligação do html com o nosso css e do css e js do bootstrap, bem como o js do jquery -->
@@ -46,8 +47,8 @@
 							  	<img src="./imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo"><strong> C-Report</strong>
 							</a>
 						  	<a href="login-gestor.html" class="arrowIcon" id="sairBtnGestor">
-						  		<button onclick="logout()" type="button">
-						  			<i class="fas fa-sign-out-alt"></i><span> Sair</span>
+						  		<button onclick="logout()" type="button" class="btn btn-primary btn-lg btn-block">
+						  			<i class="fas fa-sign-out-alt"></i>
 						  		</button>
 						  	</a>
 						</nav>
@@ -60,82 +61,51 @@
 		<section class="ocorrenciasSection" id="selectSection">			
 			<div class="container box-parent-login divLogin" id="ocorrDiv">
 				<div class="row well box-login">
-					<div class="col-md-2"></div>
-					<div class="col-md-8 bg-white boxDiv">
-						<div class="loginLogoDiv" id="gestPrefInfo">
-							<p><i><bold class="i_gestor" id="prefNome"></bold></i></p>
-						</div>
+					<!--<div class="col-md-2"></div>-->
+					<div class="bg-white boxDiv">
+						<div class="loginLogoDiv" id="gestPrefInfo"></div>
 						<div class="container-fluid divOcorrencias">
 							<p>
 								Selecione abaixo as ocorrências que deseja tratar:
 							</p>							
 						</div>
+						<div id="ocorrFeed" class="card-deck"></div>
+						<br>
 					</div>
-					<div class="col-md-2"></div>				
+					<!--<div class="col-md-2"></div>-->			
 				</div>
 			</div>
 		</section>
 
-		<!--Trecho do codigo referente ao conteudo da pagina-->
-		<section class="sectionFeed" id="feedSection">
-			<div class="container box-parent-login divLogin">
-			  	<div class="row well box-login">
-			  		<div class="col-md-2"></div>
-					<div class="col-md-8 bg-white boxDiv">
-						<div id="ocorrFeed"></div>
-					</div>
-					<div class="col-md-2"></div>
-				</div>
-			</div>
-		</section>
-
-		<!--Trecho do código referente ao roda-pé da página-->
-		<section class="footerSection">
-			<footer class="section footer-classic context-dark bg-image" style="background: #145845;">
-				<div class="container-fluid">
-				  <div class="row">
-				    <div class="col-md-4 col-xl-5">
-				      <div class="pr-xl-4">
-				        <p>Somos uma agência criativa premiada, dedicada ao melhor resultado em web design, promoção, consultoria de negócios e marketing.</p>
-				        <p class="rights"><span>©  </span><span class="copyright-year">2019</span><span> </span><span>Waves</span><span>. </span><span>Todos os Direitos Reservados.</span></p>
-				      </div>
-				    </div>
-				    <div class="col-md-4">
-				      <h5>Contatos</h5>
-				      <dl class="contact-list">
-				        <dt>Endereço:</dt>
-				        <dd>Rua XesqueVile, Bairro Atirador Rodrigues, 2469, Patos de Minas</dd>
-				      </dl>
-				      <dl class="contact-list">
-				        <dt>Email:</dt>
-				        <dd><a href="mailto:#">CommunityReportSI@gmail.com</a></dd>
-				      </dl>
-				      <dl class="contact-list">
-				        <dt>Telefones:</dt>
-				        <dd><a href="tel:#">+55 (34) 96854-3012</a> <span>ou</span> <a href="tel:#">+55 (34) 95711-9535</a>
-				        </dd>
-				      </dl>
-				    </div>
-				    <div class="col-md-4 col-xl-3">
-				      <h5>Links</h5>
-				      <ul class="nav-list">
-				        <li><a href="#">Sobre Nós</a></li>
-				        <li><a href="#">Projetos</a></li>
-				        <li><a href="#">Blog</a></li>
-				        <li><a href="#">Contatos</a></li>
-				        <li><a href="#">Serviços</a></li>
-				      </ul>
-				    </div>
-				  </div>
-				</div>
-				<div class="row no-gutters social-container">
-				  <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
-				  <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
-				  <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
-				  <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
-				</div>
-			</footer>
-		</section>
+		<!--Modal para a seleção do setor quando for mudar o setor ao qual a ocorrência foi encaminhada-->
+		<div class="modal fade" id="modalSetor" role="dialog">
+		    <div class="modal-dialog">
+		      	<div class="modal-content">
+		        	<div class="modal-header">
+		          		<h4 class="modal-title" id="modalTitle">Encaminhar para outro Setor:</h4>
+		          		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		        	</div>
+		        	<div class="modal-body" id="modalBody">
+		        		<div class="form-group ls-login-user">
+		        			<label for="selectSetor">
+		        				Setor a encaminhar:
+		        			</label>
+			        		<select id="selectSetor" class="form-control ls-login-bg-user input-lg">
+			        			<option value="Null">Selecione o setor</option>
+			        			<option value="Obras Públicas">Obras Públicas</option>
+			        			<option value="Ouvidoria">Ouvidoria</option>
+			        			<option value="Trânsito">Trânsito</option>
+			        			<option value="Saúde">Saúde</option>
+			        		</select>
+		        		</div>
+		        	</div>
+		        	<div class="modal-footer">
+		          		<button id="okButton" type="button" class="btn btn-default" data-dismiss="modal">Enviar</button>
+		          		<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+		        	</div>
+		      	</div>  
+		    </div>
+		</div>
 		
 		<!-- Esse trecho de codigo deve ficar sempre abaixo dos conteudos do body -->
 		<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>

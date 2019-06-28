@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no">
 		<meta name="description" content="Web App para registro de problemas no município">
 		<meta name="author" content="TrashMakers">
+		<link rel="shortcut icon" href="app-icon-20x20.jpg">
 		<!-- O cdn do Awesome fonts, usados para pegarmos icones e simbolos diferenciados -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 		<!-- Trecho do código que faz a ligação do html com o nosso css e do css e js do bootstrap, bem como o js do jquery -->
@@ -146,73 +147,33 @@
 				</div>
 			</div>
 		</section>
-
+		<br>
 		<!--Trecho do codigo referente ao menu inferior-->
 		<section class="menuSection">
-			<div class="container-fluid" id="menuDiv">
-				<div class="row navigation-menu">
-					<div class="col-md-3"></div>
-					<div class="col-md-6">
-						<a href="minhas-ocorrencias.html"><i class="fas fa-list-alt"></i><span>Minhas Ocorrências</span></a>
-						<a href="ocorrencias.html"><i class="fas fa-pen-alt"></i><span>Registrar Ocorrências</span></a>
-						<a href="pagina-principal.html"><i class="fas fa-home"></i><span>Início</span></a>
-						<a href="index.html">
-							<button class="btnLogout" onclick="logout()" type="button"><i class="fas fa-sign-out-alt"></i><span>Sair</span></button>
-						</a>
-					</div>
-					<div class="col-md-3"></div>	
-				</div>
+			<div class="navbar minhaNavbar">
+			  	<a href="minhas-ocorrencias.html">
+			  		<span><i class="fas fa-list-alt"></i></span>
+			  	</a>
+			  	
+			  	<a href="ocorrencias.html" class="">
+			  		<span><i class="fas fa-pen-alt"></i></span>
+			  	</a>
+
+			  	<a href="pagina-principal.html">
+			  		<span><i class="fas fa-home"></i></span>
+			  	</a>
+			  	
+			  	<a href="setores-publicos-patos-de-minas.html" id="setorBtn" class="active">
+			  		<span><i class="fas fa-city"></i></span>
+			  	</a>
+			  	
+			  	<a href="index.html">
+					<button class="btnLogout" onclick="logout()" type="button">
+						<span><i class="fas fa-sign-out-alt"></i></span>
+					</button>
+				</a>
 			</div>
 		</section>
-
-		<!--Trecho do código referente ao roda-pé da página-->
-		<section class="footerSection">
-			<footer class="section footer-classic context-dark bg-image" style="background: #145845;">
-				<div class="container-fluid">
-				  <div class="row">
-				    <div class="col-md-4 col-xl-5">
-				      <div class="pr-xl-4">
-				        <p>Somos uma agência criativa premiada, dedicada ao melhor resultado em web design, promoção, consultoria de negócios e marketing.</p>
-				        <p class="rights"><span>©  </span><span class="copyright-year">2019</span><span> </span><span>Waves</span><span>. </span><span>Todos os Direitos Reservados.</span></p>
-				      </div>
-				    </div>
-				    <div class="col-md-4">
-				      <h5>Contatos</h5>
-				      <dl class="contact-list">
-				        <dt>Endereço:</dt>
-				        <dd>Rua XesqueVile, Bairro Atirador Rodrigues, 2469, Patos de Minas</dd>
-				      </dl>
-				      <dl class="contact-list">
-				        <dt>Email:</dt>
-				        <dd><a href="mailto:#">CommunityReportSI@gmail.com</a></dd>
-				      </dl>
-				      <dl class="contact-list">
-				        <dt>Telefones:</dt>
-				        <dd><a href="tel:#">+55 (34) 96854-3012</a> <span>ou</span> <a href="tel:#">+55 (34) 95711-9535</a>
-				        </dd>
-				      </dl>
-				    </div>
-				    <div class="col-md-4 col-xl-3">
-				      <h5>Links</h5>
-				      <ul class="nav-list">
-				        <li><a href="#">Sobre Nós</a></li>
-				        <li><a href="#">Projetos</a></li>
-				        <li><a href="#">Blog</a></li>
-				        <li><a href="#">Contatos</a></li>
-				        <li><a href="#">Serviços</a></li>
-				      </ul>
-				    </div>
-				  </div>
-				</div>
-				<div class="row no-gutters social-container">
-				  <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
-				  <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
-				  <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
-				  <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
-				</div>
-			</footer>
-		</section>
-		
 		<!-- Esse trecho de codigo deve ficar sempre abaixo dos conteudos do body -->
 		<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
 		<script src="js/app-firebase.js"></script>

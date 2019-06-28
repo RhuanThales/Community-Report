@@ -3,6 +3,8 @@ var CACHE_DYNAMIC_NAME = 'dynamic-v2';
 var STATIC_FILES = [
   '/',
     '/index.html',
+    '/app-icon-20x20.jpg',
+    '/offline.html',
     '/js/app.js',
     '/js/promisse.min.js',
     '/js/fetch.min.js',

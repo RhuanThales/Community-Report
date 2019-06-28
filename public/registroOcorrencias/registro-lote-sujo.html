@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CommunityReport - Registro de Ocorrências</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no">
+		<meta name="description" content="Web App para registro de problemas no município">
+		<meta name="author" content="TrashMakers">
+		<link rel="shortcut icon" href="app-icon-20x20.jpg">
+		<!-- O cdn do Awesome fonts, usado para pegarmos icones e simbolos diferenciados -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		<!-- Trecho do código que faz a ligação do html com o nosso css e do css e js do bootstrap, bem como o js do jquery -->
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/meu-css.css">
+		<script src="../js/jquery-3.3.1.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<!-- Trecho do código referente ao App Manifest e suas configurações de aparencia e icones a serem mostrados -->
+		<link rel="manifest" href="../manifest.json">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="CReport">
+		<link rel="apple-touch-icon" href="../imagens/icones/apple-icon-57x57.jpg" sizes="57x57">
+		<link rel="apple-touch-icon" href="../imagens/icones/apple-icon-60x60.jpg" sizes="60x60">
+		<link rel="apple-touch-icon" href="../imagens/icones/apple-icon-72x72.jpg" sizes="72x72">
+		<link rel="apple-touch-icon" href="../imagens/icones/apple-icon-76x76.jpg" sizes="76x76">
+		<link rel="apple-touch-icon" href="../imagens/icones/apple-icon-114x114.jpg" sizes="114x114">
+		<link rel="apple-touch-icon" href="../imagens/icones/apple-icon-120x120.jpg" sizes="120x120">
+		<link rel="apple-touch-icon" href="../imagens/icones/apple-icon-144x144.jpg" sizes="144x144">
+		<link rel="apple-touch-icon" href="../imagens/icones/apple-icon-152x152.jpg" sizes="152x152">
+		<link rel="apple-touch-icon" href="../imagens/icones/apple-icon-180x180.jpg" sizes="180x180">
+		<meta name="msapplication-TileImage" content="../imagens/icones/app-icon-144x144.jpg">
+		<meta name="msapplication-TileColor" content="#fff">
+		<meta name="theme-color" content="#145845">
+	</head>
+	
+	<body>
+		<!--Trecho do código referente a navbar-->
+		<section class="navSection">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<nav class="navbar navbar-light bg-light">
+							<a class="navbar-brand desktop" href="#">
+							  	<img src="../imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo"><strong> CommunityReport</strong>
+							</a>
+							<a class="navbar-brand mobile" href="#">
+							  	<img src="../imagens/logo/logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo"><strong> C-Report</strong>
+							</a>
+						  	<a href="../ocorrencias.html" id="backArrow" class="arrowIcon">
+						  		<i class="fas fa-arrow-left"></i>
+						  	</a>
+						</nav>
+					</div>
+				</div>
+			</div>			
+		</section>
+		<!--Trecho do código referente ao formulario de preenchimento para o registro de ocorrências-->
+		<section class="registroSection">
+			<div class="container box-parent-login divCad" id="regDiv">
+				<div class="row well box-login">
+					<div class="col-md-3"></div>
+					<div class="col-md-6 bg-white boxCad">
+						<h1>Registro de Ocorrências</h1>
+						<p>Preencha corretamente as informações abaixo:</p>
+						<p class="cadTexto">Os campos com <strong>" * "</strong> são de preenchimento obrigatórios.</p>
+						<form role="form" id="regForm">
+							<fieldset>
+								<div class="form-group ls-login-user">
+									<label id="probLabel"><strong>Problema: *</strong></label>
+									<select id="selectProblema" class="form-control ls-login-bg-user input-lg">
+										<option value="Null">Selecione o problema</option>
+										<option value="Mato alto">Mato alto</option>
+										<option value="Lixo no lote">Lixo no lote</option>
+										<option value="Recolher entulhos">Recolher entulhos</option>
+										<option value="Outros">Outros</option>
+									</select>
+								</div>
+								<div class="form-group ls-login-user">
+									<label for="regSetor"><strong>Setor: *</strong></label>
+									<select class="form-control ls-login-bg-user input-lg" id="regSetor" disabled="true">
+										<option value="Ouvidoria">Ouvidoria</option>
+									</select>
+								</div>
+								<div class="form-group ls-login-user">
+									<label id="descLabelS"><strong>Descrição:</strong></label>
+									<textarea class="form-control ls-login-bg-user input-lg" id="regDescricao"></textarea>
+								</div>
+								<div class="form-group ls-login-user">
+									<label for="regEmail"><strong>E-mail: *</strong></label>
+									<input type="e-mail" aria-label="Email" class="form-control ls-login-bg-user input-lg" id="regEmail" required disabled="true">
+								</div>
+								<div class="form-group ls-login-user">
+									<label for="regRua"><strong>Rua: *</strong></label>
+									<input type="text" aria-label="Rua" class="form-control ls-login-bg-user input-lg" id="regRua" placeholder="Ex: Rua Atirador Rodrigues" required>
+								</div>
+								<div class="form-group ls-login-user">
+									<label for="regNum"><strong>Número:</strong></label>
+									<input type="text" aria-label="Numero" class="form-control ls-login-bg-user input-lg" id="regNum" placeholder="Ex: 24">
+								</div>
+								<div class="form-group ls-login-user">
+									<label for="regBairro"><strong>Bairro:</strong></label>
+									<input type="text" aria-label="Bairro" class="form-control ls-login-bg-user input-lg" id="regBairro" placeholder="Ex: Cerrado">
+								</div>
+								<div class="form-group ls-login-user">
+									<label for="regCidade"><strong>Cidade:</strong></label>
+									<select class="form-control ls-login-bg-user input-lg" id="regCidade" disabled="true">
+										<option value="Patos de Minas">Patos de Minas</option>
+									</select>
+								</div>
+								<div class="form-group ls-login-user">
+									<label for="regEstado"><strong>Estado:</strong></label>
+									<select class="form-control ls-login-bg-user input-lg" id="regEstado" disabled="true">
+										<option value="Minas Gerais">Minas Gerais</option>
+									</select>
+								</div>
+								<div class="form-group ls-login-user">
+									<label>Enviar Foto:</label>
+									<input type="file" id="upload" name="Upload">
+								</div>
+								<div class="btnRegOcorr">
+									<button onclick="createOcorrenciaWithImage()" type="button" class="btn btn-primary btn-lg btn-block" id="btnRegistrarOcorr">Concluir</button>
+								</div>
+								<div class="btnRegOcorr">
+									<button onclick="createOcorrencia()" type="button" class="btn btn-primary btn-lg btn-block" id="btnRegOcorrencia">Concluir</button>
+								</div>
+								<div class="btnRegOcorr">
+									<a href="../ocorrencias.html">
+										<button type="button" class="btn btn-primary btn-lg btn-block" id="btnRegOcorrCancel">Cancelar</button>
+									</a>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+			</div>
+		</section>
+		<br>
+		<!--Trecho do codigo referente ao menu inferior-->
+		<section class="menuSection">
+			<div class="navbar minhaNavbar">
+			  	<a href="../minhas-ocorrencias.html">
+			  		<span><i class="fas fa-list-alt"></i></span>
+			  	</a>
+			  	<a href="../ocorrencias.html" class="active">
+			  		<span><i class="fas fa-pen-alt"></i></span>
+			  	</a>
+			  	<a href="../pagina-principal.html">
+			  		<span><i class="fas fa-home"></i></span>
+			  	</a>			  	
+			  	<a href="../setores-publicos-patos-de-minas.html" id="setorBtn">
+			  		<span><i class="fas fa-city"></i></span>
+			  	</a>			  	
+			  	<a href="../index.html">
+					<button class="btnLogout" onclick="logout()" type="button">
+						<span><i class="fas fa-sign-out-alt"></i></span>
+					</button>
+				</a>
+			</div>
+		</section>
+
+		<!-- Esse trecho de codigo deve ficar sempre abaixo dos conteudos do body -->
+		<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+		<script src="../js/app-firebase.js"></script>
+		<!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
+		<script src="../js/meu-script.js"></script>
+		<script src="../js/visual-script.js"></script>
+		<script src="../js/promisse.min.js"></script>
+		<script src="../js/fetch.min.js"></script>
+		<script src="../js/utility.min.js"></script>
+		<script src="../js/app.js"></script>
+	</body>
+</html>

@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no">
 		<meta name="description" content="Web App para registro de problemas no município">
 		<meta name="author" content="TrashMakers">
+		<link rel="shortcut icon" href="app-icon-20x20.jpg">
 		<!-- O cdn do Awesome fonts, usados para pegarmos icones e simbolos diferenciados -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 		<!-- Trecho do código que faz a ligação do html com o nosso css e do css e js do bootstrap, bem como o js do jquery -->
@@ -58,44 +59,48 @@
 		<section id="ocorrencias" class="indexSection estado">
 			<div class="container box-parent-login divIndex">
 				<div class="row well box-login">
-					<div class="col-md-2"></div>
-					<div class="col-md-8 indexDiv bg-white boxIndex">
-						<h3>Minhas Ocorrências</h3>
-						<p>O símbolo <strong>"<i class="fas fa-check"></i>"</strong> indica as ocorrências que já foram atendidas pelo setor responsável.</p>
-						<p>O símbolo <strong>"<i class="fas fa-times"></i>"</strong> indica as ocorrêcias que ainda não foram examinadas pelo setor responsável.</p>
-						<p>O símbolo <strong>"<i class="fas fa-chalkboard-teacher"></i>"</strong> indica as ocorrêcias que estão sendo atendidas no momento porém ainda não foram concluídas.</p>
-						<p>Para re-enviar a ocorrência que não tenha sido examinada clique no botão que indica seu status.</p>
-						<table class="table table-dark" id="infoOcorr">
-						  <thead>
-						    <tr>
-						      <th>Reclamação</th>
-						      <th>Local</th>
-						      <th>Status</th>
-						    </tr>
-						  </thead>
-						  <tbody id="infoOcorr"></tbody>
-						</table>
+					<!--<div class="col-md-3"></div>-->
+					<div class="indexDiv bg-white boxIndex">
+						<div class="textoMinhasOcorrencias">
+							<h3>Minhas Ocorrências</h3>
+							<p>As ocorrências com o marcador <span class="badge badge-success">Resolvido</span> indica que elas já foram atendidas pelo setor responsável.</p>
+							<p>As ocorrências com o marcador <span class="badge badge-warning">Em Andamento</span> indica que elas estão sendo atendidas pelo setor responsável.</p>
+							<p>As ocorrências com o marcador <span class="badge badge-danger">Não Resolvido</span> indica que elas ainda não foram examinadas pelo setor responsável.</p>
+							<p>Para editar uma ocorrência clique no botão <strong>"Editar Ocorrência"</strong></p>
+							<p>Para re-enviar uma ocorrência clique no botão <strong>"Refazer Ocorrência"</strong></p>
+						</div>
+						<div id="ocorrInfo" class="card-deck"></div>
+						<br>
 					</div>
-					<div class="col-md-2"></div>
+					<!--<div class="col-md-3"></div>-->
 				</div>
 			</div>
 		</section>
-
+		<br>	
 		<!--Trecho do codigo referente ao menu inferior-->
 		<section class="menuSection">
-			<div class="container-fluid" id="menuDiv">
-				<div class="row navigation-menu">
-					<div class="col-md-3"></div>
-					<div class="col-md-6">
-						<a href="ocorrencias.html"><i class="fas fa-pen-alt"></i><span>Registrar Ocorrências</span></a>
-						<a href="pagina-principal.html"><i class="fas fa-home"></i><span>Início</span></a>
-						<a href="#" id="setorBtn"><i class="fas fa-city"></i><span>Setores Públicos</span></a>
-						<a href="index.html">
-							<button class="btnLogout" onclick="logout()" type="button"><i class="fas fa-sign-out-alt"></i><span>Sair</span></button>
-						</a>
-					</div>
-					<div class="col-md-3"></div>	
-				</div>
+			<div class="navbar minhaNavbar">
+			  	<a href="minhas-ocorrencias.html" class="active">
+			  		<span><i class="fas fa-list-alt"></i></span>
+			  	</a>
+			  	
+			  	<a href="ocorrencias.html">
+			  		<span><i class="fas fa-pen-alt"></i></span>
+			  	</a>
+
+			  	<a href="pagina-principal.html">
+			  		<span><i class="fas fa-home"></i></span>
+			  	</a>
+			  	
+			  	<a href="setores-publicos-patos-de-minas.html" id="setorBtn">
+			  		<span><i class="fas fa-city"></i></span>
+			  	</a>
+			  	
+			  	<a href="index.html">
+					<button class="btnLogout" onclick="logout()" type="button">
+						<span><i class="fas fa-sign-out-alt"></i></span>
+					</button>
+				</a>
 			</div>
 		</section>
 
@@ -104,93 +109,43 @@
 		    <div class="modal-dialog">
 		      	<div class="modal-content">
 		        	<div class="modal-header">
-		          		<h4 class="modal-title">Encaminhar Ocorrência</h4>
+		          		<h4 class="modal-title">Editar Ocorrência</h4>
 		          		<button type="button" class="close" data-dismiss="modal">&times;</button>
 		        	</div>
 		        	<div class="modal-body">
-		        		<h3>Enviar ocorrência</h3>
 						<form role="form">
 							<fieldset>
 								<div class="form-group ls-login-user">
-									<label for="reOcorrReclamacao">Reclamação:</label>
+									<label for="reOcorrReclamacao"><strong>Reclamação</strong></label>
 									<input type="text" name="Reclamacao" id="reOcorrReclamacao" class="form-control ls-login-bg-user input-lg" aria-label="Reclamação" placeholder="Reclamação">
 								</div>		
 								<div>
-									<label for="reOcorrLocal">Local:</label>
+									<label for="reOcorrLocal"><strong>Local</strong></label>
 									<input type="text" name="Local" id="reOcorrLocal" class="form-control ls-login-bg-user input-lg" aria-label="Local" placeholder="Local">
 								</div>
 								<br>
 								<div>
-									<label for="reOcorrDesc">Descrição:</label>
+									<label for="reOcorrDesc"><strong>Descrição</strong></label>
 									<textarea class="form-control ls-login-bg-user input-lg desc" id="reOcorrDesc"></textarea>
 								</div>
 								<div>
-									<label for="reOcorrEmail">E-mail:</label>
-									<input type="e-mail" name="email" id="reOcorrEmail" class="form-control ls-login-bg-user input-lg email" aria-label="email" placeholder="E-mail">
+									<label for="reOcorrEmail"><strong>E-mail</strong></label>
+									<input type="e-mail" name="email" id="reOcorrEmail" class="form-control ls-login-bg-user input-lg email" aria-label="email" disabled="true">
 								</div>
 							</fieldset>
 						</form>
 		        	</div>
 		        	<div class="modal-footer">
-		          		<button type="button" class="btn btn-default" data-dismiss="modal" onclick="fazerReOcorr()">Sim</button>
-		          		<button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+		          		<button type="button" class="btn btn-default" data-dismiss="modal" id="yesButton">Enviar</button>
+		          		<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 		        	</div>
 		      	</div>  
 		    </div>
 		</div>
 
-		<!--Trecho do código referente ao roda-pé da página-->
-		<section class="footerSection">
-			<footer class="section footer-classic context-dark bg-image" style="background: #145845;">
-				<div class="container-fluid">
-				  <div class="row">
-				    <div class="col-md-4 col-xl-5">
-				      <div class="pr-xl-4">
-				        <p>Nós somos uma agência criativa premiada, dedicada ao melhor resultado em web design, promoção, consultoria de negócios e marketing.</p>
-				        <p class="rights"><span>©  </span><span class="copyright-year">2019</span><span> </span><span>Waves</span><span>. </span><span>Todos os Direitos Reservados.</span></p>
-				      </div>
-				    </div>
-				    <div class="col-md-4">
-				      <h5>Contatos</h5>
-				      <dl class="contact-list">
-				        <dt>Endereço:</dt>
-				        <dd>Rua XesqueVile, Bairro Atirador Rodrigues, 2469, Patos de Minas</dd>
-				      </dl>
-				      <dl class="contact-list">
-				        <dt>Email:</dt>
-				        <dd><a href="mailto:#">CommunityReportSI@gmail.com</a></dd>
-				      </dl>
-				      <dl class="contact-list">
-				        <dt>Telefones: </dt>
-				        <dd><a href="tel:#">+55 (34) 96854-3012</a> <span>ou</span> <a href="tel:#">+55 (34) 95711-9535</a>
-				        </dd>
-				      </dl>
-				    </div>
-				    <div class="col-md-4 col-xl-3">
-				      <h5>Links</h5>
-				      <ul class="nav-list">
-				        <li><a href="#">Sobre Nós</a></li>
-				        <li><a href="#">Projetos</a></li>
-				        <li><a href="#">Blog</a></li>
-				        <li><a href="#">Contatos</a></li>
-				        <li><a href="#">Serviços</a></li>
-				      </ul>
-				    </div>
-				  </div>
-				</div>
-				<div class="row no-gutters social-container">
-				  <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
-				  <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span><span>Instagram</span></a></div>
-				  <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>Twitter</span></a></div>
-				  <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>Google</span></a></div>
-				</div>
-			</footer>
-		</section>
-
 		<!-- Esse trecho de codigo deve ficar sempre abaixo dos conteudos do body -->
 		<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
 		<script src="js/app-firebase.js"></script>
-		<!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
 		<script src="js/meu-script.js"></script>
 		<script src="js/promisse.min.js"></script>
 		<script src="js/fetch.min.js"></script>
